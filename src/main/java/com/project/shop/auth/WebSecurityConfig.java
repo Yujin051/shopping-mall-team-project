@@ -29,7 +29,6 @@ public class WebSecurityConfig {
 	}
 	
 	@Bean
-	@Lazy
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		return http
 				.authorizeHttpRequests()
