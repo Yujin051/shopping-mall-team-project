@@ -4,6 +4,7 @@ server:
   
 # MariaDB 데이터베이스 연결 설정
 spring:
+
   h2:
     console:
       enabled: true  # H2 콘솔을 사용하려면 활성화
@@ -14,6 +15,8 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+
+
     
 # Spring JPA 설정
   jpa:
@@ -26,10 +29,12 @@ spring:
         format-sql: true
     
     # 개발 시 테이블 자동 생성
+
 #    hibernate:
 #      ddl-auto: create
     # 마리아DB JPA Dialect 설정
     #database-platform: org.hibernate.dialect.MariaDB103Dialect
+
     
 # devtools livereload
   devtools:
