@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#mainFrame {
+	position : relative;
+	width : 1200px;
+	min-height : 100px;
+	height : auto;
+	border : 1px solid black;
+}
+
+#carouselExampleIndicators {
+	height : 400px;
+}
+
+.mainList {
+	position : relative;
+	width : 1200px;
+	min-height : 100px;
+	height : auto;
+	border : 1px solid black;
+}
