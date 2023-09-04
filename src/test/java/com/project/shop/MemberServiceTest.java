@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.TestPropertySource;
 
-import com.project.shop.domain.Member;
 import com.project.shop.dto.MemberFormDto;
+import com.project.shop.entity.Member;
 import com.project.shop.service.MemberService;
 
 import jakarta.transaction.Transactional;

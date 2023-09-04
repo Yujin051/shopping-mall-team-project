@@ -1,4 +1,4 @@
-package com.project.shop.domain;
+package com.project.shop.constant;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -23,11 +23,13 @@ public class MemberFormDto {
 	
 	private String phonenum;
 
+
 	@Builder
 	public MemberFormDto(String email, String password, String phonenum) {
 		this.email = email;
 		this.password = password;
 		this.phonenum = phonenum;
+		
 	}
 	
 	

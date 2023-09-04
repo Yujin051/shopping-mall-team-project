@@ -1,4 +1,4 @@
-package com.project.shop.domain;
+package com.project.shop.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

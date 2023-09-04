@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.project.shop.domain.Member;
 import com.project.shop.dto.MemberFormDto;
+import com.project.shop.entity.Member;
 import com.project.shop.service.MemberService;
 
 import lombok.RequiredArgsConstructor;

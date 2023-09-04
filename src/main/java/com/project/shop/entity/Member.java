@@ -1,7 +1,8 @@
-package com.project.shop.domain;
+package com.project.shop.entity;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.project.shop.constant.RoleType;
 import com.project.shop.dto.MemberFormDto;
 
 import jakarta.persistence.Column;

@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.project.shop.domain.Member;
+import com.project.shop.entity.Member;
 import com.project.shop.repository.MemberRepository;
 
 import jakarta.transaction.Transactional;
