@@ -25,10 +25,10 @@ public class SecurityConfig{
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                // H2 콘솔 연결하려면 필요
+                // H2 콘솔 연결
                 .authorizeRequests(requests -> requests
                         .requestMatchers(
-                                "/h2-console/**"    // ¿©±â!
+                                "/h2-console/**"    // H2 콘솔 허용
                         ).permitAll())
                 .headers().addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
                 .and()
@@ -37,11 +37,11 @@ public class SecurityConfig{
                         .loginPage("/members/login") // 로그인 페이지
                         .defaultSuccessUrl("/") // 성공 시 이동하는 페이지
                         .usernameParameter("email") // 이메일을 아이디로 사용
-                        .failureUrl("/members/login/error")) // 실패하면 뜨는 페이지
+                        .failureUrl("/members/login/error")) // 실패페이지
                 // 로그아웃
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout")) // 로그아웃 페이지
-                        .logoutSuccessUrl("/")); // 로그아웃 성공 시 이동하는 페이지
+                        .logoutSuccessUrl("/")); // 로그아웃 성공 후 이동페이지
     	
     	return http.build();
 
