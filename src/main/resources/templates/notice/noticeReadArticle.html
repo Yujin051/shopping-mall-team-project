@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+
+<th:block layout:fragment="css">
+	<link th:href="@{/css/noticeReadArticle.css}" rel="stylesheet" />
+</th:block>
+
+<div id="mainFrame" layout:fragment="content">
+	<article class="mainWindow">
+		<div class="window">
+			<div class="titleWindow">
+				제목
+			</div>
+			<div class="dateWindow">
+				작성일
+			</div>
+			<hr>
+			<div class="bodyWindow">
+				내용
+			</div>
+		</div>
+	</article>
+</div>

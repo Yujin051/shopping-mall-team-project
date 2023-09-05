@@ -1,18 +1,61 @@
 <!-- src/main/resources/templates/fragments/header.html-->
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"> 
+
     <div th:fragment="header">
+    
         <!-- Navigation-->
         
         
-        <nav class="navbar navbar-expand-lg navbar-light bg-green">
-        	<div class="container px-4 px-lg-5 bg-primary">
-        		메뉴 부분
+        <nav class="">
+        	<div class="mainnav">
+        		<ul class="mainul">
+        			<li class="mainmenu">
+        				<a class="maincat " href="/items/hardware">하드웨어</a>
+        			</li>
+        			<li class="mainmenu">
+        				<a class="maincat" href="/items/hardware">게임</a>
+        				<ul class="submenu">
+        					<li class="submenulink"><a class="submenuatag" href="/items/game/action">액션</a></li>
+        					<li class="submenulink"><a class="submenuatag" href="">RPG</a></li>
+        					<li class="submenulink"><a class="submenuatag" href="">슈팅</a></li>
+        					<li class="submenulink"><a class="submenuatag" href="">스포츠</a></li>
+        				</ul>
+        			</li>
+        			<li class="mainmenu">
+        				<a class="maincat" href="/items/hardware">악세서리</a>
+        			</li>
+        			<li class="mainmenu">
+        				<a class="maincat" href="/items/hardware">굿즈</a>
+        				<ul class="submenu">
+        					<li class="submenulink"><a class="submenuatag" href="">피규어</a></li>
+        					<li class="submenulink"><a class="submenuatag" href="">아미보</a></li>
+        					<li class="submenulink"><a class="submenuatag" href="">인형</a></li>
+        					<li class="submenulink"><a class="submenuatag" href="">의류</a></li>
+        				</ul>
+        			</li>
+        			<li class="mainmenu">
+        				<a class="maincat" href="/items/hardware">기타</a>
+        			</li>
+        			<li class="mainmenu">
+        				<a class="maincat" href="/items/hardware">고객센터</a>
+        				<ul class="submenu">
+        					<li class="submenulink"><a class="submenuatag" href="">찾아오는 길</a></li>
+        					<li class="submenulink"><a class="submenuatag" href="">자주 묻는 질문</a></li>
+        				</ul>
+        			</li>
+        			<li class="mainmenu">
+        				<a class="maincat" href="/items/hardware">공지사항</a>
+        			</li>
+        		</ul>
         	</div>
         </nav>
 
+
         <!-- Header-->
+        <!-- 일단 제거합니다
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
@@ -21,5 +64,6 @@
                 </div>
             </div>
         </header>
+         -->
     </div>
 </html>

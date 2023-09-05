@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.footermain {
+	width: 70%;
+	height: 220px;
+	margin: auto;
+    padding-top: 5rem; /* 위쪽 여백을 5rem으로 설정 */
+    padding-bottom: 5rem; /* 아래쪽 여백을 5rem으로 설정 */
+    background-color: #F5F5F5; /* 밝은 배경 색상을 설정 (부트스트랩의 기본 값) */
+}
+
+.footermain div {
+	
+}
+
+.textcontainer {
+	position: absolute;
+	margin-top: -75px;
+}
+
+.textcontainer div {
+	margin-bottom: 20px;
+	color: gray;
+}
+
+.iconcontainer {
+	position: absolute;
+	margin-left: 60%;
+	margin-top: -70px;
+	text-align: right;
+}
+
+i {
+	font-size: 30px;
+	color: gray;
+	margin: 13px;
+}
