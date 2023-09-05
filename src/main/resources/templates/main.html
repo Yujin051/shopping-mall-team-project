@@ -9,15 +9,15 @@
 <div id="mainFrame" layout:fragment="content">
 	<!-- 부트스트랩 이용한 슬라이드
 	추후 static/image 이용하여 배너 이미지 추가할 것 -->
-	<div id="carouselExampleIndicators" class="carousel slide"
+	<div id="mainSlide" class="carousel slide"
 		data-bs-ride="carousel">
 		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleIndicators"
+			<button type="button" data-bs-target="#mainSlide"
 				data-bs-slide-to="0" class="active" aria-current="true"
 				aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators"
+			<button type="button" data-bs-target="#mainSlide"
 				data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators"
+			<button type="button" data-bs-target="#mainSlide"
 				data-bs-slide-to="2" aria-label="Slide 3"></button>
 		</div>
 		<div class="carousel-inner">
@@ -32,26 +32,94 @@
 			</div>
 		</div>
 		<button class="carousel-control-prev" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+			data-bs-target="#mainSlide" data-bs-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 				class="visually-hidden">Previous</span>
 		</button>
 		<button class="carousel-control-next" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+			data-bs-target="#mainSlide" data-bs-slide="next">
 			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
 				class="visually-hidden">Next</span>
 		</button>
 	</div>
 	
-	<!-- 상품 목록 미리보기. 한 줄에 3개씩 2~3줄 추가하기 -->
+	<!-- 상품 목록 미리보기 -->
 	<article class="mainList">
 		<h3> 상품 목록 </h3>
-		<ul>
-			<li></li>
+		<ul class="mItemList">
+			<!-- 표시할 아이템 리스트. 한 줄에 4개 * 3줄 -->
+			<li class="itemBox1">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox2">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox3">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox4">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox5">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox6">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox7">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox8">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox9">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
 		</ul>
 	</article>
-	
-	
 </div>
-
-</html>
