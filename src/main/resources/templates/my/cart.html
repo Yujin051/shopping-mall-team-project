@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+	<script src="https://kit.fontawesome.com/29d208bd77.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/cart.css" />
+</head>
+
+<div layout:fragment="content">
+
+    <!-- 전체 큰 틀 -->
+    <article class = "subtitle_main">
+        <!-- 서브 제목 -->
+        <div class = "subtitle_title">
+            <p>장바구니</p>
+        </div>
+
+        <!-- 장바구니 -->
+        <div class = "cart_title">
+            <!-- 주문 상품 이미지 및 내역 -->
+            <div class = "cart_content">
+                <div class = "delete_button">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <div class = "mid_content">
+                    <div class = info_img>
+                        <img src="/img/main_image.png" alt="이미지">
+                    </div>
+                    <div class = info_content>
+                        <p>상품명</p>
+                        <p>39000원</p>
+                    </div>
+                </div>
+                <div class = "su_btn">  
+                   <button type = "button">+</button>
+                   <div class = "result">1</div>
+                   <button type = "button">-</button>
+                </div>
+            </div>
+
+            <div class = "more_btn">
+                <button type = "button">더 담으러 가기</button>
+                <button type = "button">주문하기</button>
+            </div>
+        </div>    
+
+    </article>
+
+</div>
+
+</html>
