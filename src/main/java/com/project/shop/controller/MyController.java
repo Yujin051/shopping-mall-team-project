@@ -1,12 +1,10 @@
 package com.project.shop.controller;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.project.shop.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
 // 비밀번호 확인 관련 컨트롤러입니다.
@@ -14,9 +12,6 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/my")
 @Controller
 public class MyController {
-	private final MemberService memberService;
-	private final PasswordEncoder passwordEncoder;
-	
 
     
     @GetMapping(value ="/pwcheck")
@@ -32,7 +27,12 @@ public class MyController {
     
     @GetMapping(value = "/update")
     public String memberUpdate() {
-    	return "my/memberupdate";
+    	return "/my/MemberUpdate";
+    }
+    
+    @PostMapping(value = "/update")
+    public String memberUpdate(Model model) {
+    	return "";
     }
 }
 
