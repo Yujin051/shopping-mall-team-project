@@ -1,5 +1,6 @@
 package com.project.shop.entity;
 
+import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.project.shop.constant.RoleType;
@@ -13,14 +14,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "member")
 @Getter
+@Setter
 @Entity
 public class Member {
 

@@ -30,3 +30,4 @@ public class Notice {
 	@CreatedDate
 	private LocalDate date;
 }
+
