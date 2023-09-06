@@ -9,3 +9,9 @@
     border: 1px solid black;
 }
 
+.mainTitle > p {
+    margin-top: 10px;
+    border: 1px solid black;
+    font-size: 25px;
+    font-weight: bold;
+}
