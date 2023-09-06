@@ -10,4 +10,9 @@ public class MyController {
 	public String orderDetail() {
 		return "my/orderDetail";
 	}
+	
+	@GetMapping("/my/review")
+	public String review() {
+		return "my/review";
+	}
 }

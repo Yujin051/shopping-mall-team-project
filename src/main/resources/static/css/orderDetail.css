@@ -8,7 +8,6 @@
 
 .subtitle_main .content_title {
     border: 0px solid red;
-    border-radius: 20px;
     width: 800px; height: 200px;
     background-color: #EBEBEB;
     margin: 0 auto;
@@ -57,7 +56,6 @@
 
 .subtitle_main .content_title .order_content .content_left {
     border: 0px solid blue;
-    border-radius: 10px;
     width: 100px; height: 120px;
     background-color: aqua;
 }
