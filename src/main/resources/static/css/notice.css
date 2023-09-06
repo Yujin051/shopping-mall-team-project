@@ -1,0 +1,56 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+.subtitle_main .notice_graph {
+    border: 0px solid black;
+    height: auto; width: 70%;
+    margin-top: 50px;
+    margin-left: 15%;
+    margin-bottom: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+
+.subtitle_main .notice_graph .notice_graphtable {
+    width: 100%;
+    border: 0px solid red;   
+}
+
+.subtitle_main .notice_graph .notice_graphtable .notice_graphtable_title {
+    text-align: center;
+    background-color: rgb(234,234,234);
+    font-weight: bold;
+}
+
+.subtitle_main .notice_graph .notice_graphtable tr td {
+    border: 1px solid black;
+    height: 35px;
+}
+
+.subtitle_main .notice_graph .notice_graphtable tr td:nth-child(1) {
+    width: 8%;
+    text-align: center;
+}
+
+.subtitle_main .notice_graph .notice_graphtable tr td:nth-child(2) {
+    border: 1px solid black;
+    text-indent: 10px;
+}
+
+.subtitle_main .notice_graph .notice_graphtable tr td:nth-child(3) {
+    width: 13%;
+    text-align: center;
+}
+
+.second {
+    margin-left: 20px;
+}
+
+.notice1 {
+    font-size: 14px;
+}

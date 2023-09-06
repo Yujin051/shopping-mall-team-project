@@ -38,8 +38,7 @@ spring:
 
 # 타임리프 캐시 false -> 새로고침 시 즉시 반영
   thymeleaf:
-    cache: false
-      
+    cache: false  
 # 쿼리문 ? 파라미터 출력
 logging:
   level:
