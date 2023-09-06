@@ -5,12 +5,12 @@
 .notosanskr * { 
  font-family: 'Noto Sans KR', sans-serif;
 }
-/* 서브제목 통일 css */
 
+/* 서브제목 통일 css */
 .subtitle_main {
-  width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 50px;
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .subtitle_main .subtitle_title {
@@ -53,7 +53,6 @@
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-
   font-size: 16px;
   background-color: #f7f7f7;
 }

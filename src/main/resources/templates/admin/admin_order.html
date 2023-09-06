@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <link rel="stylesheet" href="/css/admin_order.css"/>
+</head>
+
+<div layout:fragment="content">
+
+<!-- 전체 큰 틀 -->
+    <article class = "subtitle_main">
+        <!-- 주문관리 글자 -->
+        <div class = "subtitle_title">
+            <p>주문관리</p>
+        </div>
+
+        <!-- 주문관리 표-->
+        <div class = "order_graph">
+            <table class = "order_graphtable">
+                <tr class = "order_graphtable_title">
+                    <td>주문번호</td>
+                    <td>주문일자</td>
+                    <td>회원 이메일</td>
+                    <td>상품명</td>
+                    <td>수량</td>
+                    <td>가격</td>
+                    <td>처리상태</td>
+                    <td>등록</td>
+                </tr>
+                <tr class = "order1">
+                    <td>1</td>
+                    <td>2013.12.31</td>
+                    <td>tlsehddms1234@naver.com</td>
+                    <td>젤다의 전설 티어스 오브 더 킹덤</td>
+                    <td>333개</td>
+                    <td>300000원</td>
+                    <td>
+                        <select>
+                            <option value="1">배송준비중</option>
+                            <option value="1">배송중</option>
+                            <option value="1">배송완료</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type = "button">등록</button>
+                    </td>
+                </tr>
+                <tr class = "order1">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class = "order1">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class = "order1">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class = "order1">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 밑에 숫자 넘어가기 -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </article>
+
+    
+
+</div>
+
+</html>

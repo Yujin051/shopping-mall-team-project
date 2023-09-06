@@ -8,6 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/notice")
 public class NoticeController {
 	
+   // 전체 공지사항 목록 컨트롤러. 기존 컨트롤러에 통합합니다.
+   @GetMapping(value = "/notice") 
+   public String notice() {
+	   return "notice/notice";
+   }
+  
+  // 공지사항 작성 컨트롤러
 	@GetMapping("/new")
 	public String noticeNewArticle() {
 		return "notice/noticeNewArticle";		
