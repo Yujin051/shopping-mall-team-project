@@ -1,15 +1,115 @@
 <!DOCTYPE html>
 <html xmlns:th="http//www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/default}">
-      <style>
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
 
-</style>
-<div layout:fragment="content">
+<th:block layout:fragment="css">
+	<link th:href="@{/css/gameRoot.css}" rel="stylesheet" />
+</th:block>
 
-    <h1>게임 루트</h1>
-    
+<div id="mainFrame" layout:fragment="content">
+    <article class="cateList">
+        <div class="categoryName">
+            카테고리 대분류
+        </div>
+        <div class="searchBox">
+            <input type="text">
+            <button type="submit">검색or아이콘</button>
+        </div>
+    </article>
 
-</div>
-
-</html>
+    <article class="mainList">
+		<ul class="mItemList">
+			<!-- 표시할 아이템 리스트. 한 줄에 4개 * 3줄 -->
+			<li class="itemBox1">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox2">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox3">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox4">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox5">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox6">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox7">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox8">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+			<li class="itemBox9">
+				<div class="thumbnail">
+				</div>
+				<div class="description">
+					<p class="i_name"></p>
+					<p class="i_price"></p>
+				</div>
+			</li>
+		</ul>
+        <!-- 부트스트랩 페이지네이션 -->
+        <nav class="pageNav" aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+	</article>

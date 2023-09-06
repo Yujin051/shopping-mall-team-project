@@ -25,9 +25,9 @@ spring:
       # 출력되는 sql 정렬 
         format-sql: true
     
-    # 개발 시 테이블 자동 생성
-#    hibernate:
-#      ddl-auto: create
+    # 개발 시 테이블 자동 생성 - 개발 종료 후 운영 단계에서는 create 사용하지 않을 것
+    # hibernate:
+    #   ddl-auto: create
     # 마리아DB JPA Dialect 설정
     #database-platform: org.hibernate.dialect.MariaDB103Dialect
     

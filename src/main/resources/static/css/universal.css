@@ -6,12 +6,6 @@
  font-family: 'Noto Sans KR', sans-serif;
 }
 /* 서브제목 통일 css */
-.subtitle_main {
-	width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-}
-
 .subtitle_main .subtitle_title {
     border-bottom: 1px solid black;
     height: 50px; width: 400px;
@@ -45,6 +39,7 @@
   border-color: #007bff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+
 }
 
 .pwinput {

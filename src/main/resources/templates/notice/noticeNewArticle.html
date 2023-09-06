@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+
+<th:block layout:fragment="css">
+	<link th:href="@{/css/noticeNewArticle.css}" rel="stylesheet" />
+</th:block>
+
+<div id="mainFrame" layout:fragment="content">
+	<!-- 전체 큰 틀 -->
+    
+    <article class = "subtitle_main">
+        <!-- 아티클 제목 -->
+        <div class = "subtitle_title">
+            <p>글 작성하기</p>
+        </div>
+    </article>
+    
+    <!-- 글 작성 레이아웃 (제목, 내용, 등록버튼) -->
+    <article class="writeBorder">
+        <!-- 제목 -->
+        <div class="writeTitle">
+            <input class="titleContent" type="text" placeholder="제목을 입력해주세요.">
+        </div>
+        <!-- 내용 -->
+        <div class="writeBody">
+            <form action="" method="post">
+                <textarea class="bodyContent" placeholder="내용을 입력해주세요."></textarea>
+            </form>
+        </div>
+        <button type="submit" class="posting">등록 버튼</button>
+    </article>
+</div>
