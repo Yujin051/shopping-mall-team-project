@@ -1,0 +1,134 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 장바구니 내역 틀 */
+
+.subtitle_main .cart_title {
+    border: 0px solid red;
+    width: 800px; height: 300px;
+    background-color: #EBEBEB;
+    margin: 0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 장바구니 상품 내역 */
+
+.subtitle_main .cart_title .cart_content {
+    border: 0px solid black;
+    width: 780px; height: 180px;
+    margin: 0 auto;
+    margin-top: 10px;
+} 
+
+/* 우측상단 x 버튼 */
+.subtitle_main .cart_title .cart_content .delete_button i{
+    border: 0px solid red;
+    width: 30px; height: 30px;
+    margin: 0 0;
+    margin-left: 750px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* 중간 사진 및 내용 */
+.subtitle_main .cart_title .cart_content .mid_content {
+    border: 0px solid blue;
+    width: 100%; height: 100px;
+    display: flex;
+}
+
+.subtitle_main .cart_title .cart_content .mid_content .info_img {
+    border: 0px solid black;
+    width: 100px; height: 100%;
+    background-color: aqua;
+}
+
+.subtitle_main .cart_title .cart_content .mid_content .info_img img {
+    width: 100%; height: 100%;
+}
+
+/* 중간 내용 */
+
+.subtitle_main .cart_title .cart_content .mid_content .info_content {
+    border: 0px solid orange;
+    width: 680px; height: 100%;
+}
+
+.subtitle_main .cart_title .cart_content .mid_content .info_content p {
+    border: 0px solid blue;
+    width: 600px; height: 50px;
+    margin: 0 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-indent: 10px;
+}
+
+.subtitle_main .cart_title .cart_content .mid_content .info_content p:first-child {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subtitle_main .cart_title .cart_content .mid_content .info_content p:last-child {
+    font-size: 15px;
+}
+
+/* 하단 수량 증감 */
+
+.subtitle_main .cart_title .cart_content .su_btn {
+    border: 0px solid blue;
+    width: 120px; height: 30px;
+    margin-left: 680px;
+    margin-top: 10px;
+    display: flex;
+    
+}
+
+.subtitle_main .cart_title .cart_content .su_btn button {
+    border: 0px solid red;
+    width: 30px; height: 30px; 
+    font-size: 30px;  
+    background-color: orange;
+    line-height: 15px;
+}
+
+.subtitle_main .cart_title .cart_content .su_btn .result {
+    border: 0px solid red;
+    width: 30px; height: 30px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 25px;
+    background-color: white;
+}
+
+
+/* 하단 버튼 2개 */
+
+.subtitle_main .cart_title .more_btn {
+    border: 0px solid black;
+    width: 200px; height: 100px;
+    margin: 0 auto;
+    text-align: center;
+    
+}
+
+.subtitle_main .cart_title .more_btn button:first-child {
+    width: 160px; height: 40px;
+    border: 0px solid blue;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #2980b9;
+    font-size: 16px; font-weight: bold;
+    color: white;
+}
+
+.subtitle_main .cart_title .more_btn button:last-child {
+    width: 80px; height: 40px;
+    border: 0px solid red;
+    background-color: #2980b9;
+    font-size: 16px; font-weight: bold;
+    border-radius: 5px;
+    color: white;
+}

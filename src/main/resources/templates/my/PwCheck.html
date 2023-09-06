@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<style>
+
+</style>
+<div layout:fragment="content">
+
+
+    <!-- 전체 큰 틀 -->
+    <article class = "subtitle_main">
+        <!-- 아티클 제목 -->
+        <div class = "subtitle_title">
+            <p>비밀번호 확인</p>
+        </div>
+		 <form role="form" method="post" action="/members/login">
+		<div class="form-group py-2" style="width: 380px; margin:auto;">
+			<label class="pwtext"th:for="password">비밀번호</label>
+			<input type="password" name="password" class="pwinput" placeholder="현재 비밀번호를 입력해주세요" style="margin-left:25px;">
+        </div>
+        <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+        
+        <div class="form-group py-2" style="text-align:center">
+        	<button type="submit" class="btn btn-outline-dark">확인</button>
+        </div>
+    </form>
+    </article>
+
+
+    
+   
+
+</div>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+	<script src="https://kit.fontawesome.com/29d208bd77.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/newItem.css" />
+</head>
+
+<div layout:fragment="content">
+
+    <!-- 전체 큰 틀 -->
+    <article class = "subtitle_main">
+        <!-- 서브 제목 -->
+        <div class = "subtitle_title">
+            <p>상품 등록</p>
+        </div>  
+        
+        <table class = "item_table">
+            <tbody>
+              <tr>
+                <td class = "tag">상품명</td>
+                <td class = "content" colspan="5">
+                    <input type = "text" class = "item_id">
+                </td>
+              </tr>
+              <tr>
+                <td class = "tag">가격</td>
+                <td class = "content" colspan="2">
+                    <input type = "text" dir = "rtl" class = "num"> 원
+                </td>
+                <td class = "tag">수량</td>
+                <td class = "content" colspan="2">
+                    <input type = "text" dir = "rtl" class = "num"> 개
+                </td>
+              </tr>
+              <tr>
+                <td class = "tag">상세 정보</td>
+                <td class = "content" colspan="5">
+                    <textarea name = "item_info" id = "info" class  = "item_detail">발매일 : &#10;장르 : &#10;인원 수 : &#10;언어 : &#10;플레이모드 : &#10;대응 컨트롤러 : 
+                    </textarea>
+                </td>
+              </tr>
+              <tr>
+                <td class = "tag">이미지</td>
+                <td class = "content" colspan="5">
+                    <img src="/img/main_image.png" alt="이미지">
+                    <input type = "file" class = "select_img">
+                </td>
+              </tr>
+              <tr>
+                <!-- 대분류 카테고리-->
+                <td class = "tag">카테고리 설정</td>
+                <td class = "content cate" >대분류</td>
+                <td class = "content">
+                    <label>
+                        <input type="radio" 
+                               name="radio_cate" 
+                               value="hardware"> 하드웨어
+                    </label>
+                    <label>
+                        <input type="radio" 
+                               name="radio_cate" 
+                               value="game"> 게임
+                    </label>    
+                    <label>
+                        <input type="radio" 
+                               name="radio_cate" 
+                               value="accessory"> 악세서리    
+                    </label>
+                    <label>
+                        <input type="radio" 
+                               name="radio_cate" 
+                               value="goods"> 굿즈    
+                    </label>
+                </td>
+                <!-- 중분류 카테고리-->
+                <td class = "content cate" colspan="2">중분류</td>
+                <td class = "content game_cate">
+                    <!-- 게임 중분류 카테고리-->
+                    <div class = "game_chk">
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="action"> 액션 
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="adventure"> 어드벤쳐
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="racing"> 레이싱
+                        </label> 
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="sports"> 스포츠
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="rpg"> RPG/롤플레잉
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="fps"> FPS/슈팅
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="party"> 파티
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="rts"> 전략
+                        </label>
+                        <br>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="simulation"> 시뮬레이션
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="arcade"> 아케이드/퍼즐
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="music"> 음악
+                        </label>
+                        <label>
+                            <input type="checkbox" 
+                                   name="chk_cate" 
+                                   value="etc"> 기타
+                        </label>
+                    </div>
+                    <!-- 굿즈 중분류 카테고리-->
+                    <div class = goods_chk>
+                        <label>
+                            <input type="radio" 
+                                   name="radio_cate" 
+                                   value="hardware"> 하드웨어
+                        </label>
+                        <label>
+                            <input type="radio" 
+                                   name="radio_cate" 
+                                   value="game"> 게임
+                        </label>    
+                        <label>
+                            <input type="radio" 
+                                   name="radio_cate" 
+                                   value="accessory"> 악세서리    
+                        </label>
+                        <label>
+                            <input type="radio" 
+                                   name="radio_cate" 
+                                   value="goods"> 굿즈    
+                        </label>
+                    </div>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        <button type = "button">수정</button>
+
+    </article>
+
+</div>
+
+</html>

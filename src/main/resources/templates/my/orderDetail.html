@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <link rel="stylesheet" href="/css/orderDetail.css" />
+</head>
+
+<div layout:fragment="content">
+
+    <!-- 전체 큰 틀 -->
+    <article class = "subtitle_main">
+        <!-- 아티클 제목 -->
+        <div class = "subtitle_title">
+            <p>주문 내역</p>
+        </div>
+
+        <!-- 주문 내역 -->
+        <div class = "content_title">
+            <!-- 배송 상태 및 버튼 -->
+            <div class = "order_state">
+                <p>배송 상태</p>
+                <button type = "button">후기 쓰기</button>
+            </div>
+
+            <!-- 주문 상품 이미지 및 내역 -->
+            <div class = "order_content">
+                <div class = content_left>
+                    <img src="/img/main_image.png" alt="이미지">
+                </div>
+
+                <div class = content_right>
+                    <p>주문일(2023.09.05)</p>
+                    <p>상품명(게임)</p>
+                    <p>59,000원</p>
+                </div>
+            </div>
+        </div>    
+
+
+
+        <!-- 하단 페이지 -->
+        <nav aria-label="하단 페이징">
+            <ul class="pagination justify-content-center" >
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>    
+
+    </article>
+
+</div>
+
+</html>

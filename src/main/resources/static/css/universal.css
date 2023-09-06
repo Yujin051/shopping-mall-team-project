@@ -5,6 +5,7 @@
 .notosanskr * { 
  font-family: 'Noto Sans KR', sans-serif;
 }
+
 /* 서브제목 통일 css */
 .subtitle_main {
     width: 1200px;
@@ -12,14 +13,12 @@
     margin-bottom: 50px;
 }
 
-
 .subtitle_main .subtitle_title {
     border-bottom: 1px solid black;
     height: 50px; width: 400px;
     margin: 0 auto;
     margin-top: 100px;
-
-
+    margin-bottom: 50px;
 }
 
 .subtitle_main .subtitle_title  p {
@@ -44,6 +43,22 @@
 
 
 .textinput:focus {
+  border-color: #007bff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* 우선 추가되어 있어 남겨둡니다. */
+.pwinput {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f7f7f7;
+}
+
+
+.pwinput:focus {
   border-color: #007bff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);

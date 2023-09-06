@@ -1,0 +1,87 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+.item_table {
+    border: 1px solid black;
+    width: 830px; height: 600px;
+    margin: 0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.item_table td {
+    border: 1px solid black;
+    font-size:14px;
+    padding:10px 5px;
+    word-break:normal;
+}
+
+.item_table .tag,
+.item_table .cate {
+    font-weight: bold;
+    background-color: rgb(234,234,234);
+    font-size: 16px;
+    text-align:center;
+    vertical-align: middle;
+}
+
+/* 상품명 텍스트 */
+.item_table tr td .item_id {
+    width: 700px; height: 30px;
+}
+
+/* 상품가격 및 수량 */
+.item_table tr td .num {
+    width: 100px; height: 30px;
+    margin-left: 200px;
+}
+
+/* 상세정보 텍스트 범위 */
+.item_table td .item_detail {
+    width: 700px ; height: 130px;
+    resize: none;
+    overflow-y: scroll;
+}
+
+/* 이미지 등록 이미지 */
+.item_table td img {
+    width: 150px; height: 150px;
+    border: 1px solid black;
+    margin-left: 10px;
+}
+
+.item_table td .select_img {
+    margin-left: 10px;
+}
+
+.item_table .game_cate {
+    position: relative;
+}
+
+/* 게임 클릭 시 중분류 카테고리 */
+.item_table .game_cate .game_chk {
+    position: relative;
+    visibility: hidden;
+}
+
+/* 굿즈 클릭시 중분류 카테고리 */
+.item_table .game_cate .goods_chk {
+    position: absolute;
+    visibility: hidden;
+    top: 40px;
+}
+
+
+.subtitle_main button {
+    border: 0px solid black;
+    border-radius: 5px;
+    width: 120px; height: 50px;
+    margin-left: 550px;
+    margin-top: 50px;
+    font-size: 20px; color: white;
+    background-color: #2980b9;
+    font-weight: bold;
+
+}

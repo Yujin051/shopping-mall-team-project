@@ -1,0 +1,81 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 주문 내역 내용 */
+
+.subtitle_main .content_title {
+    border: 0px solid red;
+    width: 800px; height: 200px;
+    background-color: #EBEBEB;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 배송 상태 및 후기 버튼 */
+.subtitle_main .content_title .order_state {
+    border: 0px solid blue;
+    width: 750px; height: 40px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.subtitle_main .content_title .order_state p {
+    width: 100px; height: 30px;
+    margin-top: 10px; 
+    font-size: 20px;
+}
+
+.subtitle_main .content_title .order_state button {
+    width: 70px; height: 30px;
+    margin-top: 10px;
+    font-size: 12px;
+    background-color: #cf0010;
+    border: 1px solid #cf0010;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+/* 주문 상품 이미지 및 내역 */
+
+.subtitle_main .content_title .order_content {
+    border: 0px solid black;
+    width: 750px; height: 110px;
+    margin: 0 auto;
+    display: flex;
+    cursor: pointer;
+} 
+
+
+.subtitle_main .content_title .order_content .content_left {
+    border: 0px solid blue;
+    width: 100px; height: 120px;
+    background-color: aqua;
+}
+
+.subtitle_main .content_title .order_content .content_left img {
+    width: 100px; height: 120px;
+}
+
+.subtitle_main .content_title .order_content .content_right {
+    border: 0px solid red;
+    width: 650px; height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.subtitle_main .content_title .order_content .content_right p {
+    border: 0px solid black;
+    width: 640px; height: 30px;
+    text-indent: 10px;
+    font-size: 15px;
+    align-content: space-between;
+   
+}
