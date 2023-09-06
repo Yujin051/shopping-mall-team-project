@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+
+/* 일단 폰트 그대로 남겨둡니다. */
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 .nanumgothic * {
@@ -13,6 +15,7 @@
  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
 }
+/* 일단 폰트 그대로 남겨둡니다. */
 
 @font-face {
     font-family: 'NEXON Lv1 Gothic OTF';
@@ -22,7 +25,7 @@
 }
 
 .footermain {
-	width: 70%;
+	width: 100%;
 	height: 220px;
 	margin: auto;
 	padding-top: 5rem; /* 위쪽 여백을 5rem으로 설정 */
@@ -30,9 +33,7 @@
     background-color: #F5F5F5; /* 밝은 배경 색상을 설정 (부트스트랩의 기본 값) */
 }
 
-.footermain div {
-	
-}
+
 
 .textcontainer {
 	position: absolute;
@@ -40,6 +41,8 @@
 }
 
 .textcontainer div {
+	margin-left: 60%;
+	width: 500px;
 	margin-bottom: 20px;
 	color: gray;
 	font-family: 'NEXON Lv1 Gothic OTF';

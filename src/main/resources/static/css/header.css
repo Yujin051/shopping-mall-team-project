@@ -14,8 +14,16 @@
     font-style: normal;
 }
 
+/* 넥슨 폰트. 추가되어 있어 남겨둡니다. */
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .mainnav {
-	width: 70%; height: 40px;
+	width: 100%; height: 40px;
 	padding-right: 1rem; /* px-4 클래스의 오른쪽 패딩 */
     padding-left: 1rem; /* px-4 클래스의 왼쪽 패딩 */
     margin-right: auto; /* 가운데 정렬을 위한 margin 설정 */
@@ -27,6 +35,7 @@
 	margin-bottom: 0.5rem; /* mb-2 클래스의 하단 마진 조절 */
     margin-left: 1rem; /* ms-lg-4 클래스의 왼쪽 마진 조절 */
     list-style:none;
+    font-family:'TheJamsil5Bold';
 }
 
 .mainnav .mainul .mainmenu {
@@ -41,7 +50,7 @@
 }
 
 .mainnav .mainul:first-child {
-	margin-left: 100px;
+	margin-left: 20%;
 }
 
 .mainnav .mainul .mainmenu .maincat {
