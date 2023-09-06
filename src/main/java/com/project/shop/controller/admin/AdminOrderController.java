@@ -4,10 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class adminMemberController {
-
-	@GetMapping(value = "/admin/member")
-	   public String adminItemsList() {
-		   return "admin/admin_member";
-	   }
+public class AdminOrderController {
+   @GetMapping(value = "/admin/adminOrder")
+   public String adminOrder() {
+	   return "admin/admin_order";
+   }
 }

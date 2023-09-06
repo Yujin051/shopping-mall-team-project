@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <link rel="stylesheet" href="/css/items.css"/>
+</head>
+<div layout:fragment="content">
+<!-- 첫번째 섹션(상품정보)-->
+<section class = "section1">
+    <article class = "itemImage"></article>
+    <article class = "itemData">
+        <p>Virtual Families Cook Off: 챕터 1: 신나게 뒤집어요</p>
+        <div class = "price">가격 :</div>
+        <div class = "quantity">수량 :</div>
+        <div class = "totalPrice">총가격 :</div>
+        <div class = "twoButton">
+            <button class = "buyButton" type = "button">구매</button>
+            <button class = "cartButton" type = "button">장바구니</button>
+        </div>
+    </article>
+</section>
+
+<!-- 두번째 섹션(상세정보)-->
+<section class = "section2">
+    <div class = "middleTitle">상세 정보</div>
+    <div class = "middle">상세 정보</div>
+</section>
+
+<!-- 세번째 섹션(상품후기)-->
+<section class = "section3">
+    <div class = "lastTitle">
+        후기 <button class = "writeButton" type = "button">후기 쓰기</button>
+    </div>
+<div class = "last1">
+    <div class = "lastMiddle">
+        <p class = "email">작성자 이메일</p>
+        <p class = "date">작성 날짜</p>
+        <p class = "font">
+            <i class="fa-solid fa-x"></i>
+        </p>
+    </div>
+    <div class = "lastWrite">글내용이 들어갑니다</div>
+</div>
+</section>
+   
+   <script src="https://kit.fontawesome.com/b57cfeacbe.js" crossorigin="anonymous"></script>
+</div>
+
+</html>
