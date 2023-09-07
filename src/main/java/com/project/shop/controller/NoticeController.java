@@ -1,29 +1,82 @@
 package com.project.shop.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.project.shop.entity.Notice;
+import com.project.shop.service.NoticeService;
 
 @Controller
 @RequestMapping("/notice")
 public class NoticeController {
 	
+
+	@Autowired
+	private NoticeService noticeService;
+	
    // 전체 공지사항 목록 컨트롤러. 기존 컨트롤러에 통합합니다.
-   @GetMapping(value = "/notice") 
-   public String notice() {
-	   return "notice/notice";
+   @GetMapping(value = "/root") 
+   public String noticeList(Model model) {
+	   System.out.println(noticeService.noticeList());
+	   model.addAttribute("list", noticeService.noticeList());
+	   return "notice/root";
    }
   
   // 공지사항 작성 컨트롤러
+   // 공지사항 작성하는 페이지로 이동
 	@GetMapping("/new")
 	public String noticeNewArticle() {
 		return "notice/noticeNewArticle";		
 	}
 	
-	// 임시로 1 매핑, {noticeid} 로 게시글에 따라 파라미터 받아와서
-		// 해당하는 게시글 읽도록 수정할 것
-	@GetMapping("/1")
-	public String noticeReadArticle() {
+	@PostMapping("/write")
+	public String noticeWrite(Notice notice) {
+		noticeService.write(notice);
+		
+		return "redirect:/notice/root";
+	}
+	
+	// notice/root 의 글제목 클릭 시 상세보기
+	@GetMapping("/view")
+	public String noticeView(Model model, Long id) {
+		model.addAttribute("notice",noticeService.noticeView(id));
 		return "notice/noticeReadArticle";
+	}
+	
+	// notice 글 삭제
+	@GetMapping("/delete")
+	public String noticeDelete(Long id) {
+		noticeService.noticeDelete(id);
+		
+		return "redirect:/notice/root";
+	}
+	
+	// notice 글 수정(GET 방식 활용해서 뷰로 이동)
+	@GetMapping("/modify/{id}")
+	public String noticeModify(@PathVariable("id")Long id, Model model) {
+		model.addAttribute("notice", noticeService.noticeView(id));
+		
+		return "notice/noticeModifyArticle";
+	}
+	
+	// notice 글 수정(POST 방식 활용해서 DB 값 수정)
+	@PostMapping("/update/{id}")
+	public String noticeUpdate(@PathVariable("id")Long id, Notice notice, Model model) {
+		Notice noticeT = noticeService.noticeView(id);
+		noticeT.setTitle(notice.getTitle());
+		noticeT.setContent(notice.getContent());
+		noticeT.setDate(notice.getDate());
+		model.addAttribute("SearchUrl", "notice/root");
+		
+		noticeService.write(noticeT);
+		
+		return "redirect:/notice/root";
+		
+		
 	}
 }

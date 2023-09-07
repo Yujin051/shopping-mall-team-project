@@ -15,7 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@NoArgsConstructor//(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "member")
 @Getter
 @Setter
@@ -57,7 +57,7 @@ public class Member {
 				.email(memberFormDto.getEmail())
 				.password(passwordEncoder.encode(memberFormDto.getPassword()))
 				.phonenum(memberFormDto.getPhonenum())
-				.role(RoleType.USER)
+				.role(RoleType.ADMIN)
 				.build();
 		return member;
 	}

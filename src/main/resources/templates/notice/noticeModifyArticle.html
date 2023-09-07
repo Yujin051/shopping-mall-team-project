@@ -20,15 +20,15 @@
     <!-- 글 작성 레이아웃 (제목, 내용, 등록버튼) -->
     <article class="writeBorder">
         <!-- 제목 -->
-        <form action="/notice/write" method="post">
+        <form th:action="@{/notice/update/{id}(id=${notice.id})}" method="post">
 	        <div class="writeTitle">
-	            <input name="title" class="titleContent" type="text" placeholder="제목을 입력해주세요.">
+	            <input name="title" class="titleContent" th:value="${notice.title}" type="text" placeholder="제목을 입력해주세요.">
 	        </div>
 	        <!-- 내용 -->
 	        <div class="writeBody">
-                <textarea name="content" class="bodyContent" placeholder="내용을 입력해주세요."></textarea>
+                <textarea name="content" class="bodyContent" th:value="${notice.content}" placeholder="내용을 입력해주세요."></textarea>
 	        </div>
-	        <button type="submit" class="posting">등록 버튼</button>
+	        <button type="submit" class="posting">수정하기</button>
         </form>
     </article>
 </div>
