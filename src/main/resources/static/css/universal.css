@@ -19,6 +19,7 @@
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 50px;
+>>>>>>>>> Temporary merge branch 2
 }
 
 .subtitle_main .subtitle_title  p {
@@ -43,9 +44,9 @@
 
 
 .textinput:focus {
-  border-color: #007bff;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    border-color: #007bff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 /* 우선 추가되어 있어 남겨둡니다. */
