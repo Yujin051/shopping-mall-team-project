@@ -15,4 +15,9 @@ public class SupportController {
 	public String direction() {
 		return "/support/direction";
 	}
+	
+	@GetMapping(value = "faq")
+	public String faq() {
+	    return "/support/faq";
+	}
 }

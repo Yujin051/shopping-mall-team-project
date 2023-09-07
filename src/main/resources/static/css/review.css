@@ -1,0 +1,80 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 주문 내역 내용 */
+
+.subtitle_main .review_title {
+    border: 0px solid red;
+    width: 500px; height: 400px;
+    background-color: #EBEBEB;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 주문 상품 이미지 및 내역 */
+
+.subtitle_main .review_title .review_content {
+    border: 0px solid black;
+    width: 450px; height: 120px;
+    margin: 0 auto; margin-top: 10px;
+    display: flex;
+} 
+
+
+.subtitle_main .review_title .review_content .content_left {
+    border: 0px solid blue;
+    width: 100px; height: 100px;
+    background-color: aqua;
+    margin-top: 10px;
+}
+
+.subtitle_main .review_title .review_content .content_left img {
+    width: 100px; height: 100px;
+}
+
+.subtitle_main .review_title .review_content .content_right {
+    border: 0px solid red;
+    width: 350px; height: 110px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.subtitle_main .review_title .review_content .content_right p {
+    border: 0px solid black;
+    width: 350px; height: 20px;
+    text-indent: 10px;
+    font-size: 14px;
+    align-content: space-between;
+   
+}
+
+/* 후기 글 부분 */
+
+.subtitle_main .review_title .review_text {
+    border: 0px solid gray;
+    width: 450px; height: 220px;
+    margin: 0 auto; margin-top: 30px;
+}
+
+.subtitle_main .review_title .review_text textarea {
+    width: 450px; height: 220px;
+    font-size: 14px;
+    resize: none;
+}
+
+/* 등록 버튼 */
+
+.subtitle_main button {
+    border: 0px solid black;
+    border-radius: 5px;
+    width: 120px; height: 50px;
+    margin-left: 730px; margin-bottom: 50px;
+    font-size: 20px; color: white;
+    background-color: #2980b9;
+    font-weight: bold;
+}

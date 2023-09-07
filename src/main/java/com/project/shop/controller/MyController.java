@@ -1,7 +1,7 @@
 package com.project.shop.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,17 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class MyController {
 
+    // 주문/리뷰 컨트롤러 추가
+    // 추후 필요하면 분리할 것
+    @GetMapping("/orderDetail")
+    public String orderDetail() {
+      return "my/orderDetail";
+    }
+
+    @GetMapping("/review")
+    public String review() {
+      return "my/review";
+    }
     
     @GetMapping(value ="/pwcheck")
     public String loginMember() {
@@ -35,4 +46,3 @@ public class MyController {
     	return "";
     }
 }
-
