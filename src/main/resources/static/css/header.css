@@ -14,13 +14,13 @@
     font-style: normal;
 }
 
+/* 넥슨 폰트. 추가되어 있어 남겨둡니다. */
 @font-face {
     font-family: 'NEXON Lv1 Gothic OTF';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 
 .mainnav {
 	width: 100%; height: 40px;
@@ -54,9 +54,10 @@
 }
 
 .mainnav .mainul .mainmenu .maincat {
-	width: 100%; height: 100%;
+	width: 70%; height: 100%;
 	text-decoration: none;
 	color: white;
+	font-family: 'LINESeedKR-Bd';
 }
 
 
@@ -74,7 +75,7 @@
     width: 175px;                       /* 기본 넓이를 150px로 설정 */
     font-size: 12px;                    /* 폰트 사이즈를 12px로 설정 */
     font-weight: bold;                  /* 폰트를 굵게 설정 */
-    font-family: 'LINESeedKR-Bd';
+    font-family: 'TheJamsil5Bold';
     color: white;
 }
 

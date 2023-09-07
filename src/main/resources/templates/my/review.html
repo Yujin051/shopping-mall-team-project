@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <link rel="stylesheet" href="/css/review.css" />
+</head>
+
+<div layout:fragment="content">
+
+    <!-- 전체 큰 틀 -->
+    <article class = "subtitle_main">
+        <!-- 아티클 제목 -->
+        <div class = "subtitle_title">
+            <p>후기 쓰기</p>
+        </div>
+
+        <!-- 후기 본문 -->
+        <div class = "review_title">
+            <!-- 주문 상품 이미지 및 내역 -->
+            <div class = "review_content">
+                <div class = content_left>
+                    <img src="/img/main_image.png" alt="이미지">
+                </div>
+                <div class = content_right>
+                    <p>주문일(2023.09.05)</p>
+                    <p>상품명(게임)</p>
+                    <p>59,000원</p>
+                </div>
+            </div>
+            <!-- 후기 글 -->
+            <div class = "review_text">
+                <textarea name = "text" id = "review" maxlength = "1000"></textarea>
+            </div>
+        </div>    
+        <button type = "button">등록</button>  
+    </article>
+
+</div>
+
+</html>
