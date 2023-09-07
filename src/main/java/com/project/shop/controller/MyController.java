@@ -12,12 +12,12 @@ public class MyController {
 
     // 주문/리뷰 컨트롤러 추가
     // 추후 필요하면 분리할 것
-    @GetMapping("/my/orderDetail")
+    @GetMapping("/orderDetail")
     public String orderDetail() {
       return "my/orderDetail";
     }
 
-    @GetMapping("/my/review")
+    @GetMapping("/review")
     public String review() {
       return "my/review";
     }
