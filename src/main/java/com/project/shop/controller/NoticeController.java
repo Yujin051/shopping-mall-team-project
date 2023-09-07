@@ -50,10 +50,13 @@ public class NoticeController {
 	
 	// notice 글 삭제
 	@GetMapping("/delete")
-	public String noticeDelete(Long id) {
+	public String noticeDelete(Long id, Model model) {
 		noticeService.noticeDelete(id);
 		
-		return "redirect:/notice/root";
+		model.addAttribute("message", "게시글이 삭제되었습니다.");
+		model.addAttribute("SearchUrl", "/notice/root");
+		
+		return "notice/message";
 	}
 	
 	// notice 글 수정(GET 방식 활용해서 뷰로 이동)
@@ -71,11 +74,12 @@ public class NoticeController {
 		noticeT.setTitle(notice.getTitle());
 		noticeT.setContent(notice.getContent());
 		noticeT.setDate(notice.getDate());
-		model.addAttribute("SearchUrl", "notice/root");
+		model.addAttribute("message", "게시글이 수정되었습니다.");
+		model.addAttribute("SearchUrl", "/notice/root");
 		
 		noticeService.write(noticeT);
 		
-		return "redirect:/notice/root";
+		return "notice/Message";
 		
 		
 	}
