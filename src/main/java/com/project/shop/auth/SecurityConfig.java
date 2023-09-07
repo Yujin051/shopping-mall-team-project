@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import static org.springframework.security.config.Customizer.withDefaults;
+import com.project.shop.constant.RoleType;
 
 @Configuration
 @EnableWebSecurity
@@ -29,8 +28,12 @@ public class SecurityConfig{
                 .authorizeRequests(requests -> requests
                         .requestMatchers(
                                 "/h2-console/**"    // H2 콘솔 허용
-                        ).permitAll())
+                        ).permitAll()
+                        .requestMatchers("/notice/new/**","notice/modify/**", "notice/update/**", "notice/delete/**", "/admin/**").hasRole(RoleType.ADMIN.toString())
+                        .requestMatchers("/my/**").hasAnyRole(RoleType.ADMIN.toString(), RoleType.USER.toString())
+                		)
                 .headers().addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
+
                 .and()
                 // 로그인
                 .formLogin(login -> login

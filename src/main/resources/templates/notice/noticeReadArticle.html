@@ -12,24 +12,20 @@
 	<article class="mainWindow">
 		<!-- 글쓰기 레이아웃 -->
 		<div class="window">
-			<div class="titleWindow">
+			<div th:text="${notice.title}" class="titleWindow">
 				제목
 			</div>
-			<div class="dateWindow">
+			<div th:text="${notice.date}" class="dateWindow">
 				작성일
 			</div>
 			<hr>
-			<div class="bodyWindow">
+			<div th:text="${notice.content}" class="bodyWindow">
 				내용
 			</div>
 			<!-- 수정, 삭제를 위한 버튼 -->
 			<div class="modifyButton">
-				<div>
-					수정
-				</div>
-				<div>
-					삭제
-				</div>
+				<a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/delete?(id=${notice.id})}">글 삭제</a>
+				<a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/modify/{id}(id=${notice.id})}">글 수정</a>
 			</div>
 		</div>
 	</article>
