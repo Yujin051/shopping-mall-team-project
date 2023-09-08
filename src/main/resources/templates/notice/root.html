@@ -14,7 +14,7 @@
         <div class = "subtitle_title">
             <p>공지사항</p>
         </div>
-        <a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" href="/notice/new">작성하기</a>
+        <button class = "noticeButton" sec:authorize="hasAnyAuthority('ROLE_ADMIN')" ><a  class = "noticeButtonTag" href="/notice/new">작성하기</a></button>
 
         <!-- 공지사항 표-->
         <div class = "notice_graph">
