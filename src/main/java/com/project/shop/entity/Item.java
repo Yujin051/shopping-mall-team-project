@@ -9,6 +9,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @NoArgsConstructor
+@Table(name = "item")
 @Entity
 public class Item {
 	
@@ -36,7 +37,7 @@ public class Item {
 	@Column(name = "sub_cate")
 	private String subCate;	 // 카테고리 중분류
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "img_id")
 	private ItemImg itmemImg;
 
