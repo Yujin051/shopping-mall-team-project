@@ -10,10 +10,10 @@
 <section class = "section1">
     <article class = "itemImage"></article>
     <article class = "itemData">
-        <p>Virtual Families Cook Off: 챕터 1: 신나게 뒤집어요</p>
-        <div class = "price">가격 :</div>
-        <div class = "quantity">수량 :</div>
-        <div class = "totalPrice">총가격 :</div>
+        <p th:text="${items.itemName}">여기에 제목</p>
+        <div th:text="${items.itemPrice}" class = "price">여기에 가격 :</div>
+        <div class = "quantity">수량 : 변동 가능한 태그로 선택할 것</div>
+        <div class = "totalPrice">총가격 : 자동 계산으로 값 입력</div>
         <div class = "twoButton">
             <button class = "buyButton" type = "button">구매</button>
             <button class = "cartButton" type = "button">장바구니</button>
@@ -24,7 +24,7 @@
 <!-- 두번째 섹션(상세정보)-->
 <section class = "section2">
     <div class = "middleTitle">상세 정보</div>
-    <div class = "middle">상세 정보</div>
+    <div th:text="${items.itemContent}" class = "middle">여기에 상세 정보</div>
 </section>
 
 <!-- 세번째 섹션(상품후기)-->
