@@ -7,6 +7,15 @@
 	<link th:href="@{/css/main.css}" rel="stylesheet" />
 </th:block>
 <div id="mainFrame" layout:fragment="content">
+	<!-- 검색 박스 영역, 폼으로 데이터 넘기기 -->
+	<form action="items/search" method="get">
+		<div class = "searchFrame">
+			<div class="searchBox">
+				<input type = "text" name="keyword" >
+				<button type = "submit">검색</button>
+			</div>
+		</div>
+	</form>
 	<!-- 부트스트랩 이용한 슬라이드 -->
 	<div id="mainSlide" class="carousel slide"
 		data-bs-ride="carousel">
@@ -47,7 +56,7 @@
 		<h3> 상품 목록 </h3>
 		<ul class="mItemList">
 			<!-- 표시할 아이템 리스트. 한 줄에 4개 * 3줄, 타임리프로 12개 불러오기 -->
-			<li th:each = "items, itemsStat : ${list}" th:if="${itemsStat.index} < 12" class="itemBox">
+			<li th:each = "items, itemsStat : ${list}" th:if="${itemsStat.index} < 9" class="itemBox">
 				<a th:href="@{/items(id=${items.id})}">
 					<div class="thumbnail">
 					<!-- 이미지 타임리프로 불러오기 -->

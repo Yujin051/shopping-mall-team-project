@@ -10,7 +10,32 @@
 	z-index: 0;
 }
 
+.searchFrame {
+	position: relative;
+	width: 1200px;
+	height: 30px;
+}
+
+.searchBox {
+	position: relative;
+	top: 10px;
+	left: 820px;
+	line-height: 30px;
+}
+
+.searchBox > input {
+	width: 300px;
+	margin-right: 0;
+}
+.searchBox > button {
+	position: relative;
+	right: 10px;
+	width: 80px;
+}
+
 #mainSlide {
+	position: relative;
+	top: 40px;
 	border: 1px solid blue;
 	height : auto;
 }

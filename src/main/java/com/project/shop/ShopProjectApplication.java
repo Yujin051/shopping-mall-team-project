@@ -5,6 +5,7 @@ import com.project.shop.entity.ItemImage;
 import com.project.shop.repository.ItemImageRepository;
 import com.project.shop.repository.ItemRepository;
 import groovy.util.logging.Slf4j;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,14 +14,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
+@RequiredArgsConstructor
 @Slf4j
 public class ShopProjectApplication implements CommandLineRunner {
 
-	@Autowired
-	private ItemRepository itemRepository;
-
-	@Autowired
-	private ItemImageRepository itemImageRepository;
+	private final ItemRepository itemRepository;
+	private final ItemImageRepository itemImageRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShopProjectApplication.class, args);

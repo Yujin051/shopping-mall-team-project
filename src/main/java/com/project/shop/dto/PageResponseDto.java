@@ -45,7 +45,7 @@ public class PageResponseDto<E> {
 
         this.end = (int)(Math.ceil(this.page / 20.0) * 20); // 화면에서의 마지막 번호
 
-        this.start = this.end - 19; // 화면에서의 시작 번호
+        this.start = this.end - 20; // 화면에서의 시작 번호
 
         int last = (int)(Math.ceil(total/(double)size)); // 데이터의 개수에 따른 마지막 페이지 번호
 
@@ -54,7 +54,6 @@ public class PageResponseDto<E> {
         // 아마 앞뒤 페이지 이동 기능인 것 같은데 일단 보류
         this.prev = this.start > 1;
         this.next = total > this.end * this.size;
-
     }
 
 }
