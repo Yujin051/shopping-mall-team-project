@@ -44,7 +44,7 @@
             <ul class="pagination justify-content-center">
                 <!-- 이전 데이터가 없다면 화살표 안 보이게, 있다면 보이게 -->
                 <li class="page-item" th:if="${responseDto.prev}">
-                    <a class="page-link" aria-label="Previous" th:data-num="${responseDto.start -1}">
+                    <a class="page-link" aria-label="Previous" th:data-num="${responseDto.sta rt -1}">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -78,10 +78,9 @@
             }
 
             const num = target.getAttribute("data-num")
-            const formObject = document.querySelector("form")
 
-            formObject.innerHTML += `<input type='hidden' name='page' value='${num}'>`
-            formObject.submit();
+            // 자바스크립트로 페이지네이션 번호 페이지로 이동
+            window.location.href = `/items/game?page=${num}`;
 
         }, false)
     </script>

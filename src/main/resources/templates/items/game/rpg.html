@@ -78,11 +78,9 @@
             }
 
             const num = target.getAttribute("data-num")
-            const formObject = document.querySelector("form")
 
 
-            formObject.innerHTML += `<input type='hidden' name='page' value='${num}'>`
-            formObject.submit();
+            window.location.href = `/items/game/rpg?page=${num}`
 
         }, false)
     </script>

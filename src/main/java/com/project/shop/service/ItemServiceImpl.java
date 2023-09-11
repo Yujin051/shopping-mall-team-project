@@ -1,7 +1,6 @@
 package com.project.shop.service;
 
 import com.project.shop.dto.ItemDto;
-import com.project.shop.dto.ItemSearchDto;
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
 import com.project.shop.entity.Item;
@@ -37,11 +36,10 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public PageResponseDto<ItemDto> list(PageRequestDto pageRequestDto) {
 
-        String[] types = pageRequestDto.getTypes();
         String keyword = pageRequestDto.getKeyword(); // 검색할 단어 얻어오기
         Pageable pageable = pageRequestDto.getPageable("id"); // 페이징
 
-        Page<Item> result = itemRepository.searchAll(types, keyword, pageable);
+        Page<Item> result = itemRepository.searchAll(keyword, pageable);
 
         // 찾아온 페이지를 item의 DTO로 변환
         List<ItemDto> dtoList = result.getContent().stream()

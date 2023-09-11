@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 public interface ItemSearch {
 
     // 단어로 검색
-    Page<Item> searchAll(String[] types, String keyword, Pageable pageable);
+    Page<Item> searchAll(String keyword, Pageable pageable);
 
     // 메인 카테고리로 검색
     Page<Item> searchByMainCate(String keyword, Pageable pageable);

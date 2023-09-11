@@ -18,7 +18,7 @@ public class ItemSearchImpl extends QuerydslRepositorySupport implements ItemSea
     }
 
     @Override
-    public Page<Item> searchAll(String[] types, String keyword, Pageable pageable) {
+    public Page<Item> searchAll(String keyword, Pageable pageable) {
 
         QItem item = QItem.item;
         JPQLQuery<Item> query = from(item);
