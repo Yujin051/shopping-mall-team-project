@@ -1,12 +1,16 @@
 package com.project.shop.controller.admin;
 
 import com.project.shop.entity.Item;
+import com.project.shop.entity.ItemImg;
+import com.project.shop.service.ItemImgService;
 import com.project.shop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.file.FileStore;
 
 @RequestMapping("/admin")
 @Controller
@@ -14,6 +18,10 @@ public class AdminItemsController {
 
 	@Autowired
 	private ItemService itemService;
+
+	@Autowired
+	private ItemImgService itemImgService;
+
 	@GetMapping(value = "/ItemList")
 	public String adminItemsList() {
 		return "/admin/admin_ItemList";
@@ -25,8 +33,10 @@ public class AdminItemsController {
 	}
 
 	@PostMapping("/newItemReg")
-	public String newItemReg(Item item) {
-		itemService.newItem(item);
+	public String newItemReg(Item item, MultipartFile files) {
+
+
+		//itemService.newItem(item, files);
 
 		return "redirect:/admin/ItemList";
 	}

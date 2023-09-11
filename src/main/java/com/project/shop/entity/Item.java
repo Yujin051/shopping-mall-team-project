@@ -1,13 +1,11 @@
 package com.project.shop.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @ToString
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "item")
 @Entity
@@ -28,7 +26,7 @@ public class Item {
 	private int itemQty;  //재고
 
 	//@Lob // 넣었다가 굳이 넣을필요 없어서 뺌
-	@Column(name = "item_content", nullable = false)
+	@Column(name = "item_content")
 	private String itemContent;  //상품 상세설명
 
 	@Column(name = "main_cate", nullable = false)
@@ -39,7 +37,7 @@ public class Item {
 
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "img_id")
-	private ItemImg itmemImg;
+	private ItemImg itemImg;
 
 	@Builder
 	public Item(String itemName, int itemPrice, int itemQty, String itemContent, String mainCate, String subCate) {

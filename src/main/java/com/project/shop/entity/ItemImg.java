@@ -1,14 +1,12 @@
 package com.project.shop.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Setter
+@NoArgsConstructor
 @Table(name = "item_img")
 public class ItemImg {
 
@@ -27,7 +25,7 @@ public class ItemImg {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
-    private Item itmem;
+    private Item item;
 
     @Builder
     public ItemImg(String imgOriginal, String imgSaved) {
