@@ -1,13 +1,11 @@
 package com.project.shop.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @ToString
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Item {
@@ -57,5 +55,14 @@ public class Item {
         this.itemContent = itemContent;
         this.mainCate = mainCate;
         this.subCate = subCate;
+    }
+
+    // 상품 주문 시 재고 감소와 재고가 없을 때 오류 담당 메소드
+    public void removeQty(int itemQty) {
+        int restQty = this.itemQty - itemQty;
+        if( restQty < 0 ) {
+            // 사용자 정의 에러 발생
+        }
+        this.itemQty = restQty;
     }
 }

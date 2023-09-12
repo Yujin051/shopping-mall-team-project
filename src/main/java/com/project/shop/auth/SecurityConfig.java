@@ -24,7 +24,7 @@ public class SecurityConfig{
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                // H2 콘솔 연결
+                // H2 콘솔 연결 deprecated 떠서 변경했는데 잘 되나요?
                 .authorizeRequests(requests -> requests
                         .requestMatchers(
                                 "/h2-console/**"    // H2 콘솔 허용

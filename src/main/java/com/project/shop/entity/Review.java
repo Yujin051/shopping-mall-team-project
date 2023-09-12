@@ -20,6 +20,11 @@ public class Review {
     @Column(name = "review_content")
     private String content;
 
+    // 회원 테이블과 연관관계 설정. 리뷰 다수 <-> 회원 하나
+    @ManyToOne
+    @JoinColumn(name="member_id")
+    private Member member;
+
     @Column(name = "review_date")
     @CreatedDate
     private LocalDateTime date;
