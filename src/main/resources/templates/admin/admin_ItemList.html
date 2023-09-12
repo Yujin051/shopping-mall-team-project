@@ -8,93 +8,62 @@
 <div layout:fragment="content">
 
 <!-- 전체 큰 틀 -->
-<article class = "subtitle_main">
-    <!-- 상품 수정/삭제 글자 -->
-    <div class = "subtitle_title">
-        <p>상품 수정/삭제</p>
-    </div>    
+    <article class = "subtitle_main">
+        <!-- 상품 수정/삭제 글자 -->
+        <div class = "subtitle_title">
+            <p>상품 수정/삭제</p>
+        </div>
 
-    <!-- 상품 수정/삭제 표-->
-    <div class = "Itemlist_graph">
-        <table class = "Itemlist_graphtable">
-            <tr class = "Itemlist_graphtable_title">
-                <td>상품ID</td>
-                <td>상품명</td>
-                <td>판매가</td>
-                <td>재고</td>
-                <td>수정</td>
-                <td>삭제</td>
-            </tr>
-            <tr class = "Itemlist1">
-                <td>1234</td>
-                <td>GOD WARS The Complete Legend</td>
-                <td>300000원</td>
-                <td>200개</td>
-                <td>
-                    <a class="nav-link" href="/admin/modifyItem">
-                        <button type = "button">수정</button>
-                    </a>
+        <!-- 상품 수정/삭제 표-->
+        <div class = "Itemlist_graph">
+            <table class = "Itemlist_graphtable">
+                <thead>
+                    <tr class = "Itemlist_graphtable_title">
+                        <td>상품ID</td>
+                        <td>상품명</td>
+                        <td>판매가</td>
+                        <td>재고</td>
+                        <td>수정</td>
+                        <td>삭제</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each = "item : ${list}" class = "Itemlist1">
+                        <td th:text = "${item.id}">상품 ID</td>
+                        <td th:text = "${item.itemName}">상품명</td>
+                        <td th:text = "${item.itemPrice} + ' 원'">판매가</td>
+                        <td th:text = "${item.itemQty} + ' 개' ">재고</td>
+                        <td>
+                            <a th:text = "${modify}" th:href="@{/admin/modify(id=${item.id})}">수정</a>
+                        </td>
+                        <td>
+                            <a th:text = "${delete}" th:href="@{/admin/delete}">삭제</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-                </td>
-                <td>
-                    <button type = "button">삭제</button>
-                </td>
-            </tr>
-            <tr class = "Itemlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class = "Itemlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class = "Itemlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class = "Itemlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
-    
-    <!-- 밑에 숫자 넘어가기 -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+        <!-- 밑에 숫자 넘어가기 -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-</article>
+    </article>
 
 </div>
 

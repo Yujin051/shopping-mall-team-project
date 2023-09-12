@@ -22,17 +22,21 @@ public class ItemImgService {
 
     private final ItemRepository itemRepository;
 
+
     @Value("${spring.servlet.multipart.location}")
     String imgPath;
 
     public String getFullPath(String filename) {
         return imgPath + filename;
     }
-    public ItemImg saveImg(MultipartFile multipartFile, Item item) throws Exception{
+
+    // 이미지 저장
+    public ItemImg saveImg(MultipartFile multipartFile) throws Exception{
 
         if(multipartFile.isEmpty()) {
             return null;
         }
+
 
         // 원본 파일명
         String originalFilename = multipartFile.getOriginalFilename();
@@ -44,10 +48,15 @@ public class ItemImgService {
         // 파일 저장
         multipartFile.transferTo(new File(getFullPath(savedFilename)));
 
+
         return itemImgRepository.save(ItemImg.builder()
                 .imgOriginal(originalFilename)
                 .imgSaved(savedFilename)
                 .build());
+    }
+
+    public void itemImgDelete(Long id) {
+        itemImgRepository.deleteById(id);
     }
 
     // 이미지 파일의 확장자 뽑아내기

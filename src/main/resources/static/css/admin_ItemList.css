@@ -30,7 +30,7 @@
 }
 
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(1) {
-    width: 11%;    
+    width: 8%;
     text-align: center;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(4) {
-    width: 7%;    
+    width: 10%;
 }
 
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(5) {
@@ -68,24 +68,15 @@
     text-align: right;
 }
 
-.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(5) button {
-    background-color: rgb(52,152,219);
-    color: white;
-    border: 0px solid red;
+.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td a {
+    border: 1px solid black;
+    color: black;
     border-radius: 5px;
-    width: 50px;
-    height: 30px;
-}
-
-.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(6) button {
-    background-color: rgb(52,152,219);
-    color: white;
-    border: 0px solid red;
-    border-radius: 5px;
-    width: 50px;
-    height: 30px;
+    width: 200px;
+    height: 100px;
+    text-decoration-line: none;
 }
 
 .Itemlist1 {
-    font-size: 14px;
+    font-size: 16px;
 }

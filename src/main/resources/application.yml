@@ -45,7 +45,7 @@ spring:
   servlet:
     multipart:
       enabled: true
-      location: C:/app/java/ShopProject/src/main/resources/static/img
+      location: C:/app/java/ShopProject/src/main/resources/static/img/
       max-request-size: 30MB
       max-file-size: 10MB
 # 쿼리문 ? 파라미터 출력

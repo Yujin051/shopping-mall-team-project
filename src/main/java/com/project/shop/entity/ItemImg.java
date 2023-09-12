@@ -28,9 +28,10 @@ public class ItemImg {
     private Item item;
 
     @Builder
-    public ItemImg(String imgOriginal, String imgSaved) {
+    public ItemImg(String imgOriginal, String imgSaved, Item item) {
         this.imgOriginal = imgOriginal;
         this.imgSaved = imgSaved;
+        this.item = item;
     }
 
 
