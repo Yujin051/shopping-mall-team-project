@@ -6,17 +6,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.project.shop.service.OrderDetailService;
+
 import lombok.RequiredArgsConstructor;
 // 비밀번호 확인 관련 컨트롤러입니다.
 @RequiredArgsConstructor
 @RequestMapping("/my")
 @Controller
 public class MyController {
-
+    
+    private final OrderDetailService orderDetailService;
+	
     // 주문/리뷰 컨트롤러 추가
     // 추후 필요하면 분리할 것
     @GetMapping("/orderDetail")
-    public String orderDetail() {
+    public String orderDetail(Model model) {
+      System.out.println(orderDetailService.ordersList());
+ 	  model.addAttribute("list", orderDetailService.ordersList());	
       return "my/orderDetail";
     }
 

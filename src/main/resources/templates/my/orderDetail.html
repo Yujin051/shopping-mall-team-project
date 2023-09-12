@@ -16,10 +16,10 @@
         </div>
 
         <!-- 주문 내역 -->
-        <div class = "content_title">
+        <div th:each="orders : ${list}" class = "content_title">
             <!-- 배송 상태 및 버튼 -->
             <div class = "order_state">
-                <p>배송 상태</p>
+                <p th:text="${orders.orderStatus}">배송 상태</p>
                 <button type = "button">후기 쓰기</button>
             </div>
 
@@ -30,9 +30,9 @@
                 </div>
 
                 <div class = content_right>
-                    <p>주문일(2023.09.05)</p>
+                    <p th:text="${orders.orderDate}">주문일(2023.09.05)</p>
                     <p>상품명(게임)</p>
-                    <p>59,000원</p>
+                    <p th:text="${orders.orderPrice}">59,000원</p>
                 </div>
             </div>
         </div>    
