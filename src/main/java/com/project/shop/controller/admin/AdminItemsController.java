@@ -1,19 +1,13 @@
 package com.project.shop.controller.admin;
 
 import com.project.shop.entity.Item;
-import com.project.shop.entity.ItemImg;
-import com.project.shop.repository.ItemRepository;
-import com.project.shop.service.ItemImgService;
 import com.project.shop.service.ItemService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.nio.file.FileStore;
 
 @RequestMapping("/admin")
 @RequiredArgsConstructor
@@ -21,8 +15,6 @@ import java.nio.file.FileStore;
 public class AdminItemsController {
 
 	private final ItemService itemService;
-
-	private final ItemImgService itemImgService;
 
 	// 상품 등록 리스트
 	@GetMapping(value = "/ItemList")
@@ -42,20 +34,28 @@ public class AdminItemsController {
 
 	// 상품 등록 처리(db로 전송)
 	@PostMapping("/newItemReg")
-	public String newItemReg(Item item, @RequestPart MultipartFile img_id) throws Exception {
-		itemService.itemWrite(item, img_id);
+	public String newItemReg(Item item, @RequestPart MultipartFile file) throws Exception {
+		itemService.itemWrite(item, file);
 
 		return "redirect:/admin/ItemList";
 	}
 
 	// 상품 삭제
-	@GetMapping("/delete")
-	public String deleteItem(Long id) {
-		itemService.itemDelete(id);
-		itemImgService.itemImgDelete(id);
+	@PostMapping("/delete/{id}")
+	public String deleteItem(@PathVariable ("id") Long id) {
 
-		return "notice/message";
+		itemService.itemDelete(id);
+
+		return "redirect:/admin/ItemList";
 	}
+
+	@GetMapping("/viewItem")
+	public String viewItem(Model model, Long id) {
+		model.addAttribute("item", itemService.itemView(id));
+		return "/admin/modifyItem";
+	}
+
+
 	@GetMapping("/modifyItem/{id}")
 	public String modifyItem(@PathVariable ("id")Long id, Model model) {
 

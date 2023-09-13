@@ -1,7 +1,5 @@
 package com.project.shop.dto;
 
-import com.project.shop.entity.Item;
-import com.project.shop.entity.ItemImg;
 import lombok.Builder;
 import lombok.Data;
 
@@ -22,20 +20,4 @@ public class ItemDto {
 
     private String subCate;	 // 카테고리 중분류
 
-    private ItemImg itemImg;
-
-
-    public ItemDto of(Item item) {
-        return ItemDto.builder()
-                .id(item.getId())
-                .itemName(item.getItemName())
-                .itemPrice(item.getItemPrice())
-                .itemQty(item.getItemQty())
-                .itemContent(item.getItemContent())
-                .mainCate(item.getMainCate())
-                .subCate(item.getSubCate())
-                .itemImg(item.getItemImg())
-                .build();
-
-    }
 }

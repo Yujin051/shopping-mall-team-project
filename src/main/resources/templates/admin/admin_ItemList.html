@@ -14,6 +14,7 @@
             <p>상품 수정/삭제</p>
         </div>
 
+
         <!-- 상품 수정/삭제 표-->
         <div class = "Itemlist_graph">
             <table class = "Itemlist_graphtable">
@@ -30,15 +31,16 @@
                 <tbody>
                     <tr th:each = "item : ${list}" class = "Itemlist1">
                         <td th:text = "${item.id}">상품 ID</td>
-                        <td th:text = "${item.itemName}">상품명</td>
+                        <td th:text = "${item.itemName}" >상품명</td>
                         <td th:text = "${item.itemPrice} + ' 원'">판매가</td>
-                        <td th:text = "${item.itemQty} + ' 개' ">재고</td>
+                        <td th:text = "${item.itemQty} + ' 개'">재고</td>
                         <td>
-                            <a th:text = "${modify}" th:href="@{/admin/modify(id=${item.id})}">수정</a>
+                            <a th:text = "${modify}" th:href="@{/admin/delete(id=${item.id})}">수정</a>
                         </td>
                         <td>
-                            <a th:text = "${delete}" th:href="@{/admin/delete}">삭제</a>
+                            <a th:text = "${delete}" th:href="@{/admin/delete(id=${item.id})}">삭제</a>
                         </td>
+
                     </tr>
                 </tbody>
             </table>

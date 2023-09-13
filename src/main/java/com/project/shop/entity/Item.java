@@ -3,9 +3,7 @@ package com.project.shop.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@ToString
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Table(name = "item")
 @Entity
@@ -35,17 +33,21 @@ public class Item {
 	@Column(name = "sub_cate")
 	private String subCate;	 // 카테고리 중분류
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "img_id")
-	private ItemImg itemImg;
+	@Column(name = "img_original", nullable = false)
+	private String imgOriginal; // 원본 이미지 이름
+
+	@Column(name = "img_saved", nullable = false)
+	private String imgSaved; // db에 저장될 이미지 이름
 
 	@Builder
-	public Item(String itemName, int itemPrice, int itemQty, String itemContent, String mainCate, String subCate) {
+	public Item(String itemName, int itemPrice, int itemQty, String itemContent, String mainCate, String subCate, String imgOriginal, String imgSaved) {
 	    this.itemName = itemName;
 	    this.itemPrice = itemPrice;
 	    this.itemQty = itemQty;
 	    this.itemContent = itemContent;
 	    this.mainCate = mainCate;
 		this.subCate = subCate;
+		this.imgOriginal = imgOriginal;
+		this.imgSaved = imgSaved;
 	   }
 }
