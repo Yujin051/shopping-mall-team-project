@@ -4,15 +4,15 @@
       layout:decorate="~{layouts/default}">
 
 <th:block layout:fragment="css">
-    <link th:href="@{/css/itemRoot.css}" rel="stylesheet" />
+    <link th:href="@{/css/itemRoot.css}" rel="stylesheet"/>
 </th:block>
 
 <!-- 메인 틀-->
 <div id="mainFrame" layout:fragment="content">
-    <!-- 상단 카테고리 영역 -->
+    <!-- 상단 안내 영역 -->
     <article class="cateList">
         <div class="categoryName">
-            RPG
+            검색
         </div>
         <!-- 검색 박스 -->
         <form action="/items/search" method="get">
@@ -26,7 +26,8 @@
     <!-- 메인 상품 표시 구역 -->
     <article class="mainList">
         <ul class="mItemList">
-            <!-- 표시할 아이템 리스트. 한 줄에 4개 * 3줄 (예시) -->
+            <!-- 표시할 아이템 리스트. 한 줄에 4개 * 3줄 (예시)
+            페이지네이션-타임리프 사용하여 페이지 구성 -->
             <li class="itemBox" th:each="dto:${responseDto.dtoList}">
                 <a th:href="@{/items(id=${dto.id})}">
                     <div class="thumbnail">
@@ -38,7 +39,8 @@
                 </a>
             </li>
         </ul>
-        <!-- 부트스트랩 페이지네이션
+
+        <!-- 부트스트랩 페이지네이션.
         위아래 span 태그 들어가는 코드는 이해 잘 못 했음. 더 살펴볼 것 -->
         <nav class="pageNav" aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
@@ -78,9 +80,10 @@
             }
 
             const num = target.getAttribute("data-num")
+            const formObject = document.querySelector("form")
 
-
-            window.location.href = `/items/game/rpg?page=${num}`
+            formObject.innerHTML += `<input type='hidden' name='page' value='${num}'>`
+            formObject.submit();
 
         }, false)
     </script>

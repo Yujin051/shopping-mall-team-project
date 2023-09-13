@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class SupportController {
 	
-	@GetMapping(value = "direction")
+	@GetMapping(value = "way")
 	public String direction() {
 		return "/support/direction";
 	}

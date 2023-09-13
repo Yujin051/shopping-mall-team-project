@@ -10,15 +10,19 @@
 .cateList {
     border : 1px solid black;
 }
+
+/* 가로정렬 위한 태그 */
 .cateList > div {
-    display: inline-block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+	display: inline-block;
+}
+.cateList > form {
+	width: 900px;
+	display: inline-block;
 }
 
 .searchBox {
-    position: absolute;
-    right: 20px;
+    position: relative;
+    left: 900px;
 }
 
 .mainList {
@@ -34,7 +38,7 @@
 	text-align : center;
 }
 
-.mItemList > li {
+.itemBox {
 	display: inline-block;
 	margin-bottom: 20px;
 	width: 300px;
@@ -43,8 +47,13 @@
 	flex-wrap: wrap;
 }
 
+.itemBox > a {
+	text-decoration: none;
+}
+
 .description > p { 
 	margin: 0;
+	line-height: 50px;
 }
 .i_name {
 	
@@ -61,4 +70,8 @@
 	height: 60%;
 	border: 1px solid black;
 	margin-bottom: 20px;
+}
+
+.pageNav {
+	cursor: pointer;
 }

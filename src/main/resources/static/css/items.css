@@ -43,7 +43,6 @@
     line-height: 45px;
 }
 
-
 .section1 .itemData .quantity {
     border: 1px solid black;
     width: 350px;
@@ -51,7 +50,12 @@
     margin-left: 25px;
     font-size: 16px;
     margin-top: 15px;
-    line-height: 45px;
+    line-height: 50px;
+}
+
+.quantity > input {
+    height: 30px;
+    width: 100px;
 }
 
 
