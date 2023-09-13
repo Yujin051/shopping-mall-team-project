@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.project.shop.entity.Notice;
 import com.project.shop.entity.Orders;
 import com.project.shop.repository.OrdersRepository;
 
@@ -18,4 +19,12 @@ public class AdminOrderService {
 	public List<Orders> ordersList() {
         return ordersRepository.findAll();
     }
+	
+	public void update(Orders orders) {
+		ordersRepository.save(orders);
+	}
+	
+	public Orders OrdersView(Long orderId) {
+		return ordersRepository.findById(orderId).get();
+	}
 }

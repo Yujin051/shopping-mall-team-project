@@ -24,13 +24,13 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private int orderId; // 주문번호
+    private Long orderId; // 주문번호
     
     @Column(name = "member_id" ,nullable = false)
     private String memberId; // 회원아이디
 
     @Column(name = "item_id" ,nullable = false)
-    private long itemId; // 상품id
+    private Long itemId; // 상품id
    
     @Column(name = "order_status" ,nullable = false)
     private String orderStatus; // 처리상태

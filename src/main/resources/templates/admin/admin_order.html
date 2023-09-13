@@ -36,16 +36,21 @@
                     <td th:text="${orders.orderCount}">333개</td>
                     <td th:text="${orders.orderPrice}">300000원</td>
                     <td>
-                        <select>
+                        <select name="opt" required>
                             <option value="1">배송준비중</option>
-                            <option value="1">배송중</option>
-                            <option value="1">배송완료</option>
+                            <option value="2">배송중</option>
+                            <option value="3">배송완료</option>
                         </select>
                     </td>
                     <td>
-                        <button type = "button">등록</button>
+                        <form th:action ="@{/admin/update/{id}(id=${orders.orderId})}" method = "post" >
+                           <input type=hidden th:value="${orders.orderId}">
+                           <button type = "submit">등록</button>
+                        </form>
                     </td>
+                  </tr>
             </table>
+            
         </div>
 
         <!-- 밑에 숫자 넘어가기 -->
@@ -65,7 +70,7 @@
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav>  
     </article>
 
     
