@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -68,7 +69,7 @@ public class OrderController {
 
     @GetMapping("/test/test")
     // 로그인한 회원 정보에 따른 주문 성공여부 처리인데 잘 모르겠습니다.
-    public @ResponseBody ResponseEntity<String> order(@RequestBody @Valid OrderDto orderdto,
+    public @ResponseBody ResponseEntity<String> orderTest(@RequestBody @Valid OrderDto orderdto,
                                                       BindingResult bindingResult, Principal principal) {
         if (bindingResult.hasErrors()) {
             StringBuilder sb = new StringBuilder();
