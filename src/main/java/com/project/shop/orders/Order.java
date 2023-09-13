@@ -66,4 +66,8 @@ public class Order {
 
         return order;
     }
+
+    // 현재 주문 상품 테이블 병합으로 인해 사용하지 않음
+    // @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<OrderItem> orderItems = new ArrayList<>();
 }

@@ -3,6 +3,10 @@ package com.project.shop.orders;
 import com.project.shop.entity.Item;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.*;
 
 @Getter
@@ -12,8 +16,7 @@ import lombok.*;
 @Table(name = "order_item")
 @Entity
 public class OrderItem {
-	
-
+    // OrderItem 엔티티는 현재 사용하지 않음
     @Id
     @GeneratedValue
     @Column(name = "order_item_id")

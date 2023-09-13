@@ -29,7 +29,8 @@ public class ShopProjectApplication implements CommandLineRunner {
 	}
 
 	// CommandLineRunner를 이용하기 위해 run 메소드 구현
-	// 임시 데이터 INSERT 용
+	// 임시 데이터 INSERT 용으로 넣었습니다.
+    // 추후 DB 이전 할 때 삭제할 것
 	@Override
 	public void run(String... args) throws Exception {
 		// item 테이블에 임시 데이터 INSERT
@@ -67,6 +68,5 @@ public class ShopProjectApplication implements CommandLineRunner {
 		itemImageRepository.save(new ItemImage("게임15 이미지", "게임15"));
 
 	}
-
 
 }

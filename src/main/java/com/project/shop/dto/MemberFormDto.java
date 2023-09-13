@@ -1,5 +1,9 @@
 package com.project.shop.dto;
 
+
+
+import java.time.LocalDate;
+
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.Email;
@@ -23,14 +27,16 @@ public class MemberFormDto {
 	
 	private String phonenum;
 
+	private LocalDate date;
 
 	@Builder
-	public MemberFormDto(String email, String password, String phonenum) {
+	public MemberFormDto(String email, String password, String phonenum, LocalDate date) {
 		this.email = email;
 		this.password = password;
 		this.phonenum = phonenum;
+		this.date = date;
 		
 	}
-	
+
 	
 }

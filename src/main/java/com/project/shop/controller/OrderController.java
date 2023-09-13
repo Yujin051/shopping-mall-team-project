@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.security.Principal;
 import java.util.List;
 
+import jakarta.validation.Valid;
+
+
 @Controller
 @RequiredArgsConstructor
 @Slf4j
@@ -42,7 +45,7 @@ public class OrderController {
         if (bindingResult.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             List<FieldError> fieldErrorList = bindingResult.getFieldErrors();
-            for(FieldError fieldError : fieldErrorList) {
+            for (FieldError fieldError : fieldErrorList) {
                 sb.append(fieldError.getDefaultMessage());
             }
             return new ResponseEntity<String>(sb.toString(), HttpStatus.BAD_REQUEST);
@@ -55,11 +58,29 @@ public class OrderController {
 
         // 주문 번호와 유저 이메일로 새로운 주문을 생성하고 예외가 발생하면 오류,
         // 잘 처리됐다면 정상적으로 생성된 주문 번호 응답 객체로 반환
-        try{
+        try {
             orderId = orderService.order(orderDto, email);
-        } catch(Exception e) {
+        } catch (Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<Long>(orderId, HttpStatus.OK);
     }
+
+    @GetMapping("/test/test")
+    // 로그인한 회원 정보에 따른 주문 성공여부 처리인데 잘 모르겠습니다.
+    public @ResponseBody ResponseEntity<String> order(@RequestBody @Valid OrderDto orderdto,
+                                                      BindingResult bindingResult, Principal principal) {
+        if (bindingResult.hasErrors()) {
+            StringBuilder sb = new StringBuilder();
+            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+            for (FieldError fieldError : fieldErrors) {
+                sb.append(fieldError.getDefaultMessage());
+            }
+            return new ResponseEntity<String>(sb.toString(), HttpStatus.BAD_REQUEST);
+        }
+        String username = principal.getName();
+        System.out.println(username);
+        return new ResponseEntity<String>(username + "님의 주문이 성공적으로 처리되었습니다.", HttpStatus.OK);
+    }
 }
+

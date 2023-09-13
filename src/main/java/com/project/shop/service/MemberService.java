@@ -1,5 +1,8 @@
 package com.project.shop.service;
 
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,6 +20,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class MemberService implements UserDetailsService{
 	private final MemberRepository memberRepository;
+
+//    private final List<UserDetails> members;
+
 	
 	public Member saveMember(Member member) {
 		validateDuplicateMember(member);
@@ -42,5 +48,17 @@ public class MemberService implements UserDetailsService{
 				.password(member.getPassword())
 				.roles(member.getRole().toString())
 				.build();
+	}
+	
+	public List<Member> memberList() {
+		return memberRepository.findAll();
+	}
+	
+	public Member memberView(String email) {
+		return memberRepository.findByEmail(email);
+	}
+	
+	public Member updateMember(Member member) {	
+		return memberRepository.save(member);
 	}
 }
