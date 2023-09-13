@@ -63,14 +63,11 @@
 /* 게임 클릭 시 중분류 카테고리 */
 .item_table .game_cate .game_chk {
     position: relative;
-    visibility: hidden;
 }
 
 /* 굿즈 클릭시 중분류 카테고리 */
 .item_table .game_cate .goods_chk {
-    position: absolute;
-    visibility: hidden;
-    top: 40px;
+    position: relative;
 }
 
 
@@ -84,4 +81,8 @@
     background-color: #2980b9;
     font-weight: bold;
 
+}
+
+.item_table tr:last-child {
+    height: 100px;
 }
