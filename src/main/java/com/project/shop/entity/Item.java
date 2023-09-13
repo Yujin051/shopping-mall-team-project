@@ -1,14 +1,18 @@
 package com.project.shop.entity;
 
+import com.project.shop.exception.OutOfQtyException;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
+import java.util.List;
+
+@ToString
+@Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "item")
 @Entity
 public class Item {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "item_id")
@@ -38,6 +42,10 @@ public class Item {
 
 	@Column(name = "img_saved", nullable = false)
 	private String imgSaved; // db에 저장될 이미지 이름
+  
+  // 리뷰 일대다 연관관계 매핑
+  @OneToMany(mappedBy = "item")
+  private List<Review> reviews;
 
 	@Builder
 	public Item(String itemName, int itemPrice, int itemQty, String itemContent, String mainCate, String subCate, String imgOriginal, String imgSaved) {
@@ -50,4 +58,14 @@ public class Item {
 		this.imgOriginal = imgOriginal;
 		this.imgSaved = imgSaved;
 	   }
+
+  // 상품 주문 시 재고 감소와 재고가 없을 때 오류 담당 메소드
+    public void removeQty(int itemQty) {
+        int restQty = this.itemQty - itemQty;
+        if( restQty < 0 ) {
+            // 사용자 정의 에러 발생
+            throw new OutOfQtyException("상품의 재고가 부족합니다. 판매자에게 문의해주세요.");
+        }
+        this.itemQty = restQty;
+    }
 }

@@ -87,6 +87,7 @@
     -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
     -moz-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 파폭) */
     -o-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 오페라) */
+    z-index: 99;
 }
 
 .submenu .submenulink {          /* 하위 메뉴의 a 태그 스타일 설정 */
