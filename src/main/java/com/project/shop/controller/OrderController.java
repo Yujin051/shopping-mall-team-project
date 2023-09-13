@@ -66,6 +66,7 @@ public class OrderController {
         }
         return new ResponseEntity<Long>(orderId, HttpStatus.OK);
     }
+
 //    @GetMapping("/test/test")
 //    // 로그인한 회원 정보에 따른 주문 성공여부 처리인데 잘 모르겠습니다.
 //    public @ResponseBody ResponseEntity<String> order(@RequestBody @Valid OrderDto orderdto,
