@@ -1,5 +1,6 @@
 package com.project.shop.service;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.security.core.userdetails.User;
@@ -53,8 +54,11 @@ public class MemberService implements UserDetailsService{
 		return memberRepository.findAll();
 	}
 	
-	public void memberDelete(Long id) {
-		memberRepository.deleteById(id);
+	public Member memberView(String email) {
+		return memberRepository.findByEmail(email);
 	}
 	
+	public Member updateMember(Member member) {	
+		return memberRepository.save(member);
+	}
 }
