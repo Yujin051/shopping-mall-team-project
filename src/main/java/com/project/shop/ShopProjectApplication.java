@@ -49,24 +49,6 @@ public class ShopProjectApplication implements CommandLineRunner {
 		itemRepository.save(new Item("게임13", 50000, 99, "상세설명13", "게임", "슈팅PRG" ));
 		itemRepository.save(new Item("게임14", 50000, 99, "상세설명14", "게임", "슈팅RPG" ));
 		itemRepository.save(new Item("게임15", 50000, 99, "상세설명15", "게임", "어드벤처RPG" ));
-
-		// itemImage 테이블에 임시 데이터 INSERT
-		itemImageRepository.save(new ItemImage("게임1 이미지", "게임1"));
-		itemImageRepository.save(new ItemImage("게임2 이미지", "게임2"));
-		itemImageRepository.save(new ItemImage("게임3 이미지", "게임3"));
-		itemImageRepository.save(new ItemImage("게임4 이미지", "게임4"));
-		itemImageRepository.save(new ItemImage("게임5 이미지", "게임5"));
-		itemImageRepository.save(new ItemImage("게임6 이미지", "게임6"));
-		itemImageRepository.save(new ItemImage("게임7 이미지", "게임7"));
-		itemImageRepository.save(new ItemImage("게임8 이미지", "게임8"));
-		itemImageRepository.save(new ItemImage("게임9 이미지", "게임9"));
-		itemImageRepository.save(new ItemImage("게임10 이미지", "게임10"));
-		itemImageRepository.save(new ItemImage("게임11 이미지", "게임11"));
-		itemImageRepository.save(new ItemImage("게임12 이미지", "게임12"));
-		itemImageRepository.save(new ItemImage("게임13 이미지", "게임13"));
-		itemImageRepository.save(new ItemImage("게임14 이미지", "게임14"));
-		itemImageRepository.save(new ItemImage("게임15 이미지", "게임15"));
-
 	}
 
 }

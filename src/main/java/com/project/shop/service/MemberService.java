@@ -60,11 +60,9 @@ public class MemberService implements UserDetailsService{
 	
 	public Member updateMember(Member member) {	
 		return memberRepository.save(member);
-	}
-	
+  }
+
 	public void memberDelete(Long id) {
 		memberRepository.deleteById(id);
 	}
-	
-	
 }
