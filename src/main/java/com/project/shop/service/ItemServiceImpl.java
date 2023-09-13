@@ -3,8 +3,11 @@ package com.project.shop.service;
 import com.project.shop.dto.ItemDto;
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
+import com.project.shop.dto.ReviewDto;
 import com.project.shop.entity.Item;
+import com.project.shop.entity.Review;
 import com.project.shop.repository.ItemRepository;
+import com.project.shop.repository.ReviewRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -22,6 +25,7 @@ public class ItemServiceImpl implements ItemService {
     private final ModelMapper modelMapper;
 
     private final ItemRepository itemRepository;
+    private final ReviewRepository reviewRepository;
 
     public List<Item> itemList() {
         return itemRepository.findAll();
@@ -30,6 +34,11 @@ public class ItemServiceImpl implements ItemService {
     // 상품 상세페이지
     public Item itemView(Long id) {
         return itemRepository.findById(id).get();
+    }
+
+    // 상품 리뷰 전체 불러오기(페이징 X)
+    public List<Review> reviewList(Long itemId) {
+        return reviewRepository.findAllByItemId(itemId);
     }
 
     // 상품 정렬

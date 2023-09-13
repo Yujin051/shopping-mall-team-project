@@ -20,7 +20,7 @@ public class MyController {
       return "my/orderDetail";
     }
 
-    @GetMapping("/review")
+    @GetMapping("/review/")
     public String review() {
       return "my/review";
     }
