@@ -2,8 +2,10 @@ package com.project.shop;
 
 import com.project.shop.entity.Item;
 import com.project.shop.entity.ItemImage;
+import com.project.shop.entity.Review;
 import com.project.shop.repository.ItemImageRepository;
 import com.project.shop.repository.ItemRepository;
+import com.project.shop.repository.ReviewRepository;
 import groovy.util.logging.Slf4j;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ public class ShopProjectApplication implements CommandLineRunner {
 
 	private final ItemRepository itemRepository;
 	private final ItemImageRepository itemImageRepository;
+	private final ReviewRepository reviewRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShopProjectApplication.class, args);
@@ -32,7 +35,7 @@ public class ShopProjectApplication implements CommandLineRunner {
 		// item 테이블에 임시 데이터 INSERT
 		itemRepository.save(new Item("게임1", 50000, 99, "상세설명1", "게임", "액션어드벤처RPG" ));
 		itemRepository.save(new Item("게임2", 50000, 99, "상세설명2", "게임", "액션슈팅" ));
-		itemRepository.save(new Item("게임3", 50000, 99, "상세설명3", "게임", "스포츠" ));
+		itemRepository.save(new Item("게임3", 50000, 10, "상세설명3", "게임", "스포츠" ));
 		itemRepository.save(new Item("게임4", 50000, 99, "상세설명4", "게임", "파티아케이드" ));
 		itemRepository.save(new Item("게임5", 50000, 99, "상세설명5", "게임", "전략" ));
 		itemRepository.save(new Item("게임6", 50000, 99, "상세설명6", "게임", "음악" ));
@@ -62,6 +65,7 @@ public class ShopProjectApplication implements CommandLineRunner {
 		itemImageRepository.save(new ItemImage("게임13 이미지", "게임13"));
 		itemImageRepository.save(new ItemImage("게임14 이미지", "게임14"));
 		itemImageRepository.save(new ItemImage("게임15 이미지", "게임15"));
+
 	}
 
 

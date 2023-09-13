@@ -54,6 +54,27 @@ public class ItemServiceImpl implements ItemService {
                 .build();
     }
 
+    // 메인 카테고리로 검색하여 정렬
+    @Override
+    public PageResponseDto<ItemDto> mainList(PageRequestDto pageRequestDto, String keyword) {
+        Pageable pageable = pageRequestDto.getPageable("id"); // 페이징
+
+        Page<Item> result = itemRepository.searchByMainCate(keyword, pageable);
+
+        // 찾아온 페이지를 item의 DTO로 변환
+        List<ItemDto> dtoList = result.getContent().stream()
+                .map(item -> modelMapper.map(item, ItemDto.class))
+                .collect(Collectors.toList());
+
+        // 응답 객체에 요청한 정보 DTO로 변환하여 전달
+        return PageResponseDto.<ItemDto>withAll()
+                .pageRequestDto(pageRequestDto)
+                .dtoList(dtoList)
+                .total((int)result.getTotalElements())
+                .build();
+    }
+
+
     // 서브카테고리로 검색하여 정렬
     @Override
     public PageResponseDto<ItemDto> subList(PageRequestDto pageRequestDto, String keyword) {

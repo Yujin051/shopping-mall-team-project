@@ -33,7 +33,7 @@ public class OrderService {
         Member member = memberRepository.findByEmail(email);
 
         // 가져온 멤버와 주문 상품 내역을 주문 내역에 추가
-        Order order = Order.createOrder(member, item);
+        Order order = Order.createOrder(member, item, orderDto.getPrice(), orderDto.getCount());
         orderRepository.save(order);
 
         // 해당 주문의 id를 출력

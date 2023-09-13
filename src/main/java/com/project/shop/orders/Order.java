@@ -11,6 +11,9 @@ import com.project.shop.entity.Member;
 import jakarta.persistence.*;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Getter
 @Setter
@@ -18,6 +21,7 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "orders")
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Order {
     @Id
     @GeneratedValue
@@ -38,7 +42,8 @@ public class Order {
     @Column(name = "order_count")
     private int orderCount;
 
-    // private LocalDateTime orderDate;    //주문일
+    @CreatedDate
+    private LocalDateTime orderDate;    //주문일
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;    //주문상태
@@ -49,14 +54,16 @@ public class Order {
 
 
     // 주문 객체를 생성(멤버와 주문 아이템 테이블을 이용하여 생성)
-    public static Order createOrder(Member member, Item item) {
+    public static Order createOrder(Member member, Item item, int orderPrice, int orderCount) {
         Order order = new Order();
         order.setItem(item);
         order.setMember(member);
-        return order;
-    }
+        order.setOrderPrice(orderPrice);
+        order.setOrderCount(orderCount);
 
-    public int totalPrice() {
-        return orderPrice * orderCount;
+        // 주문 객체 생성 시 주문한 수 만큼 상품 재고 감소 메소드
+        item.removeQty(orderCount);
+
+        return order;
     }
 }

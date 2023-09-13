@@ -16,4 +16,7 @@ public class OrderDto {
     @Min(value = 1, message = "최소 주문 수량은 1개입니다.")
     @Max(value = 99, message = "최대 주문 수량은 99개입니다.")
     private int count;
+
+    // 상품 가격정보
+    private int price;
 }

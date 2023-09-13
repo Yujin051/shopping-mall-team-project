@@ -2,8 +2,12 @@ package com.project.shop.controller;
 
 import com.project.shop.dto.OrderDto;
 import com.project.shop.service.OrderService;
+import groovy.util.logging.Log4j2;
+import groovy.util.logging.Slf4j;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,6 +22,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class OrderController {
 
     private final OrderService orderService;
@@ -28,6 +33,10 @@ public class OrderController {
     @ResponseBody
     public ResponseEntity order(@RequestBody @Valid OrderDto orderDto,
                                 BindingResult bindingResult, Principal principal) {
+        // 확인을 위한 로그
+        // Logger logger = LoggerFactory.getLogger(OrderController.class);
+        // logger.info("orderDto : " + orderDto.toString() + principal.getName());
+
         // BindingResult 이용하여 넘어오는 주문 폼의 값이 검증에 실패했을 경우
         // 예외로 처리하여 ResponseEntity에 담아 응답
         if (bindingResult.hasErrors()) {

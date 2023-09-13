@@ -19,6 +19,7 @@ public interface ItemService {
     PageResponseDto<ItemDto> list(PageRequestDto pageRequestDto);
 
     // 아이템 메인카테고리로 찾기
+    PageResponseDto<ItemDto> mainList(PageRequestDto pageRequestDto, String keyword);
 
     // 아이템 서브카테고리로 찾기
     PageResponseDto<ItemDto> subList(PageRequestDto pageRequestDto, String keyword);

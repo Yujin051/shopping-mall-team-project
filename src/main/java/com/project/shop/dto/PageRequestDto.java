@@ -23,18 +23,20 @@ public class PageRequestDto {
     @Builder.Default
     private int page =1;
 
-    // 최대 페이지 종류
+    // 한 번에 가져올 최대 항목 개수, 상품 12개까지 가져옴
     @Builder.Default
     private int size = 12;
 
     private String type; // 검색 종류 설정하는 기능.
                          // 제목 n, 메인 카테고리 m, 서브 카테고리 s 로 구별
+                         // 사용안함
 
     private String keyword;
 
     private String link;
 
     // 검색 조건을 Stirng[] 배열로 처리할 것이므로 type 문자열을 배열로 반환하는 기능
+    // 조건 검색으로 카테고리 검색에 활용할 수 있을까 했으나 사용하지 않음
     public String[] getTypes() {
         if(type == null || type.isEmpty()) {
             return null; // 조건이 없는 경우 null값 반환
@@ -48,6 +50,7 @@ public class PageRequestDto {
     }
 
     // 검색 조건을 문자열로 바꾸는 getLink() 메소드
+    // 안 씀
     public String getLink() {
         if(link == null) {
             StringBuilder builder = new StringBuilder();
