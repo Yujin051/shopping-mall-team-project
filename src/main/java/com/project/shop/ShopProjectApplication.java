@@ -1,18 +1,18 @@
 package com.project.shop;
 
-import com.project.shop.entity.Item;
-import com.project.shop.entity.ItemImage;
-import com.project.shop.entity.Review;
-import com.project.shop.repository.ItemImageRepository;
-import com.project.shop.repository.ItemRepository;
-import com.project.shop.repository.ReviewRepository;
-import groovy.util.logging.Slf4j;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
+import com.project.shop.entity.Item;
+import com.project.shop.entity.ItemImage;
+import com.project.shop.repository.ItemImageRepository;
+import com.project.shop.repository.ItemRepository;
+import com.project.shop.repository.ReviewRepository;
+
+import groovy.util.logging.Slf4j;
+import lombok.RequiredArgsConstructor;
 
 @SpringBootApplication
 @EnableJpaAuditing

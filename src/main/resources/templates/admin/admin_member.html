@@ -33,6 +33,7 @@
             <tr th:each="member : ${list}" class = "memberlist1">
                 <td th:text="${member.id}"></td>
                 <td th:text="${member.email}"></td>
+                <td>
                 <a th:href="@{/admin/deletemember?(id=${member.id})}"> 멤버 삭제</a>
                 </td>
             </tr>
