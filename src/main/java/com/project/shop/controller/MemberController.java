@@ -62,5 +62,6 @@ public class MemberController {
     public String gohome() {
     	return "redirect:/";
     }
+  
 
 }

@@ -58,6 +58,16 @@ public class Item {
 		this.imgOriginal = imgOriginal;
 		this.imgSaved = imgSaved;
 	   }
+	
+	@Builder
+	public Item(String itemName, int itemPrice, int itemQty, String itemContent, String mainCate, String subCate) {
+	    this.itemName = itemName;
+	    this.itemPrice = itemPrice;
+	    this.itemQty = itemQty;
+	    this.itemContent = itemContent;
+	    this.mainCate = mainCate;
+		this.subCate = subCate;
+	   }
 
   // 상품 주문 시 재고 감소와 재고가 없을 때 오류 담당 메소드
     public void removeQty(int itemQty) {
