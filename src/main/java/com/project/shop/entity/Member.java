@@ -1,13 +1,20 @@
 package com.project.shop.entity;
 
 import lombok.*;
+
+import java.time.LocalDate;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.project.shop.constant.RoleType;
 import com.project.shop.dto.MemberFormDto;
+import com.project.shop.service.MemberService;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +27,10 @@ import jakarta.persistence.Table;
 @Getter
 @Setter
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Member {
+	
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,13 +53,19 @@ public class Member {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "role", nullable = false)
 	private RoleType role;
+	
+	@Column(name = "regdate")
+	@CreatedDate
+	private LocalDate date;
+
 
 	@Builder
-	public Member(String email, String password, String phonenum, String auth, RoleType role) {
+	public Member(String email, String password, String phonenum, String auth, RoleType role, LocalDate date) {
 		this.email = email;
 		this.password = password;
 		this.phonenum = phonenum;
 		this.role = role;
+		this.date = date;
 	}
 	
 	public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
