@@ -1,5 +1,7 @@
 package com.project.shop.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,9 +23,12 @@ public class NoticeController {
 	
    // 전체 공지사항 목록 컨트롤러. 기존 컨트롤러에 통합합니다.
    @GetMapping(value = "/root") 
-   public String noticeList(Model model) {
+   public String noticeList(Model model, Principal principal) {
 	   System.out.println(noticeService.noticeList());
 	   model.addAttribute("list", noticeService.noticeList());
+	   String username = principal.getName();
+	   System.out.println("유저네임은" + username);
+	   
 	   return "notice/root";
    }
   
