@@ -37,10 +37,10 @@ public class Item {
 	@Column(name = "sub_cate")
 	private String subCate;	 // 카테고리 중분류
 
-	@Column(name = "img_original", nullable = false)
+	@Column(name = "img_original", nullable = true)
 	private String imgOriginal; // 원본 이미지 이름
 
-	@Column(name = "img_saved", nullable = false)
+	@Column(name = "img_saved", nullable = true)
 	private String imgSaved; // db에 저장될 이미지 이름
   
   // 리뷰 일대다 연관관계 매핑
