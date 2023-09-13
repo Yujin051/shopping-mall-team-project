@@ -37,6 +37,7 @@ public class Item {
 	@Column(name = "sub_cate")
 	private String subCate;	 // 카테고리 중분류
 
+	// 테스트를 위해 임시로 nullable 꺼뒀습니다.
 	@Column(name = "img_original", nullable = true)
 	private String imgOriginal; // 원본 이미지 이름
 
