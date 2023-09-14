@@ -39,11 +39,22 @@
 }
 
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(3) {
-    width: 10%;    
+    width: 12%;
+
 }
 
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(4) {
-    width: 10%;
+    width: 8%;
+
+}
+
+.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(5) {
+    width: 8%;
+
+}
+
+.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(6) {
+    width: 8%;
 }
 
 
@@ -68,6 +79,7 @@
     border-radius: 5px;
     width: 50px;
     height: 30px;
+    text-decoration-line: none;
 }
 
 .Itemlist1 {

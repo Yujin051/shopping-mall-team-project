@@ -1,7 +1,10 @@
 package com.project.shop.entity;
 
+import com.nimbusds.oauth2.sdk.Message;
+import com.nimbusds.openid.connect.sdk.assurance.claims.MSISDN;
 import com.project.shop.exception.OutOfQtyException;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.util.List;
@@ -16,22 +19,32 @@ public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "item_id")
+
 	private Long id; // 상품코드
 	
 	@Column(name = "item_name", nullable = false, length = 100)
+	@NotBlank(message = "상품명을 입력해주세요")
 	private String itemName; //상품명
 
 	@Column(name = "item_price", nullable = false)
+	@Positive(message = "양수만 입력하세요")
+	@Min(value = 1 , message = "1이상의 값을 입력하세요")
 	private int itemPrice;  //가격
 
+
+	@Positive(message = "양수만 입력하세요")
+	@Min(value = 1 , message = "1이상의 값을 입력하세요")
 	@Column(name = "item_qty", nullable = false)
 	private int itemQty;  //재고
 
 	//@Lob // 넣었다가 굳이 넣을필요 없어서 뺌
+	@NotBlank(message = "상세정보를 입력하세요")
 	@Column(name = "item_content")
 	private String itemContent;  //상품 상세설명
 
+	
 	@Column(name = "main_cate", nullable = false)
+	@NotNull(message = "카테고리를 선택해주세요")
 	private String mainCate;  // 카테고리 대분류
 
 	@Column(name = "sub_cate")
@@ -44,9 +57,9 @@ public class Item {
 	@Column(name = "img_saved", nullable = true)
 	private String imgSaved; // db에 저장될 이미지 이름
   
-  // 리뷰 일대다 연관관계 매핑
-  @OneToMany(mappedBy = "item")
-  private List<Review> reviews;
+    // 리뷰 일대다 연관관계 매핑
+  	@OneToMany(mappedBy = "item")
+  	private List<Review> reviews;
 
 	@Builder
 	public Item(String itemName, int itemPrice, int itemQty, String itemContent, String mainCate, String subCate, String imgOriginal, String imgSaved) {

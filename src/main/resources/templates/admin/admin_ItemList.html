@@ -34,8 +34,8 @@
                     <tr th:each = "item : ${list}" class = "Itemlist1">
                         <td th:text = "${item.id}">상품 ID</td>
                         <td th:text = "${item.itemName}" >상품명</td>
-                        <td th:text = "${item.itemPrice} + ' 원'">판매가</td>
-                        <td th:text = "${item.itemQty} + ' 개'">재고</td>
+                        <td th:text = "${item.itemPrice} + ' 원 '">판매가</td>
+                        <td th:text = "${item.itemQty} + ' 개 '">재고</td>
                         <td>
                             <a th:href="@{/admin/modifyItem/{id}(id=${item.id})}">수정</a>
                             <!--

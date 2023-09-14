@@ -3,7 +3,9 @@ package com.project.shop.controller.admin;
 import com.project.shop.entity.Item;
 import com.project.shop.entity.Notice;
 import com.project.shop.service.ItemService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.internal.Errors;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,8 +37,7 @@ public class AdminItemsController {
 
 	// 상품 등록 처리(db로 전송)
 	@PostMapping("/newItemReg")
-	public String newItemReg(Item item, @RequestPart MultipartFile file) throws Exception {
-		itemService.itemWrite(item, file);
+	public String newItemReg(@Valid Item item, Errors error, @RequestPart MultipartFile file) throws Exception {
 
 		return "redirect:/admin/ItemList";
 	}

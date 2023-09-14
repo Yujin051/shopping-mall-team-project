@@ -1,8 +1,8 @@
 package com.project.shop.controller.items;
 
-import com.project.shop.dto.ItemDto;
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
+import com.project.shop.entity.Item;
 import com.project.shop.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -23,7 +23,7 @@ public class GameController {
 	@GetMapping("/game")
 	public String gameMain(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "게임";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.mainList(pageRequestDto, keyword);
 		model.addAttribute("responseDto", responseDto);
 
@@ -33,7 +33,7 @@ public class GameController {
 	@GetMapping("/game/rpg")
 	public String gameRpg(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "RPG";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/rpg";
