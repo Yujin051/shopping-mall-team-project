@@ -21,9 +21,9 @@
 				작성일
 			</div>
 			<hr>
-			<div th:text="${notice.content}" class="bodyWindow">
+			<pre th:text="${notice.content}" class="bodyWindow">
 				내용
-			</div>
+			</pre>
 			<!-- 수정, 삭제를 위한 버튼 -->
 			<div class="modifyButton">
 				<a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/delete?(id=${notice.id})}">글 삭제</a>
