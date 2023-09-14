@@ -1,12 +1,6 @@
 package com.project.shop.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,20 +16,26 @@ public class CartItem {
     @Column(name = "cart_item_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
     
     private int count;
-    
+
+    // 생성자로 장바구니에 담을 새로운 cartItem 객체 만들기
     @Builder
     public CartItem(Cart cart, Item item, int count) {
         this.cart = cart;
         this.item = item;
         this.count = count;
+    }
+
+    // 같은 상품을 중복해서 담았을 경우 수량 추가
+    public void addCount(int count) {
+        this.count += count;
     }
 }

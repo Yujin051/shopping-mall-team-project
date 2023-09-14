@@ -21,8 +21,6 @@ import lombok.RequiredArgsConstructor;
 public class ShopProjectApplication implements CommandLineRunner {
 
 	private final ItemRepository itemRepository;
-	private final ItemImageRepository itemImageRepository;
-	private final ReviewRepository reviewRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShopProjectApplication.class, args);
@@ -32,7 +30,7 @@ public class ShopProjectApplication implements CommandLineRunner {
 	// 임시 데이터 INSERT 용으로 넣었습니다.
     // 추후 DB 이전 할 때 삭제할 것
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 		// item 테이블에 임시 데이터 INSERT
 		itemRepository.save(new Item("게임1", 50000, 99, "상세설명1", "게임", "액션어드벤처RPG" ));
 		itemRepository.save(new Item("게임2", 50000, 99, "상세설명2", "게임", "액션슈팅" ));
