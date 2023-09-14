@@ -1,6 +1,7 @@
 package com.project.shop.controller.admin;
 
 import com.project.shop.entity.Item;
+import com.project.shop.entity.Notice;
 import com.project.shop.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.query.Param;
@@ -41,24 +42,43 @@ public class AdminItemsController {
 	}
 
 	// 상품 삭제
-	@PostMapping("/delete/{id}")
-	public String deleteItem(@PathVariable ("id") Long id) {
-
+	@GetMapping("/deleteItem")
+	public String deleteItem(Long id, Model model) {
 		itemService.itemDelete(id);
 
-		return "redirect:/admin/ItemList";
-	}
+		model.addAttribute("message", "상품이 삭제되었습니다.");
+		model.addAttribute("SearchUrl", "/admin/ItemList");
 
-	@GetMapping("/viewItem")
-	public String viewItem(Model model, Long id) {
-		model.addAttribute("item", itemService.itemView(id));
-		return "/admin/modifyItem";
+		return "/admin/Message";
 	}
 
 
 	@GetMapping("/modifyItem/{id}")
 	public String modifyItem(@PathVariable ("id")Long id, Model model) {
+		model.addAttribute("item", itemService.itemView(id));
 
 		return "/admin/modifyItem";
+	}
+
+
+	@PostMapping("/updateItem/{id}")
+	public String noticeUpdate(@PathVariable("id")Long id, Item item, Model model, MultipartFile file) throws Exception {
+		Item itemUpdate = itemService.itemView(id);
+		itemUpdate.setItemName(item.getItemName());
+		itemUpdate.setItemContent(item.getItemContent());
+		itemUpdate.setItemPrice(item.getItemPrice());
+		itemUpdate.setItemQty(item.getItemQty());
+		itemUpdate.setImgOriginal(item.getImgOriginal());
+		itemUpdate.setImgSaved(item.getImgSaved());
+		itemUpdate.setMainCate(item.getMainCate());
+		itemUpdate.setSubCate(item.getSubCate());
+		model.addAttribute("message", "게시글이 수정되었습니다.");
+		model.addAttribute("SearchUrl", "/admin/ItemList");
+
+		itemService.itemWrite(itemUpdate, file);
+
+		return "notice/Message";
+
+
 	}
 }

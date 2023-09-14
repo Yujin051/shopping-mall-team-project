@@ -3,6 +3,8 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/default}">
 <head>
+    <script src="/js/admin_ItemList.js.js"></script>
+    <script src="https://code.jquery.com_jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="/css/admin_ItemList.css"/>
 </head>
 <div layout:fragment="content">
@@ -35,12 +37,17 @@
                         <td th:text = "${item.itemPrice} + ' 원'">판매가</td>
                         <td th:text = "${item.itemQty} + ' 개'">재고</td>
                         <td>
-                            <a th:text = "${modify}" th:href="@{/admin/delete(id=${item.id})}">수정</a>
+                            <a th:href="@{/admin/modifyItem/{id}(id=${item.id})}">수정</a>
+                            <!--
+                            <button th:text = "${modify}">수정</button>
+                            -->
                         </td>
                         <td>
-                            <a th:text = "${delete}" th:href="@{/admin/delete(id=${item.id})}">삭제</a>
+                            <a th:href="@{/admin/deleteItem?(id=${item.id})}">삭제</a>
+                            <!--
+                            <button id = "delete-btn" th:onclick="deleteItem([[${item.id}]])" th:text = "${delete}">삭제</button>
+                            -->
                         </td>
-
                     </tr>
                 </tbody>
             </table>
@@ -64,9 +71,6 @@
               </li>
             </ul>
           </nav>
-
     </article>
-
 </div>
-
 </html>
