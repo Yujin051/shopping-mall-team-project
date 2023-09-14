@@ -61,13 +61,13 @@
     text-align: center;
 }
 
+.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td button,
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td a {
     border: 1px solid black;
     color: black;
     border-radius: 5px;
-    width: 200px;
-    height: 100px;
-    text-decoration-line: none;
+    width: 50px;
+    height: 30px;
 }
 
 .Itemlist1 {
