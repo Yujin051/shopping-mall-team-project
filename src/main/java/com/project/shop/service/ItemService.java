@@ -8,7 +8,9 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -71,6 +73,11 @@ public class ItemService {
     // 상품 리스트 보이기
     public List<Item> itemList() {
         return itemRepository.findAll();
+    }
+
+    public Page<Item> itemListPaging(int page) {
+
+        return itemRepository.findAll(PageRequest.of(page, 3, Sort.by(Sort.Direction.ASC, "id")));
     }
 
     public Item itemView(Long id) {

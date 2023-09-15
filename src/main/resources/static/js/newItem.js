@@ -19,6 +19,8 @@ $(document).ready(function() {
                 checkbox.checked = false;
             })
 
+            $('.item_detail').text("모델명 : \n기종 : \n플레이 모드 : \n대응 언어 : \n메이커 : ");
+
             $('.game_chk').hide();
             $('.goods_chk').hide();
         }
@@ -31,6 +33,8 @@ $(document).ready(function() {
             checkboxes2.forEach((checkbox) => {
                 checkbox.checked = false;
             })
+
+            $('.item_detail').text("발매일 : \n장르 : \n플레이 인원 수 : \n언어 : \n플레이 모드 : \n대응 컨트롤러 : ");
 
             $('.game_chk').show();
             $('.goods_chk').hide();
@@ -50,6 +54,8 @@ $(document).ready(function() {
                 checkbox.checked = false;
             })
 
+            $('.item_detail').text("제품명 : \n장르 : \n원산지 : \n구성품 : ");
+
             $('.game_chk').hide();
             $('.goods_chk').hide();
         }
@@ -63,6 +69,8 @@ $(document).ready(function() {
                 checkbox.checked = false;
             })
 
+            $('.item_detail').text("제품명 : \n장르 : \n원산지 : \n구성품 : ");
+
             $('.game_chk').hide();
             $('.goods_chk').show();
         }
@@ -70,6 +78,7 @@ $(document).ready(function() {
 
     })
 
+    // 이미지 미리보기 기능
     $(function () {
         $(".select_img").on('change', function (){
             readURL(this);
@@ -85,5 +94,13 @@ $(document).ready(function() {
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    $(function () {
+        $(".reg_btn").click(function () {
+            if(!confirm('등록하시겠습니까?')) {
+                return false;
+            }
+        })
+    })
 
 })

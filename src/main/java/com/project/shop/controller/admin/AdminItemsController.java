@@ -6,7 +6,11 @@ import com.project.shop.service.ItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.internal.Errors;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,10 +25,17 @@ public class AdminItemsController {
 
 	// 상품 등록 리스트
 	@GetMapping(value = "/ItemList")
-	public String adminItemsList(Model model) {
+	public String adminItemsList(Model model, @RequestParam(required = false, defaultValue = "0", value = "page")int page) {
+
+		Page<Item> itemListPages = itemService.itemListPaging(page); // 페이지는 1부터 시작
+
+		// 총 페이지의 수
+		int totalPage = itemListPages.getTotalPages();
+
 		model.addAttribute("list", itemService.itemList());
 		model.addAttribute("modify", "수정");
 		model.addAttribute("delete", "삭제");
+		model.addAttribute("totalPage", totalPage);
 
 		return "/admin/admin_ItemList";
 	}
@@ -38,6 +49,7 @@ public class AdminItemsController {
 	// 상품 등록 처리(db로 전송)
 	@PostMapping("/newItemReg")
 	public String newItemReg(@Valid Item item, Errors error, @RequestPart MultipartFile file) throws Exception {
+		itemService.itemWrite(item, file);
 
 		return "redirect:/admin/ItemList";
 	}

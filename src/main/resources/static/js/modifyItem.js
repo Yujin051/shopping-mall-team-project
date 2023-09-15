@@ -66,7 +66,31 @@ $(document).ready(function() {
             $('.game_chk').hide();
             $('.goods_chk').show();
         }
+    })
 
+    // 이미지 미리보기 기능
+    $(function () {
+        $(".select_img").on('change', function (){
+            readURL(this);
+        });
+    });
 
+    function readURL(input) {
+        if(input.files && input.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                $("#preView").attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // 수정 버튼 클릭 시 alert창 띄우기
+    $(function () {
+        $(".modify_btn").click(function () {
+            if(!confirm('수정하시겠습니까?')) {
+                return false;
+            }
+        })
     })
 })

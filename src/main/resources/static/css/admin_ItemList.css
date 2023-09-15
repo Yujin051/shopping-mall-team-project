@@ -85,3 +85,14 @@
 .Itemlist1 {
     font-size: 16px;
 }
+
+.item_paging ul {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.item_paging ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 10px;
+}
