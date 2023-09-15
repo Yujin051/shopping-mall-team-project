@@ -20,9 +20,6 @@ public class Review {
     @Column(name = "review_id")
     private Long id;
 
-    @Column(name = "review_title")
-    private String title;
-
     @Column(name = "review_content")
     private String content;
 
@@ -41,12 +38,11 @@ public class Review {
     private LocalDateTime date;
 
     // 리뷰 객체 생성하기
-    public static Review createReview(Member member, Item item, String title, String content) {
+    public static Review createReview(Member member, Item item, String content) {
         Review review = new Review();
 
         review.setMember(member);
         review.setItem(item);
-        review.setTitle(title);
         review.setContent(content);
 
         return review;
