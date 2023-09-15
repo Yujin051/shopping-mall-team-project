@@ -50,7 +50,6 @@
     width: 750px; height: 110px;
     margin: 0 auto;
     display: flex;
-    cursor: pointer;
 } 
 
 
@@ -58,6 +57,7 @@
     border: 0px solid blue;
     width: 100px; height: 120px;
     background-color: aqua;
+    cursor: pointer;
 }
 
 .subtitle_main .content_title .order_content .content_left img {

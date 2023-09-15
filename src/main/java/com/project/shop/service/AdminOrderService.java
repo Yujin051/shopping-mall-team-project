@@ -2,11 +2,11 @@ package com.project.shop.service;
 
 import java.util.List;
 
+import com.project.shop.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
-import com.project.shop.entity.Notice;
-import com.project.shop.entity.Orders;
-import com.project.shop.repository.OrdersRepository;
+import com.project.shop.dto.OrdersManageDto;
+import com.project.shop.orders.Order;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,17 +14,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AdminOrderService {
 
-	private final OrdersRepository ordersRepository;
+	private final OrderRepository orderRepository;
 	
-	public List<Orders> ordersList() {
-        return ordersRepository.findAll();
+	public List<OrdersManageDto> ordersList() {
+        return orderRepository.findOrdersManageDto();
     }
 	
-	public void update(Orders orders) {
-		ordersRepository.save(orders);
+	public void update(Order orders) {
+		orderRepository.save(orders);
 	}
 	
-	public Orders OrdersView(Long orderId) {
-		return ordersRepository.findById(orderId).get();
+	public Order OrdersView(Long orderId) {
+		return orderRepository.findById(orderId).get();
 	}
 }

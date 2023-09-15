@@ -25,13 +25,15 @@
 
             <!-- 주문 상품 이미지 및 내역 -->
             <div class = "order_content">
+               <a th:href="@{/items(id=${orders.itemId})}">
                 <div class = content_left>
-                    <img src="/img/main_image.png" alt="이미지">
-                </div>
+                    <img th:src= "@{/img/} + ${orders.imgSaved}"/>
 
+                </div>
+               </a>
                 <div class = content_right>
                     <p th:text="${orders.orderDate}">주문일(2023.09.05)</p>
-                    <p>상품명(게임)</p>
+                    <p th:text="${orders.itemName}">상품명(게임)</p>
                     <p th:text="${orders.orderPrice}">59,000원</p>
                 </div>
             </div>

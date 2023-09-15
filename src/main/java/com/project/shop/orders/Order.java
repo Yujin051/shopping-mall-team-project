@@ -2,6 +2,7 @@ package com.project.shop.orders;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.project.shop.constant.OrderStatus;
@@ -43,7 +44,8 @@ public class Order {
     private int orderCount;
 
     @CreatedDate
-    private LocalDateTime orderDate;    //주문일
+    @Temporal(TemporalType.DATE)
+    private Date orderDate;    //주문일
 
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;    //주문상태
