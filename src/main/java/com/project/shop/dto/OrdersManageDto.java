@@ -19,12 +19,12 @@ public class OrdersManageDto {
     private String itemName;
     private Date orderDate;
     private String email;
-    private OrderStatus orderStatus;
+    private String orderStatus;
     private String imgSaved;
 
 
 
-    public OrdersManageDto(Long orderId, Long itemId, int orderCount, int orderPrice, String itemName, OrderStatus orderStatus, String imgSaved) {
+    public OrdersManageDto(Long orderId, Long itemId, int orderCount, int orderPrice, String itemName, String orderStatus, String imgSaved) {
         this.orderId= orderId;
         this.itemId = itemId;
         this.orderCount = orderCount;

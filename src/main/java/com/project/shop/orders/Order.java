@@ -47,8 +47,9 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date orderDate;    //주문일
 
-    @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;    //주문상태
+    //@Enumerated(EnumType.STRING)
+    @Column(name = "order_status")
+    private String orderStatus;    //주문상태
     
 //    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<OrderItem> orderItems = new ArrayList<>();

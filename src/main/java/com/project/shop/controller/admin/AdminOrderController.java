@@ -1,7 +1,6 @@
 package com.project.shop.controller.admin;
 
 import com.project.shop.orders.Order;
-import groovy.util.logging.Log4j2;
 import groovy.util.logging.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.project.shop.service.AdminOrderService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,12 +30,12 @@ public class AdminOrderController {
         return "admin/admin_order";
     }
 
-    @PostMapping("/update/{id}")
-    public String ordersUpdate(@PathVariable("id") Long orderId, Order orders, Model model) {
+    @PostMapping("/admin/update/{id}")
+    public String ordersUpdate(@PathVariable("id") Long orderId, Order orders, Model model, @RequestParam("select") String select ) {
         Order ordersT = adminOrderService.OrdersView(orderId);
-        ordersT.setOrderStatus(orders.getOrderStatus());
+        ordersT.setOrderStatus(select);
         model.addAttribute("message", "등록되었습니다.");
-        model.addAttribute("SearchUrl", "/admin/admin_order");
+        model.addAttribute("SearchUrl", "/admin/adminOrder");
 
         adminOrderService.update(ordersT);
 
