@@ -26,42 +26,16 @@
     <div class = "memberlist_graph">
         <table class = "memberlist_graphtable">
             <tr class = "memberlist_graphtable_title">
+            	<td>고유 ID</td>
                 <td>이메일</td>
-                <td>전화번호</td>
-                <td>가입날짜</td>
                 <td>탈퇴</td>
             </tr>
-            <tr class = "memberlist1">
-                <td>tlsehddms1234@naver.com</td>
-                <td>010-5646-1998</td>
-                <td>2018.01.01</td>
+            <tr th:each="member : ${list}" class = "memberlist1">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.email}"></td>
                 <td>
-                    <button type = "button">탈퇴</button>
+                <a th:href="@{/admin/deletemember?(id=${member.id})}"> 멤버 삭제</a>
                 </td>
-            </tr>
-            <tr class = "memberlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class = "memberlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class = "memberlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr class = "memberlist1">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
             </tr>
         </table>
     </div>

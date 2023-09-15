@@ -63,7 +63,7 @@
 
 
 .mainmenu:hover .submenu { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
-    height: 160px;           /* 높이를 93px로 설정 */
+    height: 400px;           /* 높이를 93px로 설정 */
 }
 
 
@@ -87,12 +87,15 @@
     -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
     -moz-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 파폭) */
     -o-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 오페라) */
+    z-index: 99;
 }
 
 .submenu .submenulink {          /* 하위 메뉴의 a 태그 스타일 설정 */
 	background-color: white;    /* 배경색을 흰색으로 설정 */
     border: solid 1px black;    /* 테두리를 설정 */
     margin-top: -1px;           /* 위 칸의 하단 테두리와 아래칸의 상단 테두리가 겹쳐지도록 설덩 */
+    height: 30px;
+    line-height: 30px;
 }
     
 .submenuatag {
