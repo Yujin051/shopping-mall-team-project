@@ -2,6 +2,8 @@ package com.project.shop.service;
 
 import com.project.shop.dto.CartDto;
 import com.project.shop.dto.CartItemDto;
+import com.project.shop.dto.CartOrderDto;
+import com.project.shop.dto.OrderDto;
 import com.project.shop.entity.Cart;
 import com.project.shop.entity.CartItem;
 import com.project.shop.entity.Item;
@@ -13,6 +15,7 @@ import com.project.shop.repository.MemberRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
@@ -30,6 +33,7 @@ public class CartService {
     private final MemberRepository memberRepository;
     private final CartRepository cartRepository;
     private final CartItemRepository cartItemRepository;
+    private final OrderService orderService;
 
     // 장바구니 추가하는 메소드
     public Long addCart(CartItemDto cartItemDto, String email) {
@@ -103,5 +107,21 @@ public class CartService {
 //                .orElseThrow(EntityNotFoundException::new);
 //        cartItemRepository.delete(cartItem);
         cartItemRepository.deleteById(cartItemId);
+    }
+
+    // 장바구니 상품 주문 - 주문된 상품 삭제하는 메소드
+    public Long orderCartItem(CartOrderDto cartOrderDto, String email) {
+        OrderDto orderDto = new OrderDto();
+        CartItem cartItem = cartItemRepository.findById(cartOrderDto.getCartItemId())
+                .orElseThrow(EntityNotFoundException::new);
+
+        orderDto.setItemId(cartItem.getItem().getId());
+        orderDto.setPrice(cartOrderDto.getPrice());
+        orderDto.setCount(cartItem.getCount());
+
+        Long orderId = orderService.cartOrder(orderDto, email);
+        cartItemRepository.delete(cartItem);
+
+        return orderId;
     }
 }

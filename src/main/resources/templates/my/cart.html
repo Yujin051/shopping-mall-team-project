@@ -15,10 +15,14 @@
 
         // 삭제 함수
         function deleteCartItem(obj) {
+            // DOM 객체에서 data-id 속성 값 가져오기
             const cartItemId = obj.dataset.id
             const url = "/cart/" + cartItemId
 
             $.ajax({
+                // 해당 url로 접속했을 때 DELETE 요청 서버로 보냄
+                // 데이터는 json 타입으로, 컨트롤러에서 @RequestBody 매핑으로
+                // 전달받아 처리
                 url : url,
                 type : "DELETE",
                 dataType : "json",
@@ -39,7 +43,51 @@
         }
 
         // 주문 메소드
+        function orderCartItem(obj) {
+            const url = "/cart/order"
+            const count = $("#count").val()
+            const price = $("#price").val()
+            const cartItemId = $("#cartItemId").val()
+            const total = count * price
 
+            // 키:값 -> 상품 id와 수량을 넣기
+            const paramData = {
+                itemId : $("#itemId").val(),
+                cartItemId : cartItemId,
+                count : count,
+                price : total
+            }
+
+            //JSON 데이터 자바스크립트 객체로 변환
+            const param = JSON.stringify(paramData)
+
+            // ajax 비동기 처리
+            $.ajax({
+                url : url,
+                type : "POST",
+                contentType : "application/json",
+                data : param,
+                // 아래 비동기 설정 잘 모르겠음
+                dataType : "json",
+                cache : false,
+                success : function() {
+                    alert('구매 완료 되었습니다.')
+                    location.href='/cart'
+                },
+                error : function(jqXHR) {
+                    // 로그인 인증 존재 여부?
+                    // 조건문에서 강제형변환 경고가 발생하는데 '===' 이용하여 방지하면
+                    // http status 상태를 읽지 못해 전체 에러 메세지를 리턴하는
+                    // 문제가 있음
+                    if(jqXHR.status == '401') {
+                        alert('비회원은 구매할 수 없습니다. 로그인 페이지로 이동합니다.')
+                        location.href='/members/login'
+                    } else {
+                        alert(jqXHR.responseText)
+                    }
+                }
+            })
+        }
 
     </script>
 </th:block>
@@ -66,12 +114,19 @@
                         <img src="/img/main_image.png" alt="이미지">
                     </div>
                     <div class=info_content>
+                        <!-- 주문 처리를 위해 상품 정보 CartDto에서 받아오기 -->
+                        <input type="hidden" id="itemId" th:value="${cartItem.itemId}">
+                        <input type="hidden" id="cartItemId" th:value="${cartItem.cartItemId}">
                         <p th:text="${cartItem.itemName}">상품 이름 자리</p>
+                        <!-- 주문 처리를 위해 상품 정보 CartDto에서 받아오기 -->
+                        <input type="hidden" th:value="${cartItem.price}" id="price" name="price">
                         <p th:text="${cartItem.price}">상품 가격 자리</p>
                     </div>
                 </div>
                 <div class="su_btn">
                     <button type="button">+</button>
+                    <!-- 주문 처리를 위해 상품 정보 CartDto에서 받아오기 -->
+                    <input type="hidden" th:value="${cartItem.count}" id="count" name="count">
                     <div th:text="${cartItem.count}" class="result">상품 개수 자리</div>
                     <button type="button">-</button>
                 </div>
@@ -79,7 +134,7 @@
 
             <div class="more_btn">
                 <button type="button" onclick="toGame()">더 담으러 가기</button>
-                <button type="button">주문하기</button>
+                <button type="button" onclick="orderCartItem()">주문하기</button>
             </div>
         </div>
 

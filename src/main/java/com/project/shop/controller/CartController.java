@@ -2,6 +2,7 @@ package com.project.shop.controller;
 
 import com.project.shop.dto.CartDto;
 import com.project.shop.dto.CartItemDto;
+import com.project.shop.dto.CartOrderDto;
 import com.project.shop.repository.CartItemRepository;
 import com.project.shop.service.CartService;
 import jakarta.validation.Valid;
@@ -82,4 +83,19 @@ public class CartController {
 		cartService.deleteCartItem(cartItemId);
 		return new ResponseEntity<Long>(cartItemId, HttpStatus.OK);
 	}
+
+	// 장바구니에서 주문할 때 처리
+	@PostMapping("/cart/order")
+	@ResponseBody
+	public ResponseEntity orderCartItem(@RequestBody CartOrderDto cartOrderDto,
+										Principal principal) {
+		// 장바구니 주문 상품 검증
+		if(!cartService.validateCartItem(cartOrderDto.getCartItemId(), principal.getName())) {
+			return new ResponseEntity<String>("주문 권한이 없습니다.", HttpStatus.FORBIDDEN);
+		}
+
+		Long orderId = cartService.orderCartItem(cartOrderDto, principal.getName());
+		return new ResponseEntity<Long>(orderId, HttpStatus.OK);
+	}
+
 }

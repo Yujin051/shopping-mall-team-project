@@ -122,6 +122,12 @@
                 }
             })
         }
+
+        // 리뷰 버튼 누르면 리뷰 페이지로 이동
+        function review() {
+            const itemId = $("#itemId").val();
+            location.href = '/review?id=' + itemId;
+        }
     </script>
 </th:block>
 

@@ -15,5 +15,4 @@ public class CartItemDto {
     @Min(value = 1, message = "1개 이상부터 담을 수 있습니다.")
     private int count;
 
-
 }

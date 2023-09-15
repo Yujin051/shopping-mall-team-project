@@ -6,6 +6,8 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CartDto {
+    // 해당 상품 id
+    private Long itemId;
     // 장바구니 상품 id
     private Long cartItemId;
     // 장바구니 상품 이름
