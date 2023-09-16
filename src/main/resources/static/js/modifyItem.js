@@ -69,13 +69,11 @@ $(document).ready(function() {
                 checkbox.checked = false;
             })
 
-            $('.item_detail').text("제품명 : \n발매일 : \n원산지 : \n구성품 : ");
+            $('.item_detail').text("제품명 : \n 발매일 : \n원산지 : \n구성품 : ");
 
             $('.game_chk').hide();
             $('.goods_chk').show();
         }
-
-
     })
 
     // 이미지 미리보기 기능
@@ -95,12 +93,22 @@ $(document).ready(function() {
         }
     }
 
+    // 수정 버튼 클릭 시 alert창 띄우기
     $(function () {
-        $(".reg_btn").click(function () {
-            if(!confirm('등록하시겠습니까?')) {
+        $(".modify_btn").click(function () {
+            if(!confirm('수정하시겠습니까?')) {
                 return false;
             }
         })
     })
 
+    $(function (){
+        let subCateArr = $(".subCateArr").val();
+
+        $('input:checkbox[name = "subCate"]').each(function () {
+            if(subCateArr.indexOf(this.value) > -1) {
+                $(this.prop('checked', true));
+            }
+        })
+    })
 })

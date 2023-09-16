@@ -3,6 +3,8 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/default}">
 <head>
+    <script src="/js/admin_ItemList.js"></script>
+    <script src="https://code.jquery.com_jquery-3.7.1.min.js"></script>
     <link rel="stylesheet" href="/css/admin_ItemList.css"/>
 </head>
 <div layout:fragment="content">
@@ -32,41 +34,33 @@
                     <tr th:each = "item : ${list}" class = "Itemlist1">
                         <td th:text = "${item.id}">상품 ID</td>
                         <td th:text = "${item.itemName}" >상품명</td>
-                        <td th:text = "${item.itemPrice} + ' 원'">판매가</td>
-                        <td th:text = "${item.itemQty} + ' 개'">재고</td>
+                        <td th:text = "${item.itemPrice} + ' 원 '">판매가</td>
+                        <td th:text = "${item.itemQty} + ' 개 '">재고</td>
                         <td>
-                            <a th:text = "${modify}" th:href="@{/admin/delete(id=${item.id})}">수정</a>
+                            <a th:href="@{/admin/modifyItem/{id}(id=${item.id})}">수정</a>
                         </td>
                         <td>
-                            <a th:text = "${delete}" th:href="@{/admin/delete(id=${item.id})}">삭제</a>
+                            <a th:href="@{/admin/deleteItem?(id=${item.id})}" class = "delete_btn">삭제</a>
                         </td>
-
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- 밑에 숫자 넘어가기 -->
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
+                <li class="page-item" th:classappend="${startPage == list.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/admin/ItemList(page=${list.pageable.pageNumber - 1})}" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item" th:classappend="${num == list.pageable.pageNumber + 1} ? 'active'" th:each="num : ${#numbers.sequence(startPage, endPage)}">
+                    <a class="page-link" th:href="@{/admin/ItemList(page=${num-1})}" th:text="${num}">1</a></li>
+
+                <li class="page-item" th:classappend="${endPage == list.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/admin/ItemList(page=${list.pageable.pageNumber + 1})}">Next</a>
+                </li>
             </ul>
-          </nav>
+        </nav>
 
     </article>
-
 </div>
-
 </html>

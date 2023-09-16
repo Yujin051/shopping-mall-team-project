@@ -5,11 +5,26 @@
 }
 
 
+.subtitle_main .noticeButton {
+    background-color: rgb(52,152,219);
+    border: 0px solid red;
+    border-radius: 5px;
+    width: 60px;
+    height: 25px;
+    margin-left: 960px;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.subtitle_main .noticeButton .noticeButtonTag {
+    text-decoration: none;
+    color: white;
+}
 
 .subtitle_main .notice_graph {
     border: 0px solid black;
     height: auto; width: 70%;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 15%;
     margin-bottom: 50px;
     font-family: 'Noto Sans KR', sans-serif;

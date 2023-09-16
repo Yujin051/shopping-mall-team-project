@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.project.shop.service.OrderDetailService;
+
 import com.project.shop.entity.Member;
 import com.project.shop.repository.MemberRepository;
 import com.project.shop.service.MemberService;
@@ -23,19 +25,24 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/my")
 @Controller
 public class MyController {
-	
+
+    private final OrderDetailService orderDetailService;
+
+
 	private final MemberRepository memberRepository;
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	@Autowired
 	private  PasswordEncoder passwordEncoder;
 
     // 주문/리뷰 컨트롤러 추가
     // 추후 필요하면 분리할 것
     @GetMapping("/orderDetail")
-    public String orderDetail() {
+    public String orderDetail(Model model) {
+      System.out.println(orderDetailService.ordersList());
+ 	  model.addAttribute("list", orderDetailService.ordersList());
       return "my/orderDetail";
     }
 
@@ -56,7 +63,7 @@ public class MyController {
     
 //    @PostMapping("/mypage")
 //    public String modify(Principal principal, Model model, Member member) {
-//    	
+//
 //    }
     // 회원정보 수정 view 이동
     @GetMapping("/mypage1")
@@ -64,7 +71,7 @@ public class MyController {
     	UserDetails userDetails = (UserDetails) auth.getPrincipal();
     	Member member = memberRepository.findByEmail(userDetails.getUsername());
     	model.addAttribute("member", member);
-    	
+
     	return "my/mypage";
     }
     //회원정보 수정하기
