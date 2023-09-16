@@ -1,9 +1,13 @@
 package com.project.shop.controller;
 
+import com.project.shop.entity.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +28,16 @@ public class NoticeController {
 
    // 전체 공지사항 목록 컨트롤러. 기존 컨트롤러에 통합합니다.
    @GetMapping(value = "/root")
-   public String noticeList(Model model, Principal principal) {
-	   System.out.println(noticeService.noticeList());
-	   model.addAttribute("list", noticeService.noticeList());
+   public String noticeList(Model model, @PageableDefault(size = 15) Pageable pageable) {
+
+	   Page<Notice> noticeListPages = noticeService.noticeListPage(pageable);
+
+	   int startPage = Math.max(1, noticeListPages.getPageable().getPageNumber() - 2);
+	   int endPage = Math.min(noticeListPages.getPageable().getPageNumber() + 2, noticeListPages.getTotalPages());
+
+	   model.addAttribute("startPage", startPage);
+	   model.addAttribute("endPage", endPage);
+	   model.addAttribute("list", noticeListPages);
 
 	   return "notice/root";
    }

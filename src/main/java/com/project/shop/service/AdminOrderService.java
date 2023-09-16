@@ -3,6 +3,8 @@ package com.project.shop.service;
 import java.util.List;
 
 import com.project.shop.repository.OrderRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.project.shop.dto.OrdersManageDto;
@@ -16,8 +18,8 @@ public class AdminOrderService {
 
 	private final OrderRepository orderRepository;
 	
-	public List<OrdersManageDto> ordersList() {
-        return orderRepository.findOrdersManageDto();
+	public Page<OrdersManageDto> ordersList(Pageable pageable) {
+        return orderRepository.findOrdersManageDto(pageable);
     }
 	
 	public void update(Order orders) {
