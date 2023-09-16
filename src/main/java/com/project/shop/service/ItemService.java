@@ -69,6 +69,7 @@ public class ItemService {
         return originalFilename.substring(pos + 1);
     }
 
+
     // 상품 리스트 보이기
     public List<Item> itemList() {
         return itemRepository.findAll();

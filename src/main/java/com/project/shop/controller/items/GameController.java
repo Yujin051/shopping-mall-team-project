@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/items")
 public class GameController {
 
+
 	private final ItemService itemService;
 
 	// 첫 정렬 키워드를 프론트에서 파라미터로 받아서 검색할 수 있게
