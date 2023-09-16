@@ -1,5 +1,6 @@
 package com.project.shop.controller.items;
 
+import com.project.shop.dto.ItemDto;
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
 import com.project.shop.entity.Item;
@@ -34,7 +35,7 @@ public class GameController {
 	@GetMapping("/action")
 	public String gameAction(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "액션";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -43,7 +44,7 @@ public class GameController {
 	@GetMapping("/adventure")
 	public String gameAdventure(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "어드벤쳐";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -53,7 +54,7 @@ public class GameController {
 	@GetMapping("/racing")
 	public String gameRacing(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "레이싱";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -62,7 +63,7 @@ public class GameController {
 	@GetMapping("/sport")
 	public String gameSports(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "스포츠";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -73,7 +74,7 @@ public class GameController {
 	@GetMapping("/rpg")
 	public String gameRpg(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "RPG/롤플레잉";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -83,7 +84,7 @@ public class GameController {
 	@GetMapping("/fps")
 	public String gameFPS(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "FPS/슈팅";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -93,7 +94,7 @@ public class GameController {
 	@GetMapping("/party")
 	public String gameParty(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "파티";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -102,7 +103,7 @@ public class GameController {
 	@GetMapping("/rts")
 	public String gameStrategy(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "전략";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -111,7 +112,7 @@ public class GameController {
 	@GetMapping("/simulation")
 	public String gameSimulation(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "시뮬레이션";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -120,7 +121,7 @@ public class GameController {
 	@GetMapping("/arcade")
 	public String gameArcade(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "아케이드/퍼즐";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -129,7 +130,7 @@ public class GameController {
 	@GetMapping("/music")
 	public String gameMusic(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "음악";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);
@@ -138,7 +139,7 @@ public class GameController {
 	@GetMapping("/etc")
 	public String gameEtc(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "기타";
-		PageResponseDto<ItemDto> responseDto =
+		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
 		model.addAttribute("responseDto", responseDto);

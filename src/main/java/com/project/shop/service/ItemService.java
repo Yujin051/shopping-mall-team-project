@@ -92,11 +92,7 @@ public class ItemService {
     // 상품 정렬 페이지 관련, 페이징 관련
     // 인터페이스로 분리하여 상속받은 내용 다시 서비스로 통합(ItemServiceImpl)
     // 아이템 테이블에서 전체 데이터 불러오는 것으로 처리
-
-    // 아이템 리뷰 리스트 불러오기
-    List<Review> reviewList(Long itemId){
-        return reviewRepository.findAllByItemId(itemId);
-    };
+    ;
 
        // 아이템 정렬 메소드. 전체 상품 정렬이라 안 씀
     public PageResponseDto<Item> list(PageRequestDto pageRequestDto){

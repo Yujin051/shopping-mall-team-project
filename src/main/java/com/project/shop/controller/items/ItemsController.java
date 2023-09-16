@@ -44,7 +44,7 @@ public class ItemsController {
     @GetMapping("/hardware/root")
     public String hardwareMain(PageRequestDto pageRequestDto, Model model) {
         String keyword = "하드웨어";
-        PageResponseDto<ItemDto> responseDto =
+        PageResponseDto<Item> responseDto =
                 itemService.mainList(pageRequestDto, keyword);
         model.addAttribute("cateName", keyword);
         model.addAttribute("responseDto", responseDto);
@@ -55,7 +55,7 @@ public class ItemsController {
     @GetMapping("/goods/root")
     public String goodsMain(PageRequestDto pageRequestDto, Model model) {
         String keyword = "굿즈";
-        PageResponseDto<ItemDto> responseDto =
+        PageResponseDto<Item> responseDto =
                 itemService.mainList(pageRequestDto, keyword);
         model.addAttribute("cateName", keyword);
         model.addAttribute("responseDto", responseDto);
@@ -66,7 +66,7 @@ public class ItemsController {
     @GetMapping("/accessory/root")
     public String accessoryMain(PageRequestDto pageRequestDto, Model model) {
         String keyword = "악세서리";
-        PageResponseDto<ItemDto> responseDto =
+        PageResponseDto<Item> responseDto =
                 itemService.mainList(pageRequestDto, keyword);
         model.addAttribute("cateName", keyword);
         model.addAttribute("responseDto", responseDto);
