@@ -62,4 +62,12 @@ public class ReviewController {
 
         return new ResponseEntity<Long>(reviewId, HttpStatus.OK);
     }
+
+    // 리뷰 삭제 기능
+    @DeleteMapping("/review/{reviewId}")
+    @ResponseBody
+    public ResponseEntity deleteReview(@PathVariable("reviewId") Long reviewId) {
+        reviewService.deleteReview(reviewId);
+        return new ResponseEntity<Long>(reviewId, HttpStatus.OK);
+    }
 }

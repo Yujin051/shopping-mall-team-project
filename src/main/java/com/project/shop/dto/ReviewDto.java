@@ -4,11 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
 public class ReviewDto {
+    // 리뷰 id
+    private Long reviewId;
 
     // 아이템 id
     private Long itemId;

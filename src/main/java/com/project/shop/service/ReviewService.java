@@ -31,9 +31,9 @@ public class ReviewService {
 
     // 상품 id를 매개변수로 주문 정보 조회하는 서비스
     // 조회한 주문 정보에 회원 id 가 일치하는 기록이 있으면 리뷰 작성 페이지로
-    // 아니라면 예외 발생
-    // 리뷰 폼을 요청할 때 상품 정보, 주문 일자를 dto로 넘겨주고 넘겨받은
-    // 데이터를 검증 절차를 통해 현재 로그인 된 유저가 리뷰를 쓸 수 있는지
+    // 아니라면 예외 발생 --> 발생한 예외 처리 후 원래 상품 페이지로 이동하고 싶은데
+    // 어떤 식으로?
+    // 리뷰 폼을 요청할 때 상품 정보, 주문 일자를
     // 확인한 후에 리뷰 작성 페이지를 열고, 작성된 리뷰를 해당 상품 상세 페이지
     // 로 넘겨주면 그 값을 받아서 출력하는
 
@@ -51,14 +51,12 @@ public class ReviewService {
         // 정보를 반환할 Dto 선언
         ReviewItemDto reviewItemDto = new ReviewItemDto();
 
-        if (order == null) {
-            throw new NotOrderedException("주문 내역이 없는 상품은 후기를 등록하실 수 없습니다.");
-        } else {
+        if (order != null) {
             // 가져온 정보를 Dto로 전달
             reviewItemDto.setOrderDate(order.getOrderDate());
             reviewItemDto.setMemberId(member.getId());
-            return reviewItemDto;
         }
+        return reviewItemDto;
     }
 
     public Long newReview(ReviewDto reviewDto, String email) {
@@ -75,5 +73,12 @@ public class ReviewService {
 
         // 해당 리뷰의 id 출력
         return review.getId();
+    }
+
+    // 후기id로 후기 삭제하는 메소드
+    public void deleteReview(Long reviewId) {
+        Review review = reviewRepository.findById(reviewId)
+                .orElseThrow(EntityNotFoundException::new);
+        reviewRepository.delete(review);
     }
 }
