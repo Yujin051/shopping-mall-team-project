@@ -30,7 +30,6 @@
 	        <div class="writeBody">
                 <textarea name="content" class="bodyContent" th:text="${notice.content}" th:value="${notice.content}" placeholder="내용을 입력해주세요."></textarea>
 	        </div>
-            <input type="hidden" th:value="${notice.date}" th:text="${#calendars.createNow()}">
 	        <button type="submit" class="posting">수정하기</button>
         </form>
     </article>

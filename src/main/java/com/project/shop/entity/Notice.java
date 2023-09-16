@@ -3,6 +3,7 @@ package com.project.shop.entity;
 import java.time.LocalDate;
 
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
@@ -36,6 +37,7 @@ public class Notice {
 	
 	@Column(name = "notice_date")
 	@CreatedDate
+	@LastModifiedDate
 	private LocalDate date;
 	
 	@Builder
