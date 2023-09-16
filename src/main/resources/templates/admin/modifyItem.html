@@ -38,15 +38,14 @@
                 <tr>
                     <td class = "tag">상세 정보</td>
                     <td class = "content" colspan="5">
-                            <textarea th:value="${item.itemContent}" name = "itemContent" id = "info" class  = "item_detail">발매일 : &#10;장르 : &#10;인원 수 : &#10;언어 : &#10;플레이모드 : &#10;대응 컨트롤러 :
-                            </textarea>
+                            <textarea th:value="${item.itemContent}" th:text="${item.itemContent}" name = "itemContent" id = "info" class  = "item_detail"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td class = "tag">이미지</td>
                     <td class = "content" colspan="5">
-                        <img src="/img/main_image.png" alt="이미지">
-                        <input th:value="${item.imgOriginal}" name = "file" type = "file" class = "select_img">
+                        <img id = "preView" src = "#" alt="이미지가 없습니다.">
+                        <input th:value="${item.imgOriginal}" name = "file" type = "file" accept = "image/*" class = "select_img">
                     </td>
                 </tr>
                 <tr>
@@ -81,6 +80,7 @@
                         <!-- 게임 중분류 카테고리-->
                         <div class = "game_chk">
                             <label>
+                                <input type = "hidden" class = "subCateArr" th:value = "${subCate}">
                                 <input type="checkbox"
                                        name="subCate"
                                        value="액션"> 액션
@@ -163,14 +163,14 @@
                             <label>
                                 <input type="radio"
                                        name="subCate"
-                                       value="홈파티굿즈"> 홈파티굿즈
+                                       value="옷"> 옷
                             </label>
                         </div>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <button type = "submit">수정</button>
+            <button type = "submit" class = "modify_btn">수정</button>
         </form>
     </article>
 
