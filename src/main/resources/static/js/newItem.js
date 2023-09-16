@@ -34,7 +34,7 @@ $(document).ready(function() {
                 checkbox.checked = false;
             })
 
-            $('.item_detail').text("발매일 : \n장르 : \n플레이 인원 수 : \n언어 : \n플레이 모드 : \n대응 컨트롤러 : ");
+            $('.item_detail').text("대응기종 : \n장르 : \n발매일 : \n메이커 : \n플레이 인원수 : \n인터넷 통신 플레이 인원수 : \n대응언어 : \n필요한 용량 : \n대응 컨트롤러 : \n플레이 모드 : ");
 
             $('.game_chk').show();
             $('.goods_chk').hide();
@@ -54,7 +54,7 @@ $(document).ready(function() {
                 checkbox.checked = false;
             })
 
-            $('.item_detail').text("제품명 : \n장르 : \n원산지 : \n구성품 : ");
+            $('.item_detail').text("제품명 : \n대응기종 : \n발매일 : \n원산지 : \n메이커 : ");
 
             $('.game_chk').hide();
             $('.goods_chk').hide();
@@ -69,7 +69,7 @@ $(document).ready(function() {
                 checkbox.checked = false;
             })
 
-            $('.item_detail').text("제품명 : \n장르 : \n원산지 : \n구성품 : ");
+            $('.item_detail').text("제품명 : \n발매일 : \n원산지 : \n구성품 : ");
 
             $('.game_chk').hide();
             $('.goods_chk').show();

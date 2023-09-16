@@ -75,9 +75,9 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Page<Item> itemListPaging(int page) {
+    public Page<Item> itemListPaging(Pageable pageable) {
 
-        return itemRepository.findAll(PageRequest.of(page, 3, Sort.by(Sort.Direction.ASC, "id")));
+        return itemRepository.findAll(pageable);
     }
 
     public Item itemView(Long id) {

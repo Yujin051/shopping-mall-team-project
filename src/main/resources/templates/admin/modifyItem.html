@@ -38,7 +38,7 @@
                 <tr>
                     <td class = "tag">상세 정보</td>
                     <td class = "content" colspan="5">
-                            <textarea th:value="${item.itemContent}" name = "itemContent" id = "info" class  = "item_detail"></textarea>
+                            <textarea th:value="${item.itemContent}" th:text="${item.itemContent}" name = "itemContent" id = "info" class  = "item_detail"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -80,6 +80,7 @@
                         <!-- 게임 중분류 카테고리-->
                         <div class = "game_chk">
                             <label>
+                                <input type = "hidden" class = "subCateArr" th:value = "${subCate}">
                                 <input type="checkbox"
                                        name="subCate"
                                        value="액션"> 액션
@@ -162,7 +163,7 @@
                             <label>
                                 <input type="radio"
                                        name="subCate"
-                                       value="홈파티굿즈"> 홈파티굿즈
+                                       value="옷"> 옷
                             </label>
                         </div>
                     </td>

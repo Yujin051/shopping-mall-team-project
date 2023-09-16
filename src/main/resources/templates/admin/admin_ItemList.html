@@ -47,13 +47,20 @@
             </table>
         </div>
 
-        <div class = "item_paging">
-             <ul>
-                 <li th:each = "page : ${#numbers.sequence(0, totalPage)}">
-                     <a th:href = "@{/admin/ItemList(page=${pageStat.index})}" th:text = "${pageStat.index} + 1"></a>
-                 </li>
-             </ul>
-        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item" th:classappend="${startPage == list.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/admin/ItemList(page=${list.pageable.pageNumber - 1})}" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item" th:classappend="${num == list.pageable.pageNumber + 1} ? 'active'" th:each="num : ${#numbers.sequence(startPage, endPage)}">
+                    <a class="page-link" th:href="@{/admin/ItemList(page=${num-1})}" th:text="${num}">1</a></li>
+
+                <li class="page-item" th:classappend="${endPage == list.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/admin/ItemList(page=${list.pageable.pageNumber + 1})}">Next</a>
+                </li>
+            </ul>
+        </nav>
+
     </article>
 </div>
 </html>

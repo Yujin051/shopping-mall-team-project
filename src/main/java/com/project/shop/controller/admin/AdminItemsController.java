@@ -25,17 +25,20 @@ public class AdminItemsController {
 
 	// 상품 등록 리스트
 	@GetMapping(value = "/ItemList")
-	public String adminItemsList(Model model, @RequestParam(required = false, defaultValue = "0", value = "page")int page) {
+	public String adminItemsList(Model model, @PageableDefault(size = 15) Pageable pageable) {
 
-		Page<Item> itemListPages = itemService.itemListPaging(page); // 페이지는 1부터 시작
+		Page<Item> itemListPages = itemService.itemListPaging(pageable);
 
-		// 총 페이지의 수
-		int totalPage = itemListPages.getTotalPages();
+		int startPage = Math.max(1, itemListPages.getPageable().getPageNumber() - 2);
+		int endPage = Math.min(itemListPages.getPageable().getPageNumber() + 2, itemListPages.getTotalPages());
 
-		model.addAttribute("list", itemService.itemList());
+		// model.addAttribute("list", itemService.itemList());
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("list", itemListPages);
 		model.addAttribute("modify", "수정");
 		model.addAttribute("delete", "삭제");
-		model.addAttribute("totalPage", totalPage);
+
 
 		return "/admin/admin_ItemList";
 	}
