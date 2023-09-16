@@ -4,6 +4,8 @@ server:
   
 # MariaDB 데이터베이스 연결 설정
 spring:
+  profiles:
+    include: oauth
   h2:
     console:
       enabled: true  # H2 콘솔을 사용하려면 활성화

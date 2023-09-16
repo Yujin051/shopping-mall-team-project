@@ -40,15 +40,14 @@
                 <tr>
                     <td class = "tag">상세 정보</td>
                     <td class = "content" colspan="5">
-                        <textarea name = "itemContent" id = "info" class  = "item_detail">발매일 : &#10;장르 : &#10;인원 수 : &#10;언어 : &#10;플레이모드 : &#10;대응 컨트롤러 :
-                        </textarea>
+                        <textarea name = "itemContent" id = "info" class  = "item_detail"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td class = "tag">이미지</td>
                     <td class = "content" colspan="5">
-                        <img src="/img/main_image.png" alt="이미지">
-                        <input name = "file" type = "file" class = "select_img">
+                        <img id = "preView" src = "#" alt="이미지가 없습니다.">
+                        <input name = "file" type = "file" accept = "image/*" class = "select_img">
                     </td>
                 </tr>
                 <tr>
@@ -165,14 +164,14 @@
                             <label>
                                 <input type="radio"
                                     name="subCate"
-                                    value="홈파티굿즈"> 홈파티굿즈
+                                    value="옷"> 옷
                             </label>
                         </div>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <button type = "submit">등록</button>
+            <button type = "submit" class = "reg_btn">등록</button>
         </form>
     </article>
 
