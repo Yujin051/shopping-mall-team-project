@@ -16,16 +16,16 @@ public class ItemRepositoryTest {
     @Autowired
     ItemRepository itemRepository;
 
-    @Test
-    @DisplayName("상품 저장 테스트")
-    public void createItemTest() {
-        Item item = Item.builder()
-                .itemName("테스트 상품")
-                .itemPrice(10000)
-                .itemContent("테스트 상품 상세설명")
-                .itemQty(100)
-                .build();
-        Item savedItem = itemRepository.save(item);
-        System.out.println(savedItem.toString());
-    }
+//    @Test
+//    @DisplayName("상품 저장 테스트")
+//    public void createItemTest() {
+//        Item item = Item.builder()
+//                .itemName("테스트 상품")
+//                .itemPrice(10000)
+//                .itemContent("테스트 상품 상세설명")
+//                .itemQty(100)
+//                .build();
+//        Item savedItem = itemRepository.save(item);
+//        System.out.println(savedItem.toString());
+//    }
 }

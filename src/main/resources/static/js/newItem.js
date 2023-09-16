@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // 중분류 카테고리 초기값 숨기기
-    $('.game_chk').hide(); 
+    $('.game_chk').hide();
     $('.goods_chk').hide();
 
     $("input[name='mainCate']").change(function() {
