@@ -27,20 +27,24 @@
 }
 
 .subtitle_main .content_title .order_state p {
-    width: 100px; height: 30px;
+    width: 130px; height: 30px;
     margin-top: 10px; 
     font-size: 20px;
 }
 
-.subtitle_main .content_title .order_state button {
-    width: 70px; height: 30px;
-    margin-top: 10px;
-    font-size: 12px;
-    background-color: #cf0010;
-    border: 1px solid #cf0010;
+.subtitle_main .content_title .order_state a {
+    margin-top: 13px;
+    border: 1px solid red;
+    line-height: 21px;
+    background-color: red;
     border-radius: 5px;
+    width: 50px;
+    height: 25px;
+    text-decoration-line: none;
     color: white;
     font-weight: bold;
+    font-size: 11px;
+    text-indent: 2px;
 }
 
 /* 주문 상품 이미지 및 내역 */
@@ -50,7 +54,6 @@
     width: 750px; height: 110px;
     margin: 0 auto;
     display: flex;
-    cursor: pointer;
 } 
 
 
@@ -58,6 +61,7 @@
     border: 0px solid blue;
     width: 100px; height: 120px;
     background-color: aqua;
+    cursor: pointer;
 }
 
 .subtitle_main .content_title .order_content .content_left img {

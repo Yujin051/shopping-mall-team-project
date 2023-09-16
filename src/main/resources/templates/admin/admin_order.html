@@ -25,68 +25,37 @@
                     <td>상품명</td>
                     <td>수량</td>
                     <td>가격</td>
+                    <td>처리상태 변경</td>
                     <td>처리상태</td>
                     <td>등록</td>
                 </tr>
-                <tr class = "order1">
-                    <td>1</td>
-                    <td>2013.12.31</td>
-                    <td>tlsehddms1234@naver.com</td>
-                    <td>젤다의 전설 티어스 오브 더 킹덤</td>
-                    <td>333개</td>
-                    <td>300000원</td>
+                <tr th:each="orders : ${list}" class = "order1">
+                    <td th:text="${orders.orderId}"></td>
+                    <td th:text="${orders.orderDate}"></td>
+                    <td th:text="${orders.email}"></td>
+                    <td th:text="${orders.itemName}"></td>
+                    <td th:text="${orders.orderCount}"></td>
+                    <td th:text="${orders.orderPrice}"></td>
+                    <form th:action ="@{/admin/update/{id}(id=${orders.orderId})}" method = "post" id="ac" >
                     <td>
-                        <select>
-                            <option value="1">배송준비중</option>
-                            <option value="1">배송중</option>
-                            <option value="1">배송완료</option>
+                        <select name="opt" th:name="select" required>
+                            <option value="" th:text="선택하세요"></option>
+                            <option value="배송준비중" th:text="배송준비중"></option>
+                            <option value="배송중" th:text="배송중"></option>
+                            <option value="배송완료" th:text="배송완료"></option>
                         </select>
                     </td>
+                    <td th:text="${orders.orderStatus}"></td>
                     <td>
-                        <button type = "button">등록</button>
+
+                           <input type=hidden th:value="${orders.orderId}">
+                        <button type="submit">등록</button>
+
                     </td>
-                </tr>
-                <tr class = "order1">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class = "order1">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class = "order1">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class = "order1">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    </form>
+                  </tr>
             </table>
+            
         </div>
 
         <!-- 밑에 숫자 넘어가기 -->
@@ -106,7 +75,7 @@
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav>  
     </article>
 
     
