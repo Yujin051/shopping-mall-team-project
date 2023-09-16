@@ -90,7 +90,7 @@ public class ItemService {
     // 아이템 리뷰 리스트 불러오기
     List<Review> reviewList(Long itemId){
         return reviewRepository.findAllByItemId(itemId);
-    };
+    }
 
        // 아이템 정렬 메소드. 전체 상품 정렬이라 안 씀
     public PageResponseDto<ItemDto> list(PageRequestDto pageRequestDto){
@@ -111,7 +111,7 @@ public class ItemService {
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
 
     // 아이템 메인카테고리로 찾기
     public PageResponseDto<ItemDto> mainList(PageRequestDto pageRequestDto, String keyword){
@@ -130,7 +130,7 @@ public class ItemService {
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
 
     // 아이템 서브카테고리로 찾기
     public PageResponseDto<ItemDto> subList(PageRequestDto pageRequestDto, String keyword){
@@ -149,7 +149,7 @@ public class ItemService {
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
 }
   
    
