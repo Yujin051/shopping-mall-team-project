@@ -7,6 +7,7 @@ import com.project.shop.dto.ReviewItemDto;
 import com.project.shop.entity.Item;
 import com.project.shop.entity.Member;
 import com.project.shop.entity.Review;
+import com.project.shop.exception.NotOrderedException;
 import com.project.shop.orders.Order;
 import com.project.shop.repository.ItemRepository;
 import com.project.shop.repository.MemberRepository;
@@ -50,9 +51,10 @@ public class ReviewService {
         // 정보를 반환할 Dto 선언
         ReviewItemDto reviewItemDto = new ReviewItemDto();
 
-        if(order == null) {
-            return reviewItemDto;
+        if (order == null) {
+            throw new NotOrderedException("주문 내역이 없는 상품은 후기를 등록하실 수 없습니다.");
         } else {
+            // 가져온 정보를 Dto로 전달
             reviewItemDto.setOrderDate(order.getOrderDate());
             reviewItemDto.setMemberId(member.getId());
             return reviewItemDto;
@@ -60,18 +62,18 @@ public class ReviewService {
     }
 
     public Long newReview(ReviewDto reviewDto, String email) {
-        // 주문된 상품 정보를 해당 id 값을 이용하여 검색. 없을 경우 예외 출력
+        // 리뷰 정보 상품 id를 통해서 찾기
         Item item = itemRepository.findById(reviewDto.getItemId())
                 .orElseThrow(EntityNotFoundException::new);
 
-        // 주문한 멤버 정보를 얻어오기. 어떻게?
+        // 주문한 멤버 정보를 얻어오기
         Member member = memberRepository.findByEmail(email);
 
-        // 가져온 멤버와 주문 상품 내역을 주문 내역에 추가
+        // 가져온 멤버와 상품을 기준으로 새로운 리뷰 추가
         Review review = Review.createReview(member, item, reviewDto.getContent());
         reviewRepository.save(review);
 
-        // 해당 주문의 id를 출력
+        // 해당 리뷰의 id 출력
         return review.getId();
     }
 }

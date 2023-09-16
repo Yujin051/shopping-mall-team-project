@@ -76,6 +76,9 @@
                     if (jqXHR.status == '401') {
                         alert('비회원은 구매할 수 없습니다. 로그인 페이지로 이동합니다.')
                         location.href = '/members/login'
+                    } else if (jqXHR.status == '500') {
+                        alert('비회원은 구매할 수 없습니다. 로그인 페이지로 이동합니다.')
+                        location.href = '/members/login'
                     } else {
                         alert(jqXHR.responseText)
                     }
@@ -122,8 +125,8 @@
 
         // 리뷰 버튼 누르면 리뷰 페이지로 이동
         function review() {
-            const itemId = $("#itemId").val();
-            location.href = '/review?id=' + itemId;
+            const itemId = $("#itemId").val()
+            location.href = '/review?id=' + itemId
         }
     </script>
 </th:block>

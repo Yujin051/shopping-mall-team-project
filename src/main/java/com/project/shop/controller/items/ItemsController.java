@@ -40,4 +40,37 @@ public class ItemsController {
         model.addAttribute("responseDto", responseDto);
 		return "items/search";
 	}
+
+    @GetMapping("/hardware/root")
+    public String hardwareMain(PageRequestDto pageRequestDto, Model model) {
+        String keyword = "하드웨어";
+        PageResponseDto<ItemDto> responseDto =
+                itemService.mainList(pageRequestDto, keyword);
+        model.addAttribute("cateName", keyword);
+        model.addAttribute("responseDto", responseDto);
+
+        return "/items/game/root";
+    }
+
+    @GetMapping("/goods/root")
+    public String goodsMain(PageRequestDto pageRequestDto, Model model) {
+        String keyword = "굿즈";
+        PageResponseDto<ItemDto> responseDto =
+                itemService.mainList(pageRequestDto, keyword);
+        model.addAttribute("cateName", keyword);
+        model.addAttribute("responseDto", responseDto);
+
+        return "/items/game/root";
+    }
+
+    @GetMapping("/accessory/root")
+    public String accessoryMain(PageRequestDto pageRequestDto, Model model) {
+        String keyword = "악세서리";
+        PageResponseDto<ItemDto> responseDto =
+                itemService.mainList(pageRequestDto, keyword);
+        model.addAttribute("cateName", keyword);
+        model.addAttribute("responseDto", responseDto);
+
+        return "/items/game/root";
+    }
 }

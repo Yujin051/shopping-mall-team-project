@@ -23,5 +23,5 @@ public class ReviewDto {
     private String email;
 
     // 작성 날짜
-    private LocalDateTime date;
+    private LocalDate date;
 }

@@ -2,6 +2,7 @@ package com.project.shop.controller;
 
 import com.project.shop.dto.ReviewDto;
 import com.project.shop.dto.ReviewItemDto;
+import com.project.shop.exception.NotOrderedException;
 import com.project.shop.service.ItemService;
 import com.project.shop.service.ReviewService;
 import jakarta.validation.Valid;
@@ -36,6 +37,7 @@ public class ReviewController {
         model.addAttribute("item", itemService.itemView(itemId));
         model.addAttribute("order", reviewItemDto);
         return "my/review";
+
     }
 
     // 리뷰 입력은 비동기 처리 후 리디렉션 시도해보기
