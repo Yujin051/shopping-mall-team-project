@@ -2,6 +2,7 @@ package com.project.shop.orders;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.project.shop.constant.OrderStatus;
@@ -11,6 +12,7 @@ import com.project.shop.entity.Member;
 import jakarta.persistence.*;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -43,10 +45,12 @@ public class Order {
     private int orderCount;
 
     @CreatedDate
-    private LocalDateTime orderDate;    //주문일
+    @Temporal(TemporalType.DATE)
+    private Date orderDate;    //주문일
 
-    @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;    //주문상태
+    //@Enumerated(EnumType.STRING)
+    @Column(name = "order_status")
+    private String orderStatus;    //주문상태
     
 //    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<OrderItem> orderItems = new ArrayList<>();

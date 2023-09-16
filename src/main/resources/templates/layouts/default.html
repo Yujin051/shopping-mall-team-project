@@ -61,13 +61,16 @@
                             <a class="nav-link" href="/admin/ItemList">상품수정/삭제</a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-                            <a class="nav-link" href="/admin/orders/***">주문관리</a>
+                            <a class="nav-link" href="/admin/adminOrder">주문관리</a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
                             <a class="nav-link" href="/admin/memberlist">회원관리</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAuthenticated()">
                             <a class="nav-link" href="/cart">장바구니</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('ROLE_USER')">
+                            <a class="nav-link" href="/my/orderDetail">주문내역</a>
                         </li>
                         <li class="nav-item" sec:authorize="isAnonymous()">
                             <a class="nav-link" href="/members/login">로그인</a>
