@@ -32,7 +32,7 @@ import java.util.List;
 @Setter
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Member {
+public class Member{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,16 +73,28 @@ public class Member {
 		this.role = role;
 		this.date = date;
 	}
-	
+
+	public Member update(String phonenum) {
+		this.phonenum = phonenum;
+
+		return this;
+	}
+
+	public String getRoleKey() {
+		return this.role.getKey();
+	}
+
 	public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
 		Member member = Member.builder()
 				.email(memberFormDto.getEmail())
 				.password(passwordEncoder.encode(memberFormDto.getPassword()))
 				.phonenum(memberFormDto.getPhonenum())
-				.role(RoleType.ADMIN)
+				.role(RoleType.USER)
 				.build();
 		return member;
 	}
+
+
 	
 	
 	//지금 안쓰는것들

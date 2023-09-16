@@ -27,8 +27,6 @@ public class NoticeController {
    public String noticeList(Model model, Principal principal) {
 	   System.out.println(noticeService.noticeList());
 	   model.addAttribute("list", noticeService.noticeList());
-	   String username = principal.getName();
-	   System.out.println("유저네임은" + username);
 
 	   return "notice/root";
    }
