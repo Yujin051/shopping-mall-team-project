@@ -1,8 +1,8 @@
 package com.project.shop.controller.items;
 
-import com.project.shop.dto.ItemDto;
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
+import com.project.shop.entity.Item;
 import com.project.shop.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +27,7 @@ public class ItemsController {
     @GetMapping(value = "/search")
     public String itemsSearch(PageRequestDto pageRequestDto, Model model) {
         // 검색된 엔티티 값을 응답 객체로 받아 모델에 넣어 프론트로 넘겨주는 메소드
-        PageResponseDto<ItemDto> responseDto = itemService.list(pageRequestDto);
+        PageResponseDto<Item> responseDto = itemService.list(pageRequestDto);
         model.addAttribute("responseDto", responseDto);
 		return "items/search";
 	}

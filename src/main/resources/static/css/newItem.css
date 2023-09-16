@@ -40,7 +40,7 @@
 
 /* 상세정보 텍스트 범위 */
 .item_table td .item_detail {
-    width: 700px ; height: 130px;
+    width: 700px ; height: 150px;
     resize: none;
     overflow-y: scroll;
 }
@@ -69,7 +69,6 @@
 .item_table .game_cate .goods_chk {
     position: relative;
 }
-
 
 .subtitle_main button {
     border: 0px solid black;
