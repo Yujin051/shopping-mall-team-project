@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <link rel="stylesheet" href="/css/admin_member.css"/>
+</head>>
+<div layout:fragment="content">
+
+<!-- 전체 큰 틀 -->
+<article class = "subtitle_main">
+    <!-- 회원   관리 글자 -->
+    <div class = "subtitle_title">
+        <p>회원 관리</p>
+    </div>   
+    
+    <!-- 이메일로 검색표시창 -->
+    <div class = "find">
+        <input type="text" style = "height:30px" placeholder="이메일을 입력해주세요">
+        <button>
+            검색
+        </button>
+    </div>
+
+    <!-- 상품 수정/삭제 표-->
+    <div class = "memberlist_graph">
+        <table class = "memberlist_graphtable">
+            <tr class = "memberlist_graphtable_title">
+            	<td>고유 ID</td>
+                <td>이메일</td>
+                <td>탈퇴</td>
+            </tr>
+            <tr th:each="member : ${list}" class = "memberlist1">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.email}"></td>
+                <td>
+                <a th:href="@{/admin/deletemember?(id=${member.id})}"> 멤버 삭제</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+     <!-- 밑에 숫자 넘어가기 -->
+     <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    
+</article>
+
+</div>
+
+</html>

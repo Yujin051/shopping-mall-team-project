@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+
+<th:block layout:fragment="css">
+	<link th:href="@{/css/noticeReadArticle.css}" rel="stylesheet" />
+</th:block>
+
+
+
+<div id="mainFrame" layout:fragment="content">
+	<!-- 전체 레이아웃 -->
+	<article class="mainWindow">
+		<!-- 글쓰기 레이아웃 -->
+		<div class="window">
+			<div th:text="${notice.title}" class="titleWindow">
+				제목
+			</div>
+			<div th:text="${notice.date}" class="dateWindow">
+				작성일
+			</div>
+			<hr>
+			<div th:text="${notice.content}" class="bodyWindow">
+				내용
+			</div>
+			<!-- 수정, 삭제를 위한 버튼 -->
+			<div class="modifyButton">
+				<a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/delete?(id=${notice.id})}">글 삭제</a>
+				<a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/modify/{id}(id=${notice.id})}">글 수정</a>
+			</div>
+		</div>
+	</article>
+</div>

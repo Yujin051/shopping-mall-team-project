@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+
+
+<div layout:fragment="content">
+
+	<article class = "subtitle_main">
+        <!-- 아티클 제목 -->
+        <div class = "subtitle_title">
+        	<p>오시는 길</p>
+        </div>
+	
+	
+		<div class="supportbigbox" style="width: 100%; display:flex;">
+			<div class="supportleftbox" style="width:45%; margin-right: 10%;">
+				<div class="supportleftsmallbox1" style="font-size: 1.5rem; border-bottom: 1px solid black; padding: 15px;">
+					<p>주소 : 서울특별시 마포구 신촌로 176</p>
+					<p>전화 : 010-1234-5678</p>
+					<p>팩스 : 02-1234-5678</p>
+				</div>
+				<div class="supportleftsmallbox2" style="font-size: 1.5rem; padding: 15px;">
+				<p>교통</p>
+				<p>> 지하철 2호선 이대역 6번출구 신촌 방향 10m 전방 중앙빌딩 5층</p>
+				<p>주차</p>
+				<p>> 건물 내 유료 주차장 이용 가능</p>
+				</div>
+			</div>
+			
+			<div id="map" style="width:500px;height:400px;"></div>
+		</div>
+	</article>
+	<th:block layout:fragment="script">
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ae272efdca22da9d761177606783925b"></script>
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.556415, 126.945170), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(37.556415, 126.945170); 
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+
+// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+// marker.setMap(null);    
+</script>
+</th:block>
+</div>
+
+
+</html>

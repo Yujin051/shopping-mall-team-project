@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+
+<div layout:fragment="content">
+	<article class = "subtitle_main">
+        <!-- 아티클 제목 -->
+        <div style="width: 1200px; text-align: center; margin-top: 50px; margin-bottom: 800px;">
+            <p style="font-size: 36px;">회원가입이 완료되었습니다.</p>
+        
+	        <form role="form" method="get" action="/members/gohome">
+	        	<button type="submit" class="btn btn-outline-dark">홈으로 돌아가기</button>
+	        </form>
+        </div>
+	</article>
+</div>
+</html>

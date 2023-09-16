@@ -1,0 +1,219 @@
+.section1 {
+    border: 0px solid black;
+    margin-left: 291px;
+    width: 1320px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+}
+
+.section1 .itemData {
+    border: 1px solid rgb(237,237,237);
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
+}
+
+.section1 .itemImage {
+    background-color: rgb(224,224,224);
+    border: 0px solid red;
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
+}
+
+.section1 .itemData p{
+    border: 0px solid black;
+    width: 300px;
+    height: 55px;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 50px;
+    word-wrap: break-word;
+    line-height: 25px;
+}
+
+.section1 .itemData .price {
+    border: 1px solid black;
+    width: 350px;
+    height: 50px;
+    margin-left: 25px;
+    font-size: 16px;
+    margin-top: 40px;
+    line-height: 45px;
+}
+
+.section1 .itemData .quantity {
+    border: 1px solid black;
+    width: 350px;
+    height: 50px;
+    margin-left: 25px;
+    font-size: 16px;
+    margin-top: 15px;
+    line-height: 50px;
+}
+
+.quantity > input {
+    height: 30px;
+    width: 100px;
+}
+
+
+.section1 .itemData .totalPrice {
+    border: 1px solid black;
+    width: 350px;
+    height: 50px;
+    margin-left: 25px;
+    font-size: 16px;
+    margin-top: 15px;
+    line-height: 45px;
+}
+
+.section1 .itemData .twoButton {
+    border: 0px solid red;
+    width: 350px;
+    height: 80px;
+    margin-left: 25px;
+    margin-top: 30px;
+}
+
+.section1 .itemData .twoButton .buyButton{
+    background-color: rgb(230,0,18);
+    color: white;
+    border: 0px solid red;
+    border-radius: 5px;
+    width: 120px;
+    height: 50px;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.section1 .itemData .twoButton .cartButton{
+    background-color: rgb(230,0,18);
+    color: white;
+    border: 0px solid red;
+    border-radius: 5px;
+    width: 120px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+.section2 {
+    border: 0px solid black;
+    margin-left: 291px;
+    width: 1320px;
+    height: 500px;
+}
+
+.section2 .middleTitle {
+    width: 800px;
+    height: 50px;
+    border-bottom: 1px solid rgb(200,200,200);
+    margin-top: 30px;
+    margin-left: 260px;
+    font-size: 20px;
+    font-weight: bold;
+}  
+
+.section2 .middle {
+    border: 0px solid black;
+    width: 770px;
+    height: 300px;
+    margin-left: 275px;
+    margin-top: 40px;
+    background-color: rgb(224,224,224);
+}
+
+
+
+
+
+
+.section3 {
+    border: 0px solid black;
+    margin-left: 291px;
+    width: 1320px;
+    height: 300px;
+    
+}
+
+.section3 .lastTitle {
+    width: 800px;
+    height: 50px;
+    border-bottom: 1px solid rgb(200,200,200);
+    margin-top: 30px;
+    margin-left: 260px;
+    font-size: 20px;
+    font-weight: bold;
+}  
+
+.section3 .writeButton {
+    font-size: 13px;
+    height: 27px;
+    border: 0px solid red;
+    background-color: rgb(52,152,219);
+    color: white;
+    border-radius: 5px;
+    margin-left: 680px;
+}
+
+.section3 .last1 {
+    width: 800px;
+    height: 90px;
+    border-bottom: 1px solid rgb(200,200,200);
+    margin-top: 10px;
+    margin-left: 260px;
+}
+
+.section3 .last1 .lastMiddle {
+    border: 0px solid black;
+    width: 800px;
+    height: 25px;
+    margin-top: 10px;
+    margin-left: 18px;
+    display: flex;
+    font-size: 13px;
+    
+}
+
+.section3 .last1 .lastMiddle .email {
+    margin-left: 10px;
+}
+
+.section3 .last1 .lastMiddle .date {
+    margin-left: 80px;
+}
+
+.section3 .last1 .lastMiddle .font {
+    margin-left: 520px;
+}
+
+.section3 .last1 .lastMiddle .font i {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.section3 .last1 .lastWrite {
+    border: 0px solid black;
+    width: 700px;
+    height: 40px;
+    margin-left: 17px;
+    margin-top: 10px;
+    text-indent: 5px;
+    font-size: 19px;
+    background-color: rgb(224,224,224);
+    line-height: 40px;
+}
+

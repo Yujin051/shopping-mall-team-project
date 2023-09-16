@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+
+<th:block layout:fragment="css">
+	<link th:href="@{/css/itemRoot.css}" rel="stylesheet" />
+</th:block>
+
+<!-- 메인 틀-->
+<div id="mainFrame" layout:fragment="content">
+	<!-- 상단 카테고리 영역 -->
+    <article class="cateList">
+        <div class="categoryName">
+            게임
+        </div>
+		<!-- 검색 박스 -->
+        <form action="/items/search" method="get">
+            <div class="searchBox">
+                <input type="text" name="keyword" th:value="${pageRequestDto.keyword}">
+                <button type="submit">검색</button>
+            </div>
+        </form>
+    </article>
+
+	<!-- 메인 상품 표시 구역 -->
+    <article class="mainList">
+		<ul class="mItemList">
+			<!-- 표시할 아이템 리스트. 한 줄에 4개 * 3줄 (예시) -->
+            <li class="itemBox" th:each="dto:${responseDto.dtoList}">
+                <a th:href="@{/items(id=${dto.id})}">
+                    <div class="thumbnail">
+                    </div>
+                    <div class="description">
+                        <p class="i_name">[[${dto.itemName}]]</p>
+                        <p class="i_price">[[${dto.itemPrice}]]</p>
+                    </div>
+                </a>
+            </li>
+		</ul>
+        <!-- 부트스트랩 페이지네이션
+        위아래 span 태그 들어가는 코드는 이해 잘 못 했음. 더 살펴볼 것 -->
+        <nav class="pageNav" aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <!-- 이전 데이터가 없다면 화살표 안 보이게, 있다면 보이게 -->
+                <li class="page-item" th:if="${responseDto.prev}">
+                    <a class="page-link" aria-label="Previous" th:data-num="${responseDto.sta rt -1}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <!-- 데이터의 개수에 따라 자동 페이지네이션 기능, 코드 좀 더 살펴볼 것 -->
+                <th:block th:each="i: ${#numbers.sequence(responseDto.start, responseDto.end)}">
+                    <li th:class="${responseDto.page == i}?'page-item active':'page-item'">
+                        <a class="page-link" th:data-num="${i}">[[${i}]]</a>
+                    </li>
+                </th:block>
+                <!-- 다음 데이터가 있다면 화살표 보이게, 없다면 안 보이게 -->
+                <li class="page-item" th:if="${responseDto.next}">
+                    <a class="page-link" th:data-num="${responseDto.end + 1}">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </article>
+
+    <script layout:fragment="script" th:inline="javascript">
+        // 페이지 이동을 위한 자바스크립트
+        // 아래 버튼을 누르면 해당 검색 페이지로 이동
+        document.querySelector(".pagination").addEventListener("click", function (e) {
+
+            e.preventDefault()
+            e.stopPropagation()
+
+            const target = e.target
+
+            if (target.tagName !== 'A') {
+            }
+
+            const num = target.getAttribute("data-num")
+
+            // 자바스크립트로 페이지네이션 번호 페이지로 이동
+            window.location.href = `/items/game?page=${num}`;
+
+        }, false)
+    </script>
+</div>

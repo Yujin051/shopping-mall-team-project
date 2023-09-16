@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <link rel="stylesheet" href="/css/items.css"/>
+</head>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        // 제이쿼리 활용한 상세페이지 총 금액 계산 함수
+        // 나중에 한번 더 확인할 것
+        $(document).ready(function(){
+
+            calTotalPrice();
+
+            $("#count").change( function(){
+                calTotalPrice();
+            });
+        });
+
+        function calTotalPrice(){
+            const count = $("#count").val();
+            const price = $("#price").val();
+            const totalPrice = price * count;
+            $("#totalPrice").html('총 가격 : ' + totalPrice + ' 원');
+        }
+
+        // 구매 버튼을 누르면 바로 구매 기능 작동. ajax 활용 비동기 처리
+        // const buy = document.getElementsByClassName("buyButton")
+        // buy.addEventListener("click",
+        function order() {
+            // ajax에서 시큐리티 처리를 위한 csrf 토큰 작성
+            // const token = $("meta[name='_csrf']").attr("content");
+            // const header = $("meta[name='_csrf_header']").attr("content");
+
+            // 컨트롤러에서 처리할 url 미리 const 값으로 선언
+            const url = "/order"
+            const count = $("#count").val()
+            const price = $("#price").val()
+            const total = count * price
+
+            // 키:값 -> 상품 id와 수량을 넣기
+            const paramData = {
+                itemId : $("#itemId").val(),
+                count : count,
+                price : total
+            }
+
+            //JSON 데이터 자바스크립트 객체로 변환
+            const param = JSON.stringify(paramData)
+
+            // ajax 비동기 처리
+            $.ajax({
+                url : url,
+                type : "POST",
+                contentType : "application/json",
+                data : param,
+                // 전송 전에 csrf값 설정 - 시큐리티 관련 인증 토큰 넘기는 설정같은데
+                // 시큐리티 단 더 찾아볼 것
+                // beforeSend : function(xhr) {
+                //     xhr.setRequestHeader(header, token);
+                // },
+                // 아래 비동기 설정 잘 모르겠음
+                dataType : "json",
+                cache : false,
+                success : function(result, status) {
+                    alert('구매 완료 되었습니다.')
+                    // location.href='/'
+                },
+                error : function(jqXHR, status, error) {
+                    // 로그인 인증 존재 여부?
+                    // 조건문에서 강제형변환 경고가 발생하는데 '===' 이용하여 방지하면
+                    // http status 상태를 읽지 못해 전체 에러 메세지를 리턴하는
+                    // 문제가 있음
+                    if(jqXHR.status == '401') {
+                        alert('비회원은 구매할 수 없습니다. 로그인 페이지로 이동합니다.')
+                        location.href='/members/login'
+                    } else if (jqXHR.status == '500') {
+                        alert('비회원은 구매할 수 없습니다. 로그인 페이지로 이동합니다.')
+                        location.href='/members/login'
+                    } else {
+                        alert(jqXHR.responseText)
+                    }
+                }
+            })
+        }
+    </script>
+</th:block>
+
+<div layout:fragment="content">
+    <!-- 첫번째 섹션(상품정보)-->
+    <section class="section1">
+        <article class="itemImage"></article>
+        <article class="itemData">
+            <!-- 주문 처리를 위해 itemId를 숨겨진 값으로 컨트롤러에서 받아옴 -->
+            <input type="hidden" id="itemId" th:value="${items.id}">
+            <p th:text="${items.itemName}">여기에 제목</p>
+            <input type="hidden" th:value="${items.itemPrice}" id="price" name="price">
+            <div th:text="${items.itemPrice}" class="price">여기에 가격</div>
+            <div class="quantity">
+                수량 : <input id="count" type="number" min="1" max="99" value="1">
+            </div>
+            <div class="totalPrice" id="totalPrice">
+                총가격 :
+            </div>
+            <div class="twoButton">
+                <button class="buyButton" type="button" onclick="order()">구매</button>
+                <button class="cartButton" type="button">장바구니</button>
+            </div>
+        </article>
+    </section>
+
+    <!-- 두번째 섹션(상세정보)-->
+    <section class="section2">
+        <div class="middleTitle">상세 정보</div>
+        <div th:text="${items.itemContent}" class="middle">여기에 상세 정보</div>
+    </section>
+
+    <!-- 세번째 섹션(상품후기)-->
+    <section class="section3">
+        <div class="lastTitle">
+            후기
+            <button class="writeButton" type="button" onclick="review()">후기 쓰기</button>
+        </div>
+        <div class="last1">
+            <div class="lastMiddle">
+                <p class="email">작성자 이메일</p>
+                <p class="date">작성 날짜</p>
+                <p class="font">
+                    <i class="fa-solid fa-x"></i>
+                </p>
+            </div>
+            <div class="lastWrite">글내용이 들어갑니다</div>
+        </div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/b57cfeacbe.js" crossorigin="anonymous"></script>
+</div>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <link rel="stylesheet" href="/css/notice.css"/>
+</head>
+
+<div layout:fragment="content">
+ 
+<!-- 전체 큰 틀 -->
+    <article class = "subtitle_main">
+        <!-- 공지사항 글자 -->
+        <div class = "subtitle_title">
+            <p>공지사항</p>
+        </div>
+        <a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" href="/notice/new">작성하기</a>
+
+        <!-- 공지사항 표-->
+        <div class = "notice_graph">
+            <table class = "notice_graphtable">
+            <thead>
+                <tr class = "notice_graphtable_title">
+                    <td>글번호</td>
+                    <td>제목</td>
+                    <td>작성일</td>
+                </tr>
+            </thead>
+                <tbody>
+                <tr th:each="notice : ${list}" class = "notice1">
+                    <td th:text="${notice.id}">글 번호 입력되는 창</td>
+                    <td>
+						<a th:text="${notice.title}" th:href="@{/notice/view(id=${notice.id})}">공지 제목 뜨는 창</a>
+					</td>
+                    <td th:text="${notice.date}">작성일자 입력되는 창</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 밑에 숫자 넘어가기 -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </article>
+
+</div>
+
+</html>

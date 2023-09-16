@@ -1,0 +1,17 @@
+.mainWindow {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    left: 360px;
+    width: 1200px;
+    min-height: 100px;
+    height: auto;
+    border: 1px solid black;
+}
+
+.mainTitle > p {
+    margin-top: 10px;
+    border: 1px solid black;
+    font-size: 25px;
+    font-weight: bold;
+}
