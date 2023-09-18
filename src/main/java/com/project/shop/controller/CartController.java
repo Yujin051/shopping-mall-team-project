@@ -98,4 +98,22 @@ public class CartController {
 		return new ResponseEntity<Long>(orderId, HttpStatus.OK);
 	}
 
+	// 장바구니 상품 수정 요청받는 url
+	@PatchMapping("/cart/{cartItemId}")
+	@ResponseBody
+	public ResponseEntity updateCartItem(@PathVariable("cartItemId") Long cartItemId
+			,int count, Principal principal ) {
+
+		// 장바구니 상품 개수가 0 이하로 내려간다면 오류 메세지
+		if(count <= 0) {
+			return new ResponseEntity<String>("최소 1개 이상 담아주세요.", HttpStatus.BAD_REQUEST);
+			// 현재 유저와 해당 카트의 소유자가 일치하지 않는다면 오류 메세지
+		} else if(!cartService.validateCartItem(cartItemId, principal.getName())) {
+			return new ResponseEntity<String>("잘못된 접근입니다.", HttpStatus.FORBIDDEN);
+		}
+
+		cartService.updateItemCount(cartItemId, count);
+		return new ResponseEntity<Long>(cartItemId, HttpStatus.OK);
+	}
+
 }

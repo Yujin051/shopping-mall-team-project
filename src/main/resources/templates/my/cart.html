@@ -89,6 +89,35 @@
             })
         }
 
+        // 장바구니 수량 변경 처리
+        function changeCount() {
+            const count = $("#count").val()
+            const cartItemId = $("#cartItemId").val()
+            updateCount(count, cartItemId)
+        }
+        // 직접적으로 수량 변경 요청하는 메소드
+        function updateCount(count, cartItemId) {
+            const url = "/cart/" + cartItemId + "?count=" + count
+
+            $.ajax({
+                url : url,
+                type : "PATCH",
+                dataType : "json",
+                cache : false,
+                success : function () {
+                    console.log("장바구니 수량 변경 성공")
+                },
+                error : function (jqXHR) {
+                    if(jqXHR == '401') {
+                        alert('로그인 후 이용해주세요.')
+                        location.href = '/members/login'
+                    } else {
+                        alert(jqXHR.responseJSON.message)
+                    }
+                }
+            })
+        }
+
     </script>
 </th:block>
 
@@ -111,7 +140,7 @@
                 </div>
                 <div class="mid_content">
                     <div class=info_img>
-                        <img src="/img/main_image.png" alt="이미지">
+                        <img th:src="@{/img/} + ${cartItem.imgSaved}">
                     </div>
                     <div class=info_content>
                         <!-- 주문 처리를 위해 상품 정보 CartDto에서 받아오기 -->
@@ -124,11 +153,10 @@
                     </div>
                 </div>
                 <div class="su_btn">
-                    <button type="button">+</button>
-                    <!-- 주문 처리를 위해 상품 정보 CartDto에서 받아오기 -->
-                    <input type="hidden" th:value="${cartItem.count}" id="count" name="count">
-                    <div th:text="${cartItem.count}" class="result">상품 개수 자리</div>
-                    <button type="button">-</button>
+                    <!-- 주문 처리를 위해 상품 정보 CartDto에서 받아오기
+                    장바구니 상품 개수 input으로 처리 -->
+                    <input type="number" class="result" th:value="${cartItem.count}"
+                           id="count" name="count" min="1" onchange="changeCount()">
                 </div>
             </div>
 

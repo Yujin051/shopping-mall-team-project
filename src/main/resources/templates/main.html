@@ -59,6 +59,7 @@
 			<li th:each = "items, itemsStat : ${list}" th:if="${itemsStat.index} < 9" class="itemBox">
 				<a th:href="@{/items(id=${items.id})}">
 					<div class="thumbnail">
+                        <img th:src="@{/img/} + ${items.imgSaved}">
 					<!-- 이미지 타임리프로 불러오기 -->
 					</div>
 					<div class="description">

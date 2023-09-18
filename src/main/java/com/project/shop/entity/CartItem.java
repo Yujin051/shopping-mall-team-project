@@ -38,4 +38,9 @@ public class CartItem {
     public void addCount(int count) {
         this.count += count;
     }
+
+    // 장바구니 상품 개수 업데이트 로직
+    public void updateCount(int count) {
+        this.count = count;
+    }
 }

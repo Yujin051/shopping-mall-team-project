@@ -76,7 +76,7 @@
             <!-- 주문 상품 이미지 및 내역 -->
             <div class="review_content">
                 <div class=content_left>
-                    <img th:src="@{/img/} + ${item.itemSaved}">
+                    <img th:src="@{/img/} + ${item.imgSaved}">
                 </div>
                 <div class=content_right>
                     <input type="hidden" th:value="${order.orderDate}" id="orderDate">
