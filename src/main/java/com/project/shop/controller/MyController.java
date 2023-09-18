@@ -20,6 +20,9 @@ import com.project.shop.repository.MemberRepository;
 import com.project.shop.service.MemberService;
 
 import lombok.RequiredArgsConstructor;
+
+import javax.management.loading.PrivateClassLoader;
+
 // 비밀번호 확인 관련 컨트롤러입니다.
 @RequiredArgsConstructor
 @RequestMapping("/my")
@@ -40,9 +43,8 @@ public class MyController {
     // 주문/리뷰 컨트롤러 추가
     // 추후 필요하면 분리할 것
     @GetMapping("/orderDetail")
-    public String orderDetail(Model model) {
-      System.out.println(orderDetailService.ordersList());
- 	  model.addAttribute("list", orderDetailService.ordersList());
+    public String orderDetail(Model model , Principal principal) {
+ 	  model.addAttribute("list", orderDetailService.myOrdersList(principal.getName()));
       return "my/orderDetail";
     }
 

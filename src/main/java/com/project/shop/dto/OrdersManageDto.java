@@ -1,12 +1,8 @@
 package com.project.shop.dto;
 
-import com.project.shop.constant.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-import javax.print.DocFlavor;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -32,7 +28,14 @@ public class OrdersManageDto {
         this.itemName = itemName;
         this.orderStatus = orderStatus;
         this.imgSaved = imgSaved;
+    }
 
-
+    public OrdersManageDto(Long itemId, String orderStatus, Date orderDate, String itemName, int orderPrice, String imgSaved) {
+        this.itemId = itemId;
+        this.orderStatus = orderStatus;
+        this.orderDate = orderDate;
+        this.itemName = itemName;
+        this.orderPrice = orderPrice;
+        this.imgSaved = imgSaved;
     }
 }
