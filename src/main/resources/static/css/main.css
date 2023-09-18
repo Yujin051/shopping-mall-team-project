@@ -1,4 +1,7 @@
 @charset "UTF-8";
+body {
+	overflow-x: hidden
+}
 
 #mainFrame {
 	position : relative;
@@ -50,7 +53,12 @@
 	width : 1200px;
 	min-height : 100px;
 	height : auto;
-	border : 0px solid black;
+	border-top : 1px solid lightgray;
+}
+
+.mainList > h3 {
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .mItemList {

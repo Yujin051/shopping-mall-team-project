@@ -23,6 +23,11 @@
     margin-top: 100px;
 }
 
+.section1 .itemImage > img{
+    width: 100%;
+    height: 100%;
+}
+
 .section1 .itemData p{
     border: 0px solid black;
     width: 300px;

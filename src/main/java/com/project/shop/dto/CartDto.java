@@ -16,4 +16,6 @@ public class CartDto {
     private int price;
     // 장바구니 상품 개수
     private int count;
+    // 장바구니 상품 이미지 이름
+    private String imgSaved;
 }

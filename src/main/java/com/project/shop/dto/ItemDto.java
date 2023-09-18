@@ -25,4 +25,6 @@ public class ItemDto {
     private String mainCate;  // 카테고리 대분류
 
     private String subCate;	 // 카테고리 중분류
+
+    private String imgSaved; // 서버에 저장된 이미지 파일 이름
 }

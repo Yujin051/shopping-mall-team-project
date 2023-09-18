@@ -2,20 +2,14 @@ package com.project.shop.controller.items;
 
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
-import com.project.shop.dto.ReviewDto;
 import com.project.shop.repository.ReviewRepository;
 import com.project.shop.entity.Item;
 import com.project.shop.service.ItemService;
-import com.project.shop.service.ReviewService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/items")

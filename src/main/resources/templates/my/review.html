@@ -76,7 +76,7 @@
             <!-- 주문 상품 이미지 및 내역 -->
             <div class="review_content">
                 <div class=content_left>
-                    <img src="/img/main_image.png" alt="이미지">
+                    <img th:src="@{/img/} + ${item.imgSaved}">
                 </div>
                 <div class=content_right>
                     <input type="hidden" th:value="${order.orderDate}" id="orderDate">
@@ -94,7 +94,6 @@
         </div>
         <button type="button" onclick="newReview()">등록</button>
     </article>
-
 </div>
 
 </html>
