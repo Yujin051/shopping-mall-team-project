@@ -20,7 +20,7 @@
             <!-- 배송 상태 및 버튼 -->
             <div class = "order_state">
                 <p th:text="${orders.orderStatus}">배송 상태</p>
-                <button type = "button">후기 쓰기</button>
+                <a th:href="@{/review(id=${orders.itemId})}">후기 쓰기</a>
             </div>
 
             <!-- 주문 상품 이미지 및 내역 -->
