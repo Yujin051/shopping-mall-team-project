@@ -45,6 +45,7 @@
         <nav class="pageNav" aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <!-- 이전 데이터가 없다면 화살표 안 보이게, 있다면 보이게 -->
+
                 <li class="page-item" th:if="${responseDto.prev}">
                     <a class="page-link" aria-label="Previous" th:data-num="${responseDto.start -1}">
                         <span aria-hidden="true">&laquo;</span>
