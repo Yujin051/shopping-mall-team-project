@@ -1,6 +1,5 @@
 package com.project.shop.controller.items;
 
-import com.project.shop.dto.ItemDto;
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
 import com.project.shop.entity.Item;

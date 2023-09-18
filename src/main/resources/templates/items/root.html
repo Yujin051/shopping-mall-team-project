@@ -160,7 +160,9 @@
 <div layout:fragment="content">
     <!-- 첫번째 섹션(상품정보)-->
     <section class="section1">
-        <article class="itemImage"></article>
+        <article class="itemImage">
+            <img th:src="@{/img/} + ${items.imgSaved}">
+        </article>
         <article class="itemData">
             <!-- 주문 처리를 위해 itemId를 숨겨진 값으로 컨트롤러에서 받아옴 -->
             <input type="hidden" id="itemId" th:value="${items.id}">

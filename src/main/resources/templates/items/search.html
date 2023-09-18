@@ -31,6 +31,7 @@
             <li class="itemBox" th:each="dto:${responseDto.dtoList}">
                 <a th:href="@{/items(id=${dto.id})}">
                     <div class="thumbnail">
+                        <img th:src="@{/img/} + ${dto.imgSaved}">
                     </div>
                     <div class="description">
                         <p class="i_name">[[${dto.itemName}]]</p>

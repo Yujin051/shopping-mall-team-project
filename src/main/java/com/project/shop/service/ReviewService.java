@@ -1,13 +1,10 @@
 package com.project.shop.service;
 
-import com.project.shop.dto.ItemDto;
-import com.project.shop.dto.OrderDto;
 import com.project.shop.dto.ReviewDto;
 import com.project.shop.dto.ReviewItemDto;
 import com.project.shop.entity.Item;
 import com.project.shop.entity.Member;
 import com.project.shop.entity.Review;
-import com.project.shop.exception.NotOrderedException;
 import com.project.shop.orders.Order;
 import com.project.shop.repository.ItemRepository;
 import com.project.shop.repository.MemberRepository;
@@ -16,9 +13,6 @@ import com.project.shop.repository.ReviewRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
