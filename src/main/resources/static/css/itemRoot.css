@@ -4,11 +4,11 @@
 	margin-left: 360px;
 	min-height : 100px;
 	height : auto;
-	border : 1px solid black;
+	border : 1px solid #EDEDED;
 }
 
 .cateList {
-    border : 1px solid black;
+    border : 1px solid #EDEDED;
 }
 
 /* 가로정렬 위한 태그 */
@@ -30,7 +30,7 @@
 	width : 1200px;
 	min-height : 100px;
 	height : auto;
-	border : 1px solid black;
+	border : 0px solid black;
 }
 
 .mItemList {
@@ -43,7 +43,7 @@
 	margin-bottom: 20px;
 	width: 300px;
 	height: 400px;
-	border: 1px solid black;
+	border: 0px solid #EDEDED;
 	flex-wrap: wrap;
 }
 

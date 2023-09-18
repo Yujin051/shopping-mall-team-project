@@ -166,7 +166,7 @@
             <input type="hidden" id="itemId" th:value="${items.id}">
             <p th:text="${items.itemName}">여기에 제목</p>
             <input type="hidden" th:value="${items.itemPrice}" id="price" name="price">
-            <div th:text="${items.itemPrice}" class="price">여기에 가격</div>
+            <div th:text="'가격 : ' + ${items.itemPrice}" class="price">여기에 가격</div>
             <div class="quantity">
                 수량 : <input id="count" type="number" min="1" max="99" value="1">
             </div>
