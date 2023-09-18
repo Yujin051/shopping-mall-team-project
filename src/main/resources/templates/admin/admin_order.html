@@ -25,6 +25,7 @@
                     <td>상품명</td>
                     <td>수량</td>
                     <td>가격</td>
+                    <td>처리상태 변경</td>
                     <td>처리상태</td>
                     <td>등록</td>
                 </tr>
@@ -44,6 +45,7 @@
                             <option value="배송완료" th:text="배송완료"></option>
                         </select>
                     </td>
+                    <td th:text="${orders.orderStatus}"></td>
                     <td>
 
                            <input type=hidden th:value="${orders.orderId}">

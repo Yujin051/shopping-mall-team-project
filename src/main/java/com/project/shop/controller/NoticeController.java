@@ -38,7 +38,6 @@ public class NoticeController {
 	   model.addAttribute("startPage", startPage);
 	   model.addAttribute("endPage", endPage);
 	   model.addAttribute("list", noticeListPages);
-
 	   return "notice/root";
    }
   

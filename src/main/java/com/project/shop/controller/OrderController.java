@@ -1,6 +1,7 @@
 package com.project.shop.controller;
 
 import com.project.shop.dto.OrderDto;
+import com.project.shop.repository.CartRepository;
 import com.project.shop.service.OrderService;
 import groovy.util.logging.Log4j2;
 import groovy.util.logging.Slf4j;
@@ -30,6 +31,7 @@ import jakarta.validation.Valid;
 public class OrderController {
 
     private final OrderService orderService;
+    private final CartRepository cartRepository;
 
     // 구매 버튼을 눌렀을 때 즉시 구매 처리, DB에 내용 저장하기 위한 컨트롤러.
     // 비동기 처리를 위해 REST api 사용하여 JSON으로 요청-응답

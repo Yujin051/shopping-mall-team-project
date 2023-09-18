@@ -3,37 +3,96 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/default}">
 <head>
-    <link rel="stylesheet" href="/css/review.css" />
+    <link rel="stylesheet" href="/css/review.css"/>
 </head>
+
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+        // 새로운 리뷰 작성 js 함수
+        function newReview() {
+            // Dto로 넘겨줄 값 가져오기
+            const url = "/review/write"
+            const itemId = $("#itemId").val()
+            const memberId = $("#memberId").val()
+            const content = $("#reviewContent").val()
+
+            const paramData = {
+                itemId: itemId,
+                memberId: memberId,
+                content: content
+            }
+
+            // 넘겨줄 JSON 값 자바 객체로 변환
+            const param = JSON.stringify(paramData)
+
+            // orderDate 값 가져오기
+            const orderDate = $("#orderDate").val()
+
+            // orderDate 빈 값이면 주문 내역이 없다는 뜻이므로 등록 불가능
+            // orderDate 값이 존재할 경우만 후기 등록 허용
+            if(!orderDate) {
+                alert("주문하지 않은 상품의 후기는 등록하실 수 없습니다.")
+                location.href = "/items?id=" + itemId;
+            } else {
+                // ajax 처리
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    contentType: "application/json",
+                    data: param,
+                    dataType: "json",
+                    cache: false,
+                    success: function () {
+                        alert("후기가 등록되었습니다.")
+                        location.href = '/items?id=' + itemId
+                    },
+                    error: function (jqXHR) {
+                        if (jqXHR == '401') {
+                            alert("로그인이 필요합니다.")
+                            location.href = '/members/login'
+                        } else {
+                            alert(jqXHR.responseText)
+                        }
+                    }
+                })
+            }
+        }
+
+
+    </script>
+</th:block>
 
 <div layout:fragment="content">
 
     <!-- 전체 큰 틀 -->
-    <article class = "subtitle_main">
+    <article class="subtitle_main">
         <!-- 아티클 제목 -->
-        <div class = "subtitle_title">
+        <div class="subtitle_title">
             <p>후기 쓰기</p>
         </div>
 
         <!-- 후기 본문 -->
-        <div class = "review_title">
+        <div class="review_title">
             <!-- 주문 상품 이미지 및 내역 -->
-            <div class = "review_content">
-                <div class = content_left>
+            <div class="review_content">
+                <div class=content_left>
                     <img src="/img/main_image.png" alt="이미지">
                 </div>
-                <div class = content_right>
-                    <p>주문일(2023.09.05)</p>
-                    <p>상품명(게임)</p>
-                    <p>59,000원</p>
+                <div class=content_right>
+                    <input type="hidden" th:value="${order.orderDate}" id="orderDate">
+                    <p th:text="|주문 일자 : ${order.orderDate}|">주문일</p>
+                    <p th:text="|상품 이름 : ${item.itemName}|">상품명</p>
+                    <p th:text="|가격 : ${item.itemPrice}원|">59,000원</p>
                 </div>
             </div>
             <!-- 후기 글 -->
-            <div class = "review_text">
-                <textarea name = "text" id = "review" maxlength = "1000"></textarea>
+            <div class="review_text">
+                <input type="hidden" th:value="${order.memberId}" id="memberId">
+                <input type="hidden" th:value="${item.id}" id="itemId">
+                <textarea name="text" id="reviewContent" maxlength="1000"></textarea>
             </div>
-        </div>    
-        <button type = "button">등록</button>  
+        </div>
+        <button type="button" onclick="newReview()">등록</button>
     </article>
 
 </div>

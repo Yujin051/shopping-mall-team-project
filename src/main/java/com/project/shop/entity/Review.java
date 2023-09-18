@@ -6,22 +6,22 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
 @NoArgsConstructor
 @Table(name = "review")
+@EntityListeners(AuditingEntityListener.class)
 public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "review_id")
     private Long id;
-
-    @Column(name = "review_title")
-    private String title;
 
     @Column(name = "review_content")
     private String content;
@@ -38,15 +38,14 @@ public class Review {
 
     @Column(name = "review_date")
     @CreatedDate
-    private LocalDateTime date;
+    private LocalDate date;
 
     // 리뷰 객체 생성하기
-    public static Review createReview(Member member, Item item, String title, String content) {
+    public static Review createReview(Member member, Item item, String content) {
         Review review = new Review();
 
         review.setMember(member);
         review.setItem(item);
-        review.setTitle(title);
         review.setContent(content);
 
         return review;
