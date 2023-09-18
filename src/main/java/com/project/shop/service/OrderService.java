@@ -1,12 +1,14 @@
 package com.project.shop.service;
 
+import com.project.shop.dto.CartDto;
+import com.project.shop.dto.CartItemDto;
 import com.project.shop.dto.OrderDto;
+import com.project.shop.entity.Cart;
+import com.project.shop.entity.CartItem;
 import com.project.shop.entity.Item;
 import com.project.shop.entity.Member;
 import com.project.shop.orders.Order;
-import com.project.shop.repository.ItemRepository;
-import com.project.shop.repository.MemberRepository;
-import com.project.shop.repository.OrderRepository;
+import com.project.shop.repository.*;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -37,6 +39,20 @@ public class OrderService {
         orderRepository.save(order);
 
         // 해당 주문의 id를 출력
+        return order.getId();
+    }
+
+    public Long cartOrder(OrderDto orderDto, String email) {
+        // 주문된 상품 정보를 해당 id 값을 이용하여 검색. 없을 경우 예외 출력
+        Item item = itemRepository.findById(orderDto.getItemId())
+                .orElseThrow(EntityNotFoundException::new);
+
+        // 주문한 멤버 정보를 얻어오기. 어떻게?
+        Member member = memberRepository.findByEmail(email);
+
+        Order order = Order.createOrder(member, item, orderDto.getPrice(), orderDto.getCount());
+        orderRepository.save(order);
+
         return order.getId();
     }
 

@@ -8,16 +8,13 @@ import java.util.stream.Collectors;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
 import com.project.shop.entity.Item;
-import com.project.shop.entity.Review;
 import com.project.shop.repository.ItemRepository;
 import com.project.shop.repository.ReviewRepository;
 
@@ -32,7 +29,6 @@ public class ItemService {
     private final ModelMapper modelMapper;
 
     private final ItemRepository itemRepository;
-    private final ReviewRepository reviewRepository;
 
     @Value("${spring.servlet.multipart.location}")
     String imgPath;
@@ -92,10 +88,6 @@ public class ItemService {
     // 인터페이스로 분리하여 상속받은 내용 다시 서비스로 통합(ItemServiceImpl)
     // 아이템 테이블에서 전체 데이터 불러오는 것으로 처리
 
-    // 아이템 리뷰 리스트 불러오기
-    List<Review> reviewList(Long itemId){
-        return reviewRepository.findAllByItemId(itemId);
-    };
 
        // 아이템 정렬 메소드. 전체 상품 정렬이라 안 씀
     public PageResponseDto<Item> list(PageRequestDto pageRequestDto){
@@ -116,7 +108,7 @@ public class ItemService {
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
 
     // 아이템 메인카테고리로 찾기
     public PageResponseDto<Item> mainList(PageRequestDto pageRequestDto, String keyword){
@@ -135,7 +127,7 @@ public class ItemService {
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
 
     // 아이템 서브카테고리로 찾기
     public PageResponseDto<Item> subList(PageRequestDto pageRequestDto, String keyword){
@@ -154,7 +146,8 @@ public class ItemService {
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
+
 }
   
    

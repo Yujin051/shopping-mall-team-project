@@ -57,10 +57,10 @@ public class Item {
 	@Column(name = "img_saved", nullable = true)
 	private String imgSaved; // db에 저장될 이미지 이름
   
-    // 리뷰 일대다 연관관계 매핑
-  	@OneToMany(mappedBy = "item")
-  	private List<Review> reviews;
-
+	// 리뷰 일대다 연관관계 매핑
+	@OneToMany(mappedBy = "item")
+	private List<Review> reviews;
+  
 	@Builder
 	public Item(String itemName, int itemPrice, int itemQty, String itemContent, String mainCate, String subCate, String imgOriginal, String imgSaved) {
 	    this.itemName = itemName;

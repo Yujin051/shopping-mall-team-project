@@ -48,11 +48,12 @@ public class MyController {
       return "my/orderDetail";
     }
 
-    @GetMapping("/review/")
-    public String review() {
-      return "my/review";
-    }
-    
+	// 리뷰 별도 구현을 위해 분리합니다. >> ReviewController
+//    @GetMapping("/review/")
+//    public String review() {
+//      return "my/review";
+//    }
+//
     @PreAuthorize("isAuthenticated()")
 //    @GetMapping("/mypage")
 //    public String mypage(Principal principal, Model model) {
