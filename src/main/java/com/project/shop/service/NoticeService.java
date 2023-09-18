@@ -3,6 +3,8 @@ package com.project.shop.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.project.shop.entity.Notice;
@@ -22,6 +24,9 @@ public class NoticeService {
 	// 공지 전체 리스트 보기
 	public List<Notice> noticeList() {
 		return noticeRepository.findAll();
+	}
+
+	public Page<Notice> noticeListPage(Pageable pageable) { return noticeRepository.findAll(pageable);
 	}
 	
 	// 공지 상세보기

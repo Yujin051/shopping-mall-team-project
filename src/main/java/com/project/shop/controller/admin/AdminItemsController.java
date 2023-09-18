@@ -32,7 +32,7 @@ public class AdminItemsController {
 		int startPage = Math.max(1, itemListPages.getPageable().getPageNumber() - 2);
 		int endPage = Math.min(itemListPages.getPageable().getPageNumber() + 2, itemListPages.getTotalPages());
 
-		// model.addAttribute("list", itemService.itemList());
+
 		model.addAttribute("startPage", startPage);
 		model.addAttribute("endPage", endPage);
 		model.addAttribute("list", itemListPages);

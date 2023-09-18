@@ -1,5 +1,6 @@
 .section1 {
-    border: 0px solid black;
+    border: 1px solid #EDEDED;
+    border-top: 0px;
     margin-left: 291px;
     width: 1320px;
     height: 600px;
@@ -32,14 +33,15 @@
     width: 300px;
     height: 55px;
     font-size: 20px;
-    margin-top: 10px;
-    margin-left: 50px;
+    margin-top: 10px; margin-left: 50px;
     word-wrap: break-word;
-    line-height: 25px;
+    line-height: 50px;
+    text-align: center;
+
 }
 
 .section1 .itemData .price {
-    border: 1px solid black;
+    border-bottom: 1px solid #EDEDED;
     width: 350px;
     height: 50px;
     margin-left: 25px;
@@ -49,7 +51,7 @@
 }
 
 .section1 .itemData .quantity {
-    border: 1px solid black;
+    border-bottom: 1px solid #EDEDED;
     width: 350px;
     height: 50px;
     margin-left: 25px;
@@ -65,7 +67,7 @@
 
 
 .section1 .itemData .totalPrice {
-    border: 1px solid black;
+    border-bottom: 1px solid #EDEDED;
     width: 350px;
     height: 50px;
     margin-left: 25px;
@@ -116,7 +118,7 @@
 
 
 .section2 {
-    border: 0px solid black;
+    border: 1px solid #EDEDED;
     margin-left: 291px;
     width: 1320px;
     height: 500px;
@@ -147,7 +149,7 @@
 
 
 .section3 {
-    border: 0px solid black;
+    border: 1px solid #EDEDED;
     margin-left: 291px;
     width: 1320px;
     height: 300px;

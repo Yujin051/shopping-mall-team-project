@@ -9,7 +9,7 @@ body {
 	margin-left: 360px;
 	min-height : 100px;
 	height : auto;
-	border : 0px solid black;
+	border : 1px solid #EDEDED;
 	z-index: 0;
 }
 

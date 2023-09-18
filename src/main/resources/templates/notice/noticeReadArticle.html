@@ -3,6 +3,10 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/default}">
 
+<head>
+	<script src = "/js/noticeModifyArticle.js"></script>
+</head>
+
 <th:block layout:fragment="css">
 	<link th:href="@{/css/noticeReadArticle.css}" rel="stylesheet" />
 </th:block>
@@ -17,7 +21,7 @@
 			<div th:text="${notice.title}" class="titleWindow">
 				제목
 			</div>
-			<div th:text="${notice.date}" class="dateWindow">
+			<div th:text="${notice.date}" class="dateWindow" style="margin-top: 20px;">
 				작성일
 			</div>
 			<hr>

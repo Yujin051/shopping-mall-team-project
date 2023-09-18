@@ -14,7 +14,7 @@
         <div class = "subtitle_title">
             <p>공지사항</p>
         </div>
-        <a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" href="/notice/new" style="text-decoration: none; color: black; margin-left: 900px; border-bottom: 1px solid black;">작성하기</a>
+        <a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" href="/notice/new" style="text-decoration: none; color: black; margin-left: 950px; border-bottom: 0px solid black;">작성하기</a>
 
         <!-- 공지사항 표-->
         <div class = "notice_graph">
@@ -37,26 +37,20 @@
                 </tbody>
             </table>
         </div>
-        
-        <!-- 밑에 숫자 넘어가기 -->
-        <!--
+
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
+                <li class="page-item" th:classappend="${startPage == list.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/notice/root(page=${list.pageable.pageNumber - 1})}" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item" th:classappend="${num == list.pageable.pageNumber + 1} ? 'active'" th:each="num : ${#numbers.sequence(startPage, endPage)}">
+                    <a class="page-link" th:href="@{/notice/root(page=${num-1})}" th:text="${num}">1</a></li>
+
+                <li class="page-item" th:classappend="${endPage == list.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" th:href="@{/notice/root(page=${list.pageable.pageNumber + 1})}">Next</a>
+                </li>
             </ul>
-          </nav>-->
+        </nav>
     </article>
 
 </div>

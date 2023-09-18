@@ -53,7 +53,7 @@
 	
 	<!-- 상품 목록 미리보기 -->
 	<article class="mainList">
-		<h3> 상품 목록 </h3>
+		<h4> 상품 목록 </h4>
 		<ul class="mItemList">
 			<!-- 표시할 아이템 리스트. 한 줄에 4개 * 3줄, 타임리프로 12개 불러오기 -->
 			<li th:each = "items, itemsStat : ${list}" th:if="${itemsStat.index} < 9" class="itemBox">
@@ -64,7 +64,7 @@
 					</div>
 					<div class="description">
 						<p th:text = "${items.itemName}" class="i_name"></p>
-						<p th:text = "${items.itemPrice}" class="i_price"></p>
+						<p th:text = "${items.itemPrice} + ' 원'" class="i_price"></p>
 					</div>
 				</a>
 			</li>
