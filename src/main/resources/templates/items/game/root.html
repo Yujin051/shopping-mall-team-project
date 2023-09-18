@@ -8,7 +8,7 @@
 </th:block>
 
 <!-- 메인 틀-->
-<div id="mainFrame" layout:fragment="content">
+<section id="mainFrame" layout:fragment="content">
 	<!-- 상단 카테고리 영역 -->
     <article class="cateList">
         <div th:text = "${cateName}"class="categoryName">
@@ -76,6 +76,7 @@
             const target = e.target
 
             if (target.tagName !== 'A') {
+                return
             }
 
             const num = target.getAttribute("data-num")
@@ -85,4 +86,4 @@
 
         }, false)
     </script>
-</div>
+</section>

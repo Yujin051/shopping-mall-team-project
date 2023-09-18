@@ -8,7 +8,7 @@
 </th:block>
 
 <!-- 메인 틀-->
-<div id="mainFrame" layout:fragment="content">
+<section id="mainFrame" layout:fragment="content">
     <!-- 상단 안내 영역 -->
     <article class="cateList">
         <div class="categoryName">
@@ -78,6 +78,7 @@
             const target = e.target
 
             if (target.tagName !== 'A') {
+                return
             }
 
             const num = target.getAttribute("data-num")
@@ -88,4 +89,4 @@
 
         }, false)
     </script>
-</div>
+</section>
