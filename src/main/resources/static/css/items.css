@@ -1,6 +1,7 @@
 .section1 {
     border: 1px solid #EDEDED;
     border-top: 0px;
+    border-bottom: 0px;
     margin-left: 291px;
     width: 1320px;
     height: 600px;
@@ -150,9 +151,12 @@
 
 .section3 {
     border: 1px solid #EDEDED;
+    border-bottom: 0px solid red;
     margin-left: 291px;
     width: 1320px;
-    height: 300px;
+    margin-bottom: 50px;
+    min-height: 150px;
+    height: auto;
     
 }
 
@@ -200,7 +204,7 @@
 }
 
 .section3 .last1 .lastMiddle .date {
-    margin-left: 80px;
+    margin-left: 30px;
 }
 
 .section3 .last1 .lastMiddle .font {
