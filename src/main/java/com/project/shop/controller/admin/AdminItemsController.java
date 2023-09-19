@@ -88,7 +88,7 @@ public class AdminItemsController {
 		itemUpdate.setImgSaved(item.getImgSaved());
 		itemUpdate.setMainCate(item.getMainCate());
 		itemUpdate.setSubCate(item.getSubCate());
-		model.addAttribute("message", "게시글이 수정되었습니다.");
+		model.addAttribute("message", "상품이 수정되었습니다.");
 		model.addAttribute("SearchUrl", "/admin/ItemList");
 
 		itemService.itemWrite(itemUpdate, file);
