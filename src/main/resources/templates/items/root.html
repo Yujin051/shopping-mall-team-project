@@ -157,7 +157,7 @@
     </script>
 </th:block>
 
-<div layout:fragment="content">
+<div class="itemmain" layout:fragment="content">
     <!-- 첫번째 섹션(상품정보)-->
     <section class="section1">
         <article class="itemImage">
@@ -202,12 +202,12 @@
                 <p class="font">
                     <button type="button">
                         <span aria-hidden="true" th:data-id="${review.reviewId}" onclick="deleteReview(this)">
-                            <i class="fa-solid fa-x"></i>
+                            <i style = "width: 15px; height: 15px; font-size: 15px; line-height: 15px;" class="fa-solid fa-x"></i>
                         </span>
                     </button>
                 </p>
             </div>
-            <div th:text="${review.content}" class="lastWrite">글내용이 들어갑니다</div>
+            <pre th:text="${review.content}" class="lastWrite">글내용이 들어갑니다</pre>
         </div>
     </section>
 
