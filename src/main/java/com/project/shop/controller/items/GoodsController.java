@@ -21,9 +21,13 @@ public class GoodsController {
     @GetMapping("/amibo")
     public String goodsAmibo(PageRequestDto pageRequestDto, Model model) {
         String keyword = "아미보";
+        String subCate = "amibo";
+        String mainCate = "goods";
         PageResponseDto<Item> responseDto =
                 itemService.subList(pageRequestDto, keyword);
         model.addAttribute("categoryName", keyword);
+        model.addAttribute("subCate", subCate);
+        model.addAttribute("mainCate", mainCate);
         model.addAttribute("responseDto", responseDto);
         return "/items/game/subCate";
     }
@@ -31,9 +35,13 @@ public class GoodsController {
     @GetMapping("/doll")
     public String goodsDoll(PageRequestDto pageRequestDto, Model model) {
         String keyword = "인형";
+        String subCate = "doll";
+        String mainCate = "goods";
         PageResponseDto<Item> responseDto =
                 itemService.subList(pageRequestDto, keyword);
         model.addAttribute("categoryName", keyword);
+        model.addAttribute("subCate", subCate);
+        model.addAttribute("mainCate", mainCate);
         model.addAttribute("responseDto", responseDto);
         return "/items/game/subCate";
     }
@@ -41,19 +49,27 @@ public class GoodsController {
     @GetMapping("/travel")
     public String goodsTravel(PageRequestDto pageRequestDto, Model model) {
         String keyword = "트래블굿즈";
+        String subCate = "travel";
+        String mainCate = "goods";
         PageResponseDto<Item> responseDto =
                 itemService.subList(pageRequestDto, keyword);
         model.addAttribute("categoryName", keyword);
+        model.addAttribute("subCate", subCate);
+        model.addAttribute("mainCate", mainCate);
         model.addAttribute("responseDto", responseDto);
         return "/items/game/subCate";
     }
 
-    @GetMapping("/homeparty")
+    @GetMapping("/clothes")
     public String gameAction(PageRequestDto pageRequestDto, Model model) {
-        String keyword = "홈파티굿즈";
+        String keyword = "옷";
+        String subCate = "clothes";
+        String mainCate = "goods";
         PageResponseDto<Item> responseDto =
                 itemService.subList(pageRequestDto, keyword);
         model.addAttribute("categoryName", keyword);
+        model.addAttribute("subCate", subCate);
+        model.addAttribute("mainCate", mainCate);
         model.addAttribute("responseDto", responseDto);
         return "/items/game/subCate";
     }

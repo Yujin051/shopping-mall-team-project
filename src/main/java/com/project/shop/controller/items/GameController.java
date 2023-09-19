@@ -34,18 +34,26 @@ public class GameController {
 	@GetMapping("/action")
 	public String gameAction(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "액션";
+		String subCate = "action";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
 	@GetMapping("/adventure")
 	public String gameAdventure(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "어드벤쳐";
+		String subCate = "adventure";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
@@ -53,18 +61,26 @@ public class GameController {
 	@GetMapping("/racing")
 	public String gameRacing(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "레이싱";
+		String subCate = "racing";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
 	@GetMapping("/sport")
 	public String gameSports(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "스포츠";
+		String subCate = "sport";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
@@ -73,9 +89,13 @@ public class GameController {
 	@GetMapping("/rpg")
 	public String gameRpg(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "RPG/롤플레잉";
+		String subCate = "rpg";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
@@ -83,9 +103,13 @@ public class GameController {
 	@GetMapping("/fps")
 	public String gameFPS(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "FPS/슈팅";
+		String subCate = "fps";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
@@ -93,54 +117,78 @@ public class GameController {
 	@GetMapping("/party")
 	public String gameParty(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "파티";
+		String subCate = "party";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
 	@GetMapping("/rts")
 	public String gameStrategy(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "전략";
+		String subCate = "rts";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
 	@GetMapping("/simulation")
 	public String gameSimulation(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "시뮬레이션";
+		String subCate = "simulation";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
 	@GetMapping("/arcade")
 	public String gameArcade(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "아케이드/퍼즐";
+		String subCate = "arcade";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
 	@GetMapping("/music")
 	public String gameMusic(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "음악";
+		String subCate = "music";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}
 	@GetMapping("/etc")
 	public String gameEtc(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "기타";
+		String subCate = "etc";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.subList(pageRequestDto, keyword);
 		model.addAttribute("categoryName", keyword);
+		model.addAttribute("subCate", subCate);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 		return "/items/game/subCate";
 	}

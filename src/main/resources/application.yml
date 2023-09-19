@@ -6,16 +6,12 @@ server:
 spring:
   profiles:
     include: oauth
-  h2:
-    console:
-      enabled: true  # H2 콘솔을 사용하려면 활성화
-      path: /h2-console
-      
+
   datasource:
-    url: jdbc:h2:mem:testdb  # 메모리 기반 H2 데이터베이스
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/shop_project  # 메모리 기반 H2 데이터베이스
+    username: root
+    password: mariadb
     
 # Spring JPA 설정
   jpa:
@@ -30,7 +26,7 @@ spring:
 
     # 개발 시 테이블 자동 생성 - 개발 종료 후 운영 단계에서는 create 사용하지 않을 것
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     # 마리아DB JPA Dialect 설정
     #database-platform: org.hibernate.dialect.MariaDB103Dialect
     
