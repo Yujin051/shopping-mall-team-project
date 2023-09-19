@@ -1,10 +1,17 @@
+@font-face {
+    font-family: 'MBC1961GulimM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/MBC1961GulimM.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .mainWindow {
     position: relative;
     left: 360px;
     width: 1200px;
     min-height: 100px;
     height: auto;
-    border: 1px solid black;
+    border: 0px solid black;
     margin-bottom: 50px;
 }
 
@@ -25,32 +32,43 @@
     position: relative;
     top: 50px;
     width: 700px;
-    height: 30px;
+    height: 60px;
     border-bottom: 1px solid black;
+    border-top: 2px solid black;
     margin-left: 50px;
     font-size: 20px;
+    font-family: 'MBC1961GulimM';
+    background-color: rgb(246,237,237);
+    line-height: 60px;
+    text-indent: 5px;
+
 }
 
 .dateWindow {
     position: relative;
     left: 50px;
-    top: 50px;
+    top: 35px;
     width: 200px;
+    text-indent: 5px;
+    font-size: 12px;
 }
 
 .bodyWindow {
     position: relative;
+
     left: 50px;
-    top: 5px;
+    top: 45px;
     width: 700px;
     min-height: 300px;
     height: auto;
-    border: 1px solid black;
+    border: 1px solid rgb(246,237,237);
+    white-space: pre-wrap;
     background-color: white;
 }
 
 .modifyButton {
-    margin-top: 20px;
+    margin-top: 55px;
+    display: flex;
 }
 .modifyButton > div {
     display: inline-block;
@@ -62,4 +80,27 @@
     height: 30px;
     text-align: center;
     background-color: #e0e0e0;
+}
+
+.modifyButton a{
+    border: 0px solid black;
+    display: block;
+    width: 60px;
+    height: 30px;
+    background-color: #3498db;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 30px;
+    text-indent: 15px;
+    text-decoration-line: none;
+}
+
+.modifyButton .deleteBT {
+    margin-left: 615px;
+}
+
+.modifyButton .modifyBT {
+    margin-left: 10px;
 }
