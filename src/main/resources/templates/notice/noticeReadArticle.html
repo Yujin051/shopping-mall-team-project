@@ -24,14 +24,14 @@
 			<div th:text="${notice.date}" class="dateWindow" style="margin-top: 20px;">
 				작성일
 			</div>
-			<hr>
+
 			<pre th:text="${notice.content}" class="bodyWindow">
 				내용
 			</pre>
 			<!-- 수정, 삭제를 위한 버튼 -->
 			<div class="modifyButton">
-				<a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/delete?(id=${notice.id})}">글 삭제</a>
-				<a sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/modify/{id}(id=${notice.id})}">글 수정</a>
+				<a class = "deleteBT" sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/delete?(id=${notice.id})}">삭제</a>
+				<a class = "modifyBT" sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:href="@{/notice/modify/{id}(id=${notice.id})}">수정</a>
 			</div>
 		</div>
 	</article>

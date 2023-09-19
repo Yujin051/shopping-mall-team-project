@@ -207,14 +207,16 @@
 
 .section3 .last1 .lastMiddle .email {
     margin-left: 10px;
+    width: 150px;
 }
 
 .section3 .last1 .lastMiddle .date {
-    margin-left: 15px;
+    margin-left: 20px;
+    width: 125px;
 }
 
 .section3 .last1 .lastMiddle .font {
-    margin-left: 585px;
+    margin-left: 445px;
 }
 
 .section3 .last1 .lastMiddle .button1 {
