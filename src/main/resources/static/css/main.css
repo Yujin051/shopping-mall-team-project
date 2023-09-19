@@ -80,17 +80,16 @@ body {
 
 .itemBox > a {
 	text-decoration: none;
+	color: black;
 }
 
 .description > p { 
 	margin: 0;
 	line-height: 50px;
-	color: inherit;
 }
 .i_name {
 	height: 50px;
 	border: 0px solid black;
-	color: inherit;
 }
 .i_price {
 	height: 50px;
