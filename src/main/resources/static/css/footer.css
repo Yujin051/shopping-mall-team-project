@@ -30,7 +30,7 @@
 	margin: auto;
 	padding-top: 5rem; /* 위쪽 여백을 5rem으로 설정 */
     padding-bottom: 5rem; /* 아래쪽 여백을 5rem으로 설정 */
-    background-color: #F5F5F5; /* 밝은 배경 색상을 설정 (부트스트랩의 기본 값) */
+    background-color: rgb(246, 237, 237); /* 밝은 배경 색상을 설정 (부트스트랩의 기본 값) */
 }
 
 

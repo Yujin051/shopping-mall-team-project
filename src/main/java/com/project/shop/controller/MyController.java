@@ -39,12 +39,11 @@ public class MyController {
 
     // 주문/리뷰 컨트롤러 추가
     // 추후 필요하면 분리할 것
-    @GetMapping("/orderDetail")
-    public String orderDetail(Model model) {
-      System.out.println(orderDetailService.ordersList());
- 	  model.addAttribute("list", orderDetailService.ordersList());
-      return "my/orderDetail";
-    }
+	@GetMapping("/orderDetail")
+	public String orderDetail(Model model , Principal principal) {
+		model.addAttribute("list", orderDetailService.myOrdersList(principal.getName()));
+		return "my/orderDetail";
+	}
 
 	// 리뷰 별도 구현을 위해 분리합니다. >> ReviewController
 //    @GetMapping("/review/")
