@@ -20,7 +20,7 @@
 }
 
 .section1 .itemImage {
-    background-color: rgb(224,224,224);
+    background-color: rgb(246,237,237);
     border: 0px solid red;
     width: 400px;
     height: 400px;
@@ -139,12 +139,12 @@
 }  
 
 .section2 .middle {
-    border: 0px solid black;
+    border: 1px solid #e1dfdf;
     width: 770px;
     height: 300px;
     margin-left: 275px;
     margin-top: 40px;
-    background-color: rgb(224,224,224);
+    background-color: rgb(246,237,237);
 }
 
 
@@ -220,7 +220,7 @@
 }
 
 .section3 .last1 .lastWrite {
-    border: 0px solid black;
+    border: 1px solid #e1dfdf;
     width: 700px;
     min-height: 40px;
     height: auto;
@@ -228,7 +228,7 @@
     margin-top: 10px;
     text-indent: 5px;
     font-size: 19px;
-    background-color: rgb(224,224,224);
+    background-color: rgb(246,237,237);
     line-height: 40px;
 }
 

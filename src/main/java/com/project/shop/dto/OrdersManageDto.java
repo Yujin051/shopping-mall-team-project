@@ -35,4 +35,12 @@ public class OrdersManageDto {
 
 
     }
+    public OrdersManageDto(Long itemId, String orderStatus, Date orderDate, String itemName, int orderPrice, String imgSaved) {
+        this.itemId = itemId;
+        this.orderStatus = orderStatus;
+        this.orderDate = orderDate;
+        this.itemName = itemName;
+        this.orderPrice = orderPrice;
+        this.imgSaved = imgSaved;
+    }
 }
