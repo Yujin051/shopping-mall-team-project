@@ -35,9 +35,11 @@ public class ItemsController {
 		return "items/search";
 	}
 
-    @GetMapping("/hardware/root")
+    @GetMapping("/hardware")
     public String hardwareMain(PageRequestDto pageRequestDto, Model model) {
         String keyword = "하드웨어";
+        String mainCate = "hardware";
+        model.addAttribute("mainCate", mainCate);
         PageResponseDto<Item> responseDto =
                 itemService.mainList(pageRequestDto, keyword);
         model.addAttribute("cateName", keyword);
@@ -46,20 +48,11 @@ public class ItemsController {
         return "/items/game/root";
     }
 
-    @GetMapping("/goods/root")
-    public String goodsMain(PageRequestDto pageRequestDto, Model model) {
-        String keyword = "굿즈";
-        PageResponseDto<Item> responseDto =
-                itemService.mainList(pageRequestDto, keyword);
-        model.addAttribute("cateName", keyword);
-        model.addAttribute("responseDto", responseDto);
-
-        return "/items/game/root";
-    }
-
-    @GetMapping("/accessory/root")
+    @GetMapping("/accessory")
     public String accessoryMain(PageRequestDto pageRequestDto, Model model) {
         String keyword = "악세서리";
+        String mainCate = "accessory";
+        model.addAttribute("mainCate", mainCate);
         PageResponseDto<Item> responseDto =
                 itemService.mainList(pageRequestDto, keyword);
         model.addAttribute("cateName", keyword);
@@ -67,4 +60,5 @@ public class ItemsController {
 
         return "/items/game/root";
     }
+
 }

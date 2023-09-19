@@ -23,9 +23,11 @@ public class GameController {
 	@GetMapping("")
 	public String gameMain(PageRequestDto pageRequestDto, Model model) {
 		String keyword = "게임";
+		String mainCate = "game";
 		PageResponseDto<Item> responseDto =
 				itemService.mainList(pageRequestDto, keyword);
 		model.addAttribute("cateName", keyword);
+		model.addAttribute("mainCate", mainCate);
 		model.addAttribute("responseDto", responseDto);
 
 		return "/items/game/root";
