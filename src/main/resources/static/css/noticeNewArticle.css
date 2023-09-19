@@ -40,12 +40,16 @@
 }
 
 .posting {
-    width: 120px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
     position: relative;
-    top: 20px;
-    left: 880px;
+    top: 15px;
+    left: 920px;
 
-    background-color: white;
+    border: 0px solid red;
+    background-color: #3498db;
     border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
 }
