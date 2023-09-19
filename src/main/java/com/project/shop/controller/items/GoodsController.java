@@ -16,6 +16,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GoodsController {
     // 검색/페이징을 위한 서비스 호출
     private final ItemService itemService;
+    @GetMapping("")
+    public String goodsMain(PageRequestDto pageRequestDto, Model model) {
+        String keyword = "굿즈";
+        String mainCate = "goods";
+        model.addAttribute("mainCate", mainCate);
+        PageResponseDto<Item> responseDto =
+                itemService.mainList(pageRequestDto, keyword);
+        model.addAttribute("cateName", keyword);
+        model.addAttribute("responseDto", responseDto);
+
+        return "/items/game/root";
+    }
+
 
     // 각 하위 카테고리별 페이지 컨트롤러
     @GetMapping("/amibo")

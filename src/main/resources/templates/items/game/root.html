@@ -11,6 +11,7 @@
 <section id="mainFrame" layout:fragment="content">
 	<!-- 상단 카테고리 영역 -->
     <article class="cateList">
+        <input type="hidden" th:value="${mainCate}" id="mainCateName">
         <div th:text = "${cateName}" class="categoryName">
             게임
         </div>
@@ -80,9 +81,10 @@
             }
 
             const num = target.getAttribute("data-num")
+            const mainCate = $("#mainCateName").val()
 
             // 자바스크립트로 페이지네이션 번호 페이지로 이동
-            window.location.href = `/items/game?page=${num}`;
+            window.location.href = `/items/${mainCate}?page=${num}`;
 
         }, false)
     </script>

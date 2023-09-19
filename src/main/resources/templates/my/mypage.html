@@ -37,7 +37,7 @@
     
     <!-- 회원정보 수정 -->
 		<form action="/my/modify" method="post" id="actionForm" th:object="${member}">
-			<input type="hidden" id="id" th:text="${member.id}">
+			<input type="hidden" id="id" th:value="${member.id}">
 			<div class="form-group py-2" style="width: 380px; margin:auto;">
 	            <label>아이디</label>
 	            <input type="text"  class="textinput" th:value="${member.email}" placeholder="아이디" style="margin-left:10px;" readonly="readonly">

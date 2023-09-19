@@ -65,7 +65,7 @@ public class MyController {
 //
 //    }
     // 회원정보 수정 view 이동
-    @GetMapping("/mypage1")
+    @GetMapping("/mypage")
     public String mypage2(Model model, Authentication auth) {
     	UserDetails userDetails = (UserDetails) auth.getPrincipal();
     	Member member = memberRepository.findByEmail(userDetails.getUsername());
