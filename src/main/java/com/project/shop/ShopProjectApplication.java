@@ -41,7 +41,7 @@ public class ShopProjectApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) {
 		// ADMIN 계정 1개 INSERT
-		// memberRepository.save(new Member("Admin@admin.com",passwordEncoder.encode("123123"),"01012345678","",RoleType.ADMIN, LocalDate.now()));
+		// 	memberRepository.save(new Member("Admin@admin.com",passwordEncoder.encode("123123"),"01012345678","",RoleType.ADMIN, LocalDate.now()));
 
 
 	}

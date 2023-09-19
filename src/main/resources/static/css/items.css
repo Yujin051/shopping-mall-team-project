@@ -214,21 +214,27 @@
 }
 
 .section3 .last1 .lastMiddle .font {
-    margin-left: 520px;
+    margin-left: 585px;
+}
+
+.section3 .last1 .lastMiddle .button1 {
+    border: 0px solid red;
+    background-color: white;
+
 }
 
 .section3 .last1 .lastMiddle .font i {
-    font-size: 13px;
+    font-size: 9px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
 .section3 .last1 .lastWrite {
     border: 1px solid #e1dfdf;
-    width: 700px;
+    width: 750px;
     min-height: 40px;
     height: auto;
     margin-left: 17px;
-    margin-top: 10px;
     text-indent: 5px;
     font-size: 19px;
     background-color: rgb(246,237,237);
