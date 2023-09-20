@@ -59,10 +59,12 @@ public class Order {
     // 주문 객체를 생성(멤버와 주문 아이템 테이블을 이용하여 생성)
     public static Order createOrder(Member member, Item item, int orderPrice, int orderCount) {
         Order order = new Order();
+        String orderStatus = "판매자 확인중";
         order.setItem(item);
         order.setMember(member);
         order.setOrderPrice(orderPrice);
         order.setOrderCount(orderCount);
+        order.setOrderStatus(orderStatus);
 
         // 주문 객체 생성 시 주문한 수 만큼 상품 재고 감소 메소드
         item.removeQty(orderCount);

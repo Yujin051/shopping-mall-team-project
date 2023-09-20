@@ -124,14 +124,14 @@
 <div layout:fragment="content">
 
     <!-- 전체 큰 틀 -->
-    <article class="subtitle_main">
+    <article class="subtitle_main" style="margin-bottom: 200px;">
         <!-- 서브 제목 -->
         <div class="subtitle_title">
             <p>장바구니</p>
         </div>
 
         <!-- 장바구니 -->
-        <div th:each="cartItem : ${cartItems}" class="cart_title">
+        <div th:each="cartItem : ${cartItems}" class="cart_title" style="margin-bottom: 25px">
             <!-- 주문 상품 이미지 및 내역 -->
             <div class="cart_content">
                 <div class="delete_button">
