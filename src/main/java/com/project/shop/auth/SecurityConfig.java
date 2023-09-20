@@ -34,7 +34,7 @@ public class SecurityConfig{
                                 "/h2-console/**"    // H2 콘솔 허용
                         ).permitAll()
                         .requestMatchers("/notice/new/**","notice/modify/**", "notice/update/**", "notice/delete/**", "/admin/**").hasRole(RoleType.ADMIN.toString())
-                        .requestMatchers("/my/**").hasAnyRole(RoleType.ADMIN.toString(), RoleType.USER.toString())
+                        .requestMatchers("/my/**","/review**", "/review/**").hasAnyRole(RoleType.ADMIN.toString(), RoleType.USER.toString())
                 		)
                 .headers().addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
 
