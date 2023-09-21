@@ -8,10 +8,12 @@
 </th:block>
 
 <!-- 메인 틀-->
-<div id="mainFrame" layout:fragment="content">
+<section id="mainFrame" layout:fragment="content">
     <!-- 상단 카테고리 영역 -->
     <article class="cateList">
-        <div class="categoryName">
+        <input type="hidden" th:value="${subCate}" id="subCateName">
+        <input type="hidden" th:value="${mainCate}" id="mainCateName">
+        <div th:text="${categoryName}" class="categoryName">
             RPG
         </div>
         <!-- 검색 박스 -->
@@ -30,6 +32,7 @@
             <li class="itemBox" th:each="dto:${responseDto.dtoList}">
                 <a th:href="@{/items(id=${dto.id})}">
                     <div class="thumbnail">
+                        <img th:src="@{/img/} + ${dto.imgSaved}">
                     </div>
                     <div class="description">
                         <p class="i_name">[[${dto.itemName}]]</p>
@@ -75,13 +78,15 @@
             const target = e.target
 
             if (target.tagName !== 'A') {
+                return
             }
 
             const num = target.getAttribute("data-num")
+            const subCateName = $("#subCateName").val()
+            const mainCateName = $("#mainCateName").val()
 
-
-            window.location.href = `/items/game/rpg?page=${num}`
+            window.location.href = `/items/${mainCateName}/${subCateName}?page=${num}`
 
         }, false)
     </script>
-</div>
+</section>

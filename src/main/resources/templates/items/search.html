@@ -8,7 +8,7 @@
 </th:block>
 
 <!-- 메인 틀-->
-<div id="mainFrame" layout:fragment="content">
+<section id="mainFrame" layout:fragment="content">
     <!-- 상단 안내 영역 -->
     <article class="cateList">
         <div class="categoryName">
@@ -31,6 +31,7 @@
             <li class="itemBox" th:each="dto:${responseDto.dtoList}">
                 <a th:href="@{/items(id=${dto.id})}">
                     <div class="thumbnail">
+                        <img th:src="@{/img/} + ${dto.imgSaved}">
                     </div>
                     <div class="description">
                         <p class="i_name">[[${dto.itemName}]]</p>
@@ -45,6 +46,7 @@
         <nav class="pageNav" aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <!-- 이전 데이터가 없다면 화살표 안 보이게, 있다면 보이게 -->
+
                 <li class="page-item" th:if="${responseDto.prev}">
                     <a class="page-link" aria-label="Previous" th:data-num="${responseDto.start -1}">
                         <span aria-hidden="true">&laquo;</span>
@@ -77,6 +79,7 @@
             const target = e.target
 
             if (target.tagName !== 'A') {
+                return
             }
 
             const num = target.getAttribute("data-num")
@@ -87,4 +90,4 @@
 
         }, false)
     </script>
-</div>
+</section>

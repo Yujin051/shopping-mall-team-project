@@ -2,7 +2,9 @@ package com.project.shop.entity;
 
 import java.time.LocalDate;
 
+import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
@@ -29,13 +31,16 @@ public class Notice {
 	private Long id;
 	
 	@Column(name = "notice_title")
+	@NotBlank
 	private String title;
 	
 	@Column(name = "notice_cotent")
+	@NotBlank
 	private String content;
 	
 	@Column(name = "notice_date")
 	@CreatedDate
+	@LastModifiedDate
 	private LocalDate date;
 	
 	@Builder

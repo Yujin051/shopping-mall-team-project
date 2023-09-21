@@ -12,11 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.project.shop.dto.ItemDto;
 import com.project.shop.dto.PageRequestDto;
 import com.project.shop.dto.PageResponseDto;
 import com.project.shop.entity.Item;
-import com.project.shop.entity.Review;
 import com.project.shop.repository.ItemRepository;
 import com.project.shop.repository.ReviewRepository;
 
@@ -31,7 +29,6 @@ public class ItemService {
     private final ModelMapper modelMapper;
 
     private final ItemRepository itemRepository;
-    private final ReviewRepository reviewRepository;
 
     @Value("${spring.servlet.multipart.location}")
     String imgPath;
@@ -74,6 +71,11 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
+    public Page<Item> itemListPaging(Pageable pageable) {
+
+        return itemRepository.findAll(pageable);
+    }
+
     public Item itemView(Long id) {
         return itemRepository.findById(id).get();
     }
@@ -86,13 +88,9 @@ public class ItemService {
     // 인터페이스로 분리하여 상속받은 내용 다시 서비스로 통합(ItemServiceImpl)
     // 아이템 테이블에서 전체 데이터 불러오는 것으로 처리
 
-    // 아이템 리뷰 리스트 불러오기
-    List<Review> reviewList(Long itemId){
-        return reviewRepository.findAllByItemId(itemId);
-    };
 
        // 아이템 정렬 메소드. 전체 상품 정렬이라 안 씀
-    public PageResponseDto<ItemDto> list(PageRequestDto pageRequestDto){
+    public PageResponseDto<Item> list(PageRequestDto pageRequestDto){
 
         String keyword = pageRequestDto.getKeyword(); // 검색할 단어 얻어오기
         Pageable pageable = pageRequestDto.getPageable("id"); // 페이징
@@ -100,55 +98,56 @@ public class ItemService {
         Page<Item> result = itemRepository.searchAll(keyword, pageable);
 
         // 찾아온 페이지를 item의 DTO로 변환
-        List<ItemDto> dtoList = result.getContent().stream()
-                .map(item -> modelMapper.map(item, ItemDto.class))
+        List<Item> dtoList = result.getContent().stream()
+                .map(item -> modelMapper.map(item, Item.class))
                 .collect(Collectors.toList());
 
         // 응답 객체에 요청한 정보 DTO로 변환하여 전달
-        return PageResponseDto.<ItemDto>withAll()
+        return PageResponseDto.<Item>withAll()
                 .pageRequestDto(pageRequestDto)
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
 
     // 아이템 메인카테고리로 찾기
-    public PageResponseDto<ItemDto> mainList(PageRequestDto pageRequestDto, String keyword){
+    public PageResponseDto<Item> mainList(PageRequestDto pageRequestDto, String keyword){
         Pageable pageable = pageRequestDto.getPageable("id"); // 페이징
 
         Page<Item> result = itemRepository.searchByMainCate(keyword, pageable);
 
         // 찾아온 페이지를 item의 DTO로 변환
-        List<ItemDto> dtoList = result.getContent().stream()
-                .map(item -> modelMapper.map(item, ItemDto.class))
+        List<Item> dtoList = result.getContent().stream()
+                .map(item -> modelMapper.map(item, Item.class))
                 .collect(Collectors.toList());
 
         // 응답 객체에 요청한 정보 DTO로 변환하여 전달
-        return PageResponseDto.<ItemDto>withAll()
+        return PageResponseDto.<Item>withAll()
                 .pageRequestDto(pageRequestDto)
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
 
     // 아이템 서브카테고리로 찾기
-    public PageResponseDto<ItemDto> subList(PageRequestDto pageRequestDto, String keyword){
+    public PageResponseDto<Item> subList(PageRequestDto pageRequestDto, String keyword){
         Pageable pageable = pageRequestDto.getPageable("id"); // 페이징
 
         Page<Item> result = itemRepository.searchBySubCate(keyword, pageable);
 
         // 찾아온 페이지를 item의 DTO로 변환
-        List<ItemDto> dtoList = result.getContent().stream()
-                .map(item -> modelMapper.map(item, ItemDto.class))
+        List<Item> dtoList = result.getContent().stream()
+                .map(item -> modelMapper.map(item, Item.class))
                 .collect(Collectors.toList());
 
         // 응답 객체에 요청한 정보 DTO로 변환하여 전달
-        return PageResponseDto.<ItemDto>withAll()
+        return PageResponseDto.<Item>withAll()
                 .pageRequestDto(pageRequestDto)
                 .dtoList(dtoList)
                 .total((int)result.getTotalElements())
                 .build();
-    };
+    }
+
 }
   
    

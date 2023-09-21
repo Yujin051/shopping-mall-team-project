@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.project.shop.service.OrderDetailService;
+
 import com.project.shop.entity.Member;
 import com.project.shop.repository.MemberRepository;
 import com.project.shop.service.MemberService;
@@ -23,27 +25,32 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/my")
 @Controller
 public class MyController {
-	
+
+    private final OrderDetailService orderDetailService;
+
+
 	private final MemberRepository memberRepository;
-	
+
 	@Autowired
 	private MemberService memberService;
-	
+
 	@Autowired
 	private  PasswordEncoder passwordEncoder;
 
     // 주문/리뷰 컨트롤러 추가
     // 추후 필요하면 분리할 것
-    @GetMapping("/orderDetail")
-    public String orderDetail() {
-      return "my/orderDetail";
-    }
+	@GetMapping("/orderDetail")
+	public String orderDetail(Model model , Principal principal) {
+		model.addAttribute("list", orderDetailService.myOrdersList(principal.getName()));
+		return "my/orderDetail";
+	}
 
-    @GetMapping("/review/")
-    public String review() {
-      return "my/review";
-    }
-    
+	// 리뷰 별도 구현을 위해 분리합니다. >> ReviewController
+//    @GetMapping("/review/")
+//    public String review() {
+//      return "my/review";
+//    }
+//
     @PreAuthorize("isAuthenticated()")
 //    @GetMapping("/mypage")
 //    public String mypage(Principal principal, Model model) {
@@ -55,15 +62,15 @@ public class MyController {
     
 //    @PostMapping("/mypage")
 //    public String modify(Principal principal, Model model, Member member) {
-//    	
+//
 //    }
     // 회원정보 수정 view 이동
-    @GetMapping("/mypage1")
+    @GetMapping("/mypage")
     public String mypage2(Model model, Authentication auth) {
     	UserDetails userDetails = (UserDetails) auth.getPrincipal();
     	Member member = memberRepository.findByEmail(userDetails.getUsername());
     	model.addAttribute("member", member);
-    	
+
     	return "my/mypage";
     }
     //회원정보 수정하기

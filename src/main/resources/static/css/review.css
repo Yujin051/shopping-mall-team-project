@@ -7,9 +7,9 @@
 /* 주문 내역 내용 */
 
 .subtitle_main .review_title {
-    border: 0px solid red;
+    border: 1px solid #e1dfdf;
     width: 500px; height: 400px;
-    background-color: #EBEBEB;
+    background-color: rgb(246,237,237);
     margin: 0 auto;
     margin-bottom: 30px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -28,8 +28,8 @@
 .subtitle_main .review_title .review_content .content_left {
     border: 0px solid blue;
     width: 100px; height: 100px;
-    background-color: aqua;
-    margin-top: 10px;
+    background-color: white;
+    margin-top: 21px;
 }
 
 .subtitle_main .review_title .review_content .content_left img {
@@ -41,7 +41,7 @@
     width: 350px; height: 110px;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 21px;
 }
 
 .subtitle_main .review_title .review_content .content_right p {
@@ -56,7 +56,7 @@
 /* 후기 글 부분 */
 
 .subtitle_main .review_title .review_text {
-    border: 0px solid gray;
+    border: 0px solid black;
     width: 450px; height: 220px;
     margin: 0 auto; margin-top: 30px;
 }

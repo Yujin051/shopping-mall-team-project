@@ -1,5 +1,6 @@
 package com.project.shop.auth;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +18,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.project.shop.constant.RoleType;
 
 @Configuration
+@RequiredArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig{
+
+    private final CustomOAuth2UserService customOAuth2UserService;
 
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -30,7 +34,7 @@ public class SecurityConfig{
                                 "/h2-console/**"    // H2 콘솔 허용
                         ).permitAll()
                         .requestMatchers("/notice/new/**","notice/modify/**", "notice/update/**", "notice/delete/**", "/admin/**").hasRole(RoleType.ADMIN.toString())
-                        .requestMatchers("/my/**").hasAnyRole(RoleType.ADMIN.toString(), RoleType.USER.toString())
+                        .requestMatchers("/my/**","/review**", "/review/**").hasAnyRole(RoleType.ADMIN.toString(), RoleType.USER.toString())
                 		)
                 .headers().addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
 
@@ -44,7 +48,11 @@ public class SecurityConfig{
                 // 로그아웃
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout")) // 로그아웃 페이지
-                        .logoutSuccessUrl("/")); // 로그아웃 성공 후 이동페이지
+                        .logoutSuccessUrl("/")) // 로그아웃 성공 후 이동페이지
+                .oauth2Login()
+                .userInfoEndpoint()         //OAuth2 로그인 성공 이후 사용자 정보를 가져올 때의 설정들을 담당한다.
+                .userService(customOAuth2UserService); //소셜 로그인 성공 시 후속 조치를 진행할 UserService 인터페이스의 구현체를 등록한다.
+
     	
     	return http.build();
 

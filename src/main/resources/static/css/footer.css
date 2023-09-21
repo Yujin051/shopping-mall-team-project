@@ -30,33 +30,39 @@
 	margin: auto;
 	padding-top: 5rem; /* 위쪽 여백을 5rem으로 설정 */
     padding-bottom: 5rem; /* 아래쪽 여백을 5rem으로 설정 */
-    background-color: #F5F5F5; /* 밝은 배경 색상을 설정 (부트스트랩의 기본 값) */
+    background-color: rgb(246, 237, 237); /* 밝은 배경 색상을 설정 (부트스트랩의 기본 값) */
 }
 
 
 
 .textcontainer {
 	position: absolute;
-	margin-top: -75px;
+	margin-top: -85px;
+
 }
 
 .textcontainer div {
-	margin-left: 60%;
+	margin-left: 360px;
 	width: 500px;
 	margin-bottom: 20px;
-	color: gray;
+	color: grey;
 	font-family: 'NEXON Lv1 Gothic OTF';
 }
 
 .iconcontainer {
-	position: absolute;
-	margin-left: 60%;
-	margin-top: -70px;
-	text-align: right;
+	position: relative;
+	margin-left: 1400px;
+	width: 200px;
+	bottom: 50px;
+
+}
+
+.iconcontainer a {
+	margin-bottom: 200px;
 }
 
 i {
 	font-size: 30px;
-	color: gray;
+	color: grey;
 	margin: 13px;
 }

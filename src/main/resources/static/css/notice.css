@@ -4,12 +4,39 @@
  font-family: 'Noto Sans KR', sans-serif;
 }
 
+.subtitle_main .write {
+    border: 0px solid black;
+    display: block;
+    width: 65px;
+    height: 30px;
+    background-color: #3498db;
+    border-radius: 5px;
+    text-indent: 5px;
+    line-height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+}
 
+.subtitle_main .noticeButton {
+    background-color: rgb(52,152,219);
+    border: 0px solid red;
+    border-radius: 5px;
+    width: 60px;
+    height: 25px;
+    margin-left: 960px;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.subtitle_main .noticeButton .noticeButtonTag {
+    text-decoration: none;
+    color: white;
+}
 
 .subtitle_main .notice_graph {
     border: 0px solid black;
     height: auto; width: 70%;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 15%;
     margin-bottom: 50px;
     font-family: 'Noto Sans KR', sans-serif;

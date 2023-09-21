@@ -3,8 +3,14 @@ package com.project.shop.controller.admin;
 import com.project.shop.entity.Item;
 import com.project.shop.entity.Notice;
 import com.project.shop.service.ItemService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.internal.Errors;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +25,20 @@ public class AdminItemsController {
 
 	// 상품 등록 리스트
 	@GetMapping(value = "/ItemList")
-	public String adminItemsList(Model model) {
-		model.addAttribute("list", itemService.itemList());
+	public String adminItemsList(Model model, @PageableDefault(size = 15) Pageable pageable) {
+
+		Page<Item> itemListPages = itemService.itemListPaging(pageable);
+
+		int startPage = Math.max(1, itemListPages.getPageable().getPageNumber() - 2);
+		int endPage = Math.min(itemListPages.getPageable().getPageNumber() + 2, itemListPages.getTotalPages());
+
+
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		model.addAttribute("list", itemListPages);
 		model.addAttribute("modify", "수정");
 		model.addAttribute("delete", "삭제");
+
 
 		return "/admin/admin_ItemList";
 	}
@@ -35,7 +51,7 @@ public class AdminItemsController {
 
 	// 상품 등록 처리(db로 전송)
 	@PostMapping("/newItemReg")
-	public String newItemReg(Item item, @RequestPart MultipartFile file) throws Exception {
+	public String newItemReg(@Valid Item item, Errors error, @RequestPart MultipartFile file) throws Exception {
 		itemService.itemWrite(item, file);
 
 		return "redirect:/admin/ItemList";
@@ -72,7 +88,7 @@ public class AdminItemsController {
 		itemUpdate.setImgSaved(item.getImgSaved());
 		itemUpdate.setMainCate(item.getMainCate());
 		itemUpdate.setSubCate(item.getSubCate());
-		model.addAttribute("message", "게시글이 수정되었습니다.");
+		model.addAttribute("message", "상품이 수정되었습니다.");
 		model.addAttribute("SearchUrl", "/admin/ItemList");
 
 		itemService.itemWrite(itemUpdate, file);

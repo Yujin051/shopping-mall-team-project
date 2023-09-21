@@ -39,11 +39,22 @@
 }
 
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(3) {
-    width: 10%;    
+    width: 12%;
+
 }
 
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(4) {
-    width: 10%;
+    width: 8%;
+
+}
+
+.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(5) {
+    width: 8%;
+
+}
+
+.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td:nth-child(6) {
+    width: 8%;
 }
 
 
@@ -61,15 +72,32 @@
     text-align: center;
 }
 
-.subtitle_main .Itemlist_graph .Itemlist_graphtable tr td button,
 .subtitle_main .Itemlist_graph .Itemlist_graphtable tr td a {
-    border: 1px solid black;
-    color: black;
+    border: 0px solid black;
+    color: white;
     border-radius: 5px;
+    display:block;
     width: 50px;
     height: 30px;
+    background-color: #3498db;
+    font-size: 15px;
+    margin-left: 7px;
+    line-height: 28px;
+    text-decoration-line: none;
 }
 
 .Itemlist1 {
     font-size: 16px;
 }
+
+.item_paging ul {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.item_paging ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+

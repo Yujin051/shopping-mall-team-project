@@ -27,7 +27,7 @@
 
 <div layout:fragment="content">
 
-	    <article class = "subtitle_main">
+	    <article class = "subtitle_main" style="margin-bottom: 150px;">
         <!-- 아티클 제목 -->
         <div class = "subtitle_title">
         	<p>로그인</p>
@@ -39,12 +39,17 @@
         </div>
         <div class="form-group py-2" style="width: 380px; margin:auto;">
             <label th:for="password">비밀번호</label>
-            <input type="password" name="password" class="textinput" placeholder="비밀번호 입력" style="margin-left:44px;">
+            <input type="password" name="password" class="textinput" placeholder="비밀번호 입력" style="margin-left:46px;">
         </div>
-        <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+        <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}" style="text-align: center; margin: auto;"></p>
         <div style="text-align:center" class="py-3">
             <button type="submit" class="btn btn-outline-dark">로그인</button>
             <button type="button" class="btn btn-outline-dark" onclick="location.href='/members/new'">회원가입</button>
+            <br>
+            <br>
+            <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+            <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
+            <a href="/oauth2/authorization/kakao" class="btn btn-thirdary active" role="button">kakao login</a>
         </div>
 <!--         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"> --> 
     </form>

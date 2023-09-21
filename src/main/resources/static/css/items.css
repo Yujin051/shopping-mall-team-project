@@ -1,5 +1,11 @@
+.itemmain {
+    height: auto;
+}
+
 .section1 {
-    border: 0px solid black;
+    border: 1px solid #EDEDED;
+    border-top: 0px;
+    border-bottom: 0px;
     margin-left: 291px;
     width: 1320px;
     height: 600px;
@@ -15,11 +21,16 @@
 }
 
 .section1 .itemImage {
-    background-color: rgb(224,224,224);
+    background-color: rgb(246,237,237);
     border: 0px solid red;
     width: 400px;
     height: 400px;
     margin-top: 100px;
+}
+
+.section1 .itemImage > img{
+    width: 100%;
+    height: 100%;
 }
 
 .section1 .itemData p{
@@ -27,14 +38,15 @@
     width: 300px;
     height: 55px;
     font-size: 20px;
-    margin-top: 10px;
-    margin-left: 50px;
+    margin-top: 10px; margin-left: 50px;
     word-wrap: break-word;
-    line-height: 25px;
+    line-height: 50px;
+    text-align: center;
+
 }
 
 .section1 .itemData .price {
-    border: 1px solid black;
+    border-bottom: 1px solid #EDEDED;
     width: 350px;
     height: 50px;
     margin-left: 25px;
@@ -44,7 +56,7 @@
 }
 
 .section1 .itemData .quantity {
-    border: 1px solid black;
+    border-bottom: 1px solid #EDEDED;
     width: 350px;
     height: 50px;
     margin-left: 25px;
@@ -60,7 +72,7 @@
 
 
 .section1 .itemData .totalPrice {
-    border: 1px solid black;
+    border-bottom: 1px solid #EDEDED;
     width: 350px;
     height: 50px;
     margin-left: 25px;
@@ -111,7 +123,7 @@
 
 
 .section2 {
-    border: 0px solid black;
+    border: 1px solid #EDEDED;
     margin-left: 291px;
     width: 1320px;
     height: 500px;
@@ -128,12 +140,12 @@
 }  
 
 .section2 .middle {
-    border: 0px solid black;
+    border: 1px solid #e1dfdf;
     width: 770px;
     height: 300px;
     margin-left: 275px;
     margin-top: 40px;
-    background-color: rgb(224,224,224);
+    background-color: rgb(246,237,237);
 }
 
 
@@ -142,10 +154,13 @@
 
 
 .section3 {
-    border: 0px solid black;
+    border: 1px solid #EDEDED;
+    border-bottom: 0px solid red;
     margin-left: 291px;
     width: 1320px;
-    height: 300px;
+    margin-bottom: 50px;
+    min-height: 150px;
+    height: auto;
     
 }
 
@@ -171,7 +186,8 @@
 
 .section3 .last1 {
     width: 800px;
-    height: 90px;
+    min-height: 90px;
+    height: auto;
     border-bottom: 1px solid rgb(200,200,200);
     margin-top: 10px;
     margin-left: 260px;
@@ -180,7 +196,8 @@
 .section3 .last1 .lastMiddle {
     border: 0px solid black;
     width: 800px;
-    height: 25px;
+    min-height: 25px;
+    height: auto;
     margin-top: 10px;
     margin-left: 18px;
     display: flex;
@@ -190,30 +207,41 @@
 
 .section3 .last1 .lastMiddle .email {
     margin-left: 10px;
+    width: 150px;
 }
 
 .section3 .last1 .lastMiddle .date {
-    margin-left: 80px;
+    margin-left: 20px;
+    width: 125px;
 }
 
 .section3 .last1 .lastMiddle .font {
-    margin-left: 520px;
+    margin-left: 445px;
+}
+
+.section3 .last1 .lastMiddle .button1 {
+    border: 0px solid red;
+    background-color: white;
+
 }
 
 .section3 .last1 .lastMiddle .font i {
-    font-size: 13px;
+    font-size: 9px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
 .section3 .last1 .lastWrite {
-    border: 0px solid black;
-    width: 700px;
-    height: 40px;
+    border: 1px solid #e1dfdf;
+    width: 750px;
+    min-height: 40px;
+    height: auto;
     margin-left: 17px;
-    margin-top: 10px;
     text-indent: 5px;
     font-size: 19px;
-    background-color: rgb(224,224,224);
+    background-color: rgb(246,237,237);
     line-height: 40px;
+    margin-top: -15px;
+    margin-bottom: 20px;
 }
 

@@ -5,18 +5,18 @@
     min-height : 100px;
     height : auto;
     margin : 50px auto;
-    border : 1px solid black;
+    border : 0px solid black;
 
 }
 
-.writeBorder > div {
+.writeBorder div {
     margin-left: 200px;
 }
 
 .writeTitle {
     width: 800px;
     height: auto;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .titleContent {
@@ -28,22 +28,28 @@
     margin-top: 20px;
     width: 800px;
     height: auto;
-    border: 1px solid black;
+    border: 0px solid black;
 }
 
 .bodyContent {
     width: 100%;
     min-height: 400px;
     height: auto;
+    resize: none;
+    overflow-y: scroll;
 }
 
 .posting {
-    width: 120px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
     position: relative;
-    top: 20px;
-    left: 880px;
+    top: 15px;
+    left: 920px;
 
-    background-color: white;
+    border: 0px solid red;
+    background-color: #3498db;
     border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
 }

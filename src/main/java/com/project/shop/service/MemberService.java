@@ -3,6 +3,8 @@ package com.project.shop.service;
 import java.security.Principal;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -36,7 +38,13 @@ public class MemberService implements UserDetailsService{
 			throw new IllegalStateException("이미 가입된 회원.");
 		}
 	}
-	
+
+	public Page<Member> getMemberList(Pageable pageable) {
+
+		return memberRepository.findAll(pageable);
+	}
+
+
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Member member = memberRepository.findByEmail(email);

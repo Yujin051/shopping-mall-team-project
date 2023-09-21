@@ -7,9 +7,9 @@
 /* 장바구니 내역 틀 */
 
 .subtitle_main .cart_title {
-    border: 0px solid red;
+    border: 1px solid #eae4e4;
     width: 800px; height: 300px;
-    background-color: #EBEBEB;
+    background-color: #f6eded;
     margin: 0 auto;
     font-family: 'Noto Sans KR', sans-serif;
 }
@@ -35,7 +35,7 @@
 
 /* 중간 사진 및 내용 */
 .subtitle_main .cart_title .cart_content .mid_content {
-    border: 0px solid blue;
+    border: 0px solid #af6363;
     width: 100%; height: 100px;
     display: flex;
 }
@@ -43,7 +43,7 @@
 .subtitle_main .cart_title .cart_content .mid_content .info_img {
     border: 0px solid black;
     width: 100px; height: 100%;
-    background-color: aqua;
+    background-color: white;
 }
 
 .subtitle_main .cart_title .cart_content .mid_content .info_img img {
@@ -94,8 +94,8 @@
 }
 
 .subtitle_main .cart_title .cart_content .su_btn .result {
-    border: 0px solid red;
-    width: 30px; height: 30px;
+    border: 1px solid #eae4e4;
+    width: 80px; height: 30px;
     text-align: center;
     font-size: 15px;
     line-height: 25px;
